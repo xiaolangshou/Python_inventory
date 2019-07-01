@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="jquery.min.js"></script>
+
+
+<script>
+    function get_values(){
+        $.ajax(
+            {url:"http://172.16.70.233:8901/index/",
+                async:false,
+                type: "GET",
+                success: function (msg){
+                   document.getElementById("p1").innerText = msg;
+                   console.log(msg);
+                }
+            });
+    }
+
+
+    //BOM
+
+    // window.setInterval(get_values, 1000)
+
+
+
+</script>
+
+
+<button onclick="get_values()">发一个AJAX请求</button><br/>
+
+<p id="p1"></p><br/>
+
+
+<form action="/upload/" method="POST" enctype="multipart/form-data">
+    <input type="file" name="files">
+    <input type="submit">
+</form>
+
+</body>
+</html>
