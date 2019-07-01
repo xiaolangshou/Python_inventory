@@ -17,6 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 import login.urls as URLS
 
+from django.conf.urls.static import static
+from django.conf import settings
+
+static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 urlpatterns = [
     # url(r'^$', login_views.login),
     url(r'^admin/', admin.site.urls),
@@ -25,3 +30,5 @@ urlpatterns = [
     url(r'^$', URLS.login_views.AddClass.as_view()),
     # url(r'^$', URLS.login_views.login),
 ]
+
+urlpatterns += static_path
