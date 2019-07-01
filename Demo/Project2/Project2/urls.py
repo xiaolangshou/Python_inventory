@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-import login.urls as URLS
+import login.urls as theurls
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -27,8 +27,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^add/', login_views.add),
     # url(r'^add2/(\d+)/(\d+)/$', login_views.add2),
-    url(r'^$', URLS.login_views.AddClass.as_view()),
-    # url(r'^$', URLS.login_views.login),
+    url(r'^$', theurls.login_views.AddClass.as_view()),
+    # url(r'^$', theurls.login_views.login),
 ]
 
 urlpatterns += static_path
