@@ -1,4 +1,4 @@
-"""Project2 URL Configuration
+"""webadmins2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -15,20 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-import login.urls as theurls
+from login import views as login_views
 
 from django.conf.urls.static import static
 from django.conf import settings
 
-static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
 urlpatterns = [
-    # url(r'^$', login_views.login),
     url(r'^admin/', admin.site.urls),
-    # url(r'^add/', login_views.add),
-    # url(r'^add2/(\d+)/(\d+)/$', login_views.add2),
-    url(r'^$', theurls.login_views.AddClass.as_view()),
-    url(r'^$', theurls.login_views.login),
+    # url(r'^$', login_views.login),
+    url(r'^$', login_views.AddClass.as_view()),
+    url(r'^upload/', login_views.upload)
 ]
 
+static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static_path
