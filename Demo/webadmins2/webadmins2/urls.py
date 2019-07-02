@@ -24,7 +24,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$', login_views.login),
     url(r'^$', login_views.AddClass.as_view()),
-    url(r'^upload/', login_views.upload)
+    url(r'^upload/', login_views.upload),
+    url(r'^cache/', login_views.cache),
 ]
 
 static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

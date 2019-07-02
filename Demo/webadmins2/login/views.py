@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.conf import settings
 
 import os
+import time
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UPLOAD_FOLDER = os.path.join(os.path.join(BASE_DIR, 'static'), 'upload')
@@ -20,6 +21,11 @@ def upload(request):
             f.write(c)
         f.close()
         return HttpResponse("file: %s upload success!" % obj.name)
+
+
+def cache(request):
+    x = time.time()
+    return HttpResponse(x)
 
 
 class AddClass(View):
