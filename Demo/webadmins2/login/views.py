@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View
 from django.conf import settings
+from django.views.decorators.cache import cache_page
 
 import os
 import time
@@ -22,7 +23,7 @@ def upload(request):
         f.close()
         return HttpResponse("file: %s upload success!" % obj.name)
 
-
+@cache_page(2)
 def cache(request):
     x = time.time()
     return HttpResponse(x)

@@ -32,15 +32,101 @@
 </script>
 
 
-<button onclick="get_values()">发一个AJAX请求</button><br/>
+<!--<button onclick="get_values()">发一个AJAX请求</button><br/>-->
 
-<p id="p1"></p><br/>
+<!--<p id="p1"></p><br/>-->
 
 
-<form action="/upload/" method="POST" enctype="multipart/form-data">
-    <input type="file" name="files">
-    <input type="submit">
-</form>
+<!--<form action="/upload/" method="POST" enctype="multipart/form-data">-->
+    <!--<input type="file" name="files">-->
+    <!--<input type="submit">-->
+<!--</form>-->
+
+
+用户名: <input id="username" type="text" placeholder="请输入用户名.."><br/>
+密  码: <input id="password" type="password" placeholder="请输入密码"><br/>
+验证码: <input type="text" id="check_num"> <font id="p1"></font><br/>
+<button onclick="login()">提交</button>
+
+
+<script>
+
+    function ajaxGet(url){
+//不带参数的 ajaxget请求
+         var result;
+         $.ajax({
+            url: url,
+            async: false,
+            success: function (args) {
+                result=args
+            },
+
+             error: function(XMLHttpRequest, textStatus, errorThrown) {
+                var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
+                var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
+                alert(msg);
+             },
+        });
+        return result
+        }
+
+
+    function ajaxPost(url, data){
+//ajax POST请求
+        var result;
+        $.ajax({
+            data:data,
+            url:url,
+            type:"POST",
+            async:false,
+            success:function(msg){
+                result =  msg;
+            },
+
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
+                var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
+                alert(msg);
+             },
+
+        });
+        return result
+    }
+
+
+    function login(){
+        var url = 'http://172.16.70.233:8901/login/';
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var check_num = document.getElementById("check_num").value;
+        var data = {"username": username, "password": password, "check_num": check_num};
+        //post 后台
+        console.log(data);
+        var res = ajaxPost(url, data);
+        console.log(res)
+
+    }
+
+
+    $(document).ready(function(){
+        var url = 'http://172.16.70.233:8901/login';
+        var msg = ajaxGet(url);
+        console.log(msg);
+        var jsonObj = JSON.parse(msg);
+        var check_num = jsonObj.message.check_num;
+        console.log(check_num);
+        document.getElementById("p1").innerText = check_num;
+
+    });
+
+
+
+
+
+</script>
+
+
 
 </body>
 </html>

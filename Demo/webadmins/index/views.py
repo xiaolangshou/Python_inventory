@@ -27,6 +27,27 @@ def upload(request):
         return HttpResponse("file: %s upload success!"%obj.name)
 
 
+def set_cookie(request):
+    resp = HttpResponse("thsi is set cookie")
+    resp.set_cookie("foo", "bar")
+    resp.set_cookie("key", "value")
+    return resp
+
+def get_cookie(request):
+    print(request.COOKIES)
+
+def set_session(request):
+    request.session["foo"] = "bar"
+    request.session["key"] = "value"
+    return HttpResponse("session set  success")
+
+def get_session(request):
+    x = request.session.get("foo")
+    y = request.session.get('key')
+    z = request.session.get("haha", 'err')
+    print(x, y, z)
+
+
 
 
 

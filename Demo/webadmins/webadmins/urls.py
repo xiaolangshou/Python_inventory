@@ -18,11 +18,19 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from index import views as index_views
+from login import views as login_views
 
 urlpatterns = [
+
     url(r'^admin/', admin.site.urls),
     url(r'^index/', index_views.get_values),
     url(r'^upload/', index_views.upload),
+    url(r'^set_cookie/', index_views.set_cookie),
+    url(r'^get_cookie/', index_views.get_cookie),
+    url(r'^set_session/', index_views.set_session),
+    url(r'^get_session/', index_views.get_session),
+    url(r'^login/', login_views.login),
+
 ]
 
 static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
