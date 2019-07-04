@@ -26,6 +26,9 @@ urlpatterns = [
     url(r'^$', login_views.AddClass.as_view()),
     url(r'^upload/', login_views.upload),
     url(r'^cache/', login_views.cache),
+    url(r'^setCookies/', login_views.setCookies),
+    url(r'^getCookies/', login_views.getCookies),
+    url(r'^login/', login_views.login),
 ]
 
 static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

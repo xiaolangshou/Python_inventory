@@ -1,7 +1,18 @@
 from django.shortcuts import render
 import random, json
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
+
+
+def logout(request):
+    if request.method == "GET":
+        result = {}
+        username = request.session.get("username", '')
+        request.session.clear()
+        result["code"] = 200
+        result["message"] = '%s already safety logout!'%username
+        return HttpResponse(json.dumps(result))
 
 def login(request):
     if request.method == "GET":
@@ -13,6 +24,7 @@ def login(request):
         result["message"] = msg
         return HttpResponse(json.dumps(result))
     elif request.method == "POST":
+        result = {}
         username = request.POST.get("username", '')
         password = request.POST.get("password", '')
         check_num = request.POST.get("check_num", '')
@@ -27,10 +39,21 @@ def login(request):
             return HttpResponse("验证码不正确!")
         else:
             if username == "lily" and password == "abc123":
-                return HttpResponse("登录成功!")
+                request.session["username"] = username
+                result["code"] = 200
+                result["message"] = "%s登录成功!"%username
+                return HttpResponse(json.dumps(result))
             else:
                 return HttpResponse("未知!")
 
+
+def get_user(request):
+    if request.method == "GET":
+        result = {}
+        username = request.session.get("username", 'unknown')
+        result["code"] = 200
+        result["message"] = {"username": username}
+        return HttpResponse(json.dumps(result))
 
 
 

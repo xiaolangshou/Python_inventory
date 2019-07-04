@@ -23,13 +23,15 @@ from login import views as login_views
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
-    url(r'^index/', index_views.get_values),
+    url(r'^index/', index_views.index),
     url(r'^upload/', index_views.upload),
     url(r'^set_cookie/', index_views.set_cookie),
     url(r'^get_cookie/', index_views.get_cookie),
     url(r'^set_session/', index_views.set_session),
     url(r'^get_session/', index_views.get_session),
     url(r'^login/', login_views.login),
+    url(r'^logout/', login_views.logout),
+    url(r'^get_user/', login_views.get_user),
 
 ]
 

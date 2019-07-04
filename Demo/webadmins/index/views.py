@@ -14,6 +14,17 @@ def get_values(request):
 
 
 
+def index(request):
+    username = request.session.get('username', 'unknown')
+    s = """
+    welcome: %s
+    
+    
+    <a href="/home/">跳转到你自己的主目录..</a>
+    """%username
+    return HttpResponse(s)
+
+
 def upload(request):
     if request.method == "POST":
         if not os.path.exists(UPLOAD_FOLDER):
