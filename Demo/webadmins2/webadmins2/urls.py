@@ -1,4 +1,4 @@
-"""webadmins URL Configuration
+"""webadmins2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -15,24 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
-from index import views as index_views
 from login import views as login_views
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
-
     url(r'^admin/', admin.site.urls),
-    url(r'^index/', index_views.index),
-    url(r'^upload/', index_views.upload),
-    url(r'^set_cookie/', index_views.set_cookie),
-    url(r'^get_cookie/', index_views.get_cookie),
-    url(r'^set_session/', index_views.set_session),
-    url(r'^get_session/', index_views.get_session),
+    # url(r'^$', login_views.login),
+    url(r'^$', login_views.AddClass.as_view()),
+    url(r'^upload/', login_views.upload),
+    url(r'^cache/', login_views.cache),
+    url(r'^setCookies/', login_views.setCookies),
+    url(r'^getCookies/', login_views.getCookies),
     url(r'^login/', login_views.login),
-    url(r'^logout/', login_views.logout),
-    url(r'^get_user/', login_views.get_user),
-
 ]
 
 static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

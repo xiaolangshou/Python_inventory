@@ -28,7 +28,7 @@ urlpatterns = [
     # url(r'^add/', login_views.add),
     # url(r'^add2/(\d+)/(\d+)/$', login_views.add2),
     url(r'^$', theurls.login_views.AddClass.as_view()),
-    # url(r'^$', theurls.login_views.login),
+    url(r'^$', theurls.login_views.login),
 ]
 
 urlpatterns += static_path

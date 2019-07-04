@@ -14,6 +14,17 @@ def get_values(request):
 
 
 
+def index(request):
+    username = request.session.get('username', 'unknown')
+    s = """
+    welcome: %s
+    
+    
+    <a href="/home/">跳转到你自己的主目录..</a>
+    """%username
+    return HttpResponse(s)
+
+
 def upload(request):
     if request.method == "POST":
         if not os.path.exists(UPLOAD_FOLDER):
@@ -25,6 +36,27 @@ def upload(request):
             f.write(c)
         f.close()
         return HttpResponse("file: %s upload success!"%obj.name)
+
+
+def set_cookie(request):
+    resp = HttpResponse("thsi is set cookie")
+    resp.set_cookie("foo", "bar")
+    resp.set_cookie("key", "value")
+    return resp
+
+def get_cookie(request):
+    print(request.COOKIES)
+
+def set_session(request):
+    request.session["foo"] = "bar"
+    request.session["key"] = "value"
+    return HttpResponse("session set  success")
+
+def get_session(request):
+    x = request.session.get("foo")
+    y = request.session.get('key')
+    z = request.session.get("haha", 'err')
+    print(x, y, z)
 
 
 

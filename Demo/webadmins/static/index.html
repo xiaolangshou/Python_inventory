@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+this is <font id="f1"></font> index page!<br/>
+
+
+<a href="home.html">跳转到你的个人页面...</a>
+
+<script src="jquery.min.js"></script>
+
+
+
+<script>
+
+
+        function ajaxGet(url){
+//不带参数的 ajaxget请求
+         var result;
+         $.ajax({
+            url: url,
+            async: false,
+            success: function (args) {
+                result=args
+            },
+
+             error: function(XMLHttpRequest, textStatus, errorThrown) {
+                var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
+                var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
+                alert(msg);
+             },
+        });
+        return result
+        }
+
+
+    $(document).ready(function(){
+        var url = 'http://172.16.70.233:8901/get_user';
+        var msg = ajaxGet(url);
+        console.log(msg);
+        var jsonObj = JSON.parse(msg);
+        var username = jsonObj.message.username;
+        console.log(username);
+        document.getElementById("f1").innerText = username;
+
+    });
+
+
+
+
+
+</script>
+
+</body>
+
+
+
