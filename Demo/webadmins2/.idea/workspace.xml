@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c89afedf-ba0f-4584-ad28-e6d8e06016c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webadmins/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../webadmins/index/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webadmins/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../webadmins/login/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webadmins/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../webadmins/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webadmins/webadmins/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../webadmins/webadmins/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webadmins/webadmins/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../webadmins/webadmins/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webadmins3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webadmins3/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webadmins3/static/load.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webadmins3/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webadmins/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webadmins/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webadmins2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webadmins2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webadmins2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webadmins2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../第七周/Django/1.django的安装与配置文件详解.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../第七周/Django/1.django的安装与配置文件详解.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webadmins2/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1845">
-              <caret line="123" column="16" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="16" />
+            <state relative-caret-position="688">
+              <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -36,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
+            <state relative-caret-position="424">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="83" column="10" selection-start-line="83" selection-start-column="10" selection-end-line="83" selection-end-column="10" />
+            <state relative-caret-position="73">
+              <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -66,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webadmins2/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
               <folding>
                 <element signature="e#643#675#0" expanded="true" />
               </folding>
@@ -99,8 +96,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="625" />
-    <option name="y" value="-1057" />
+    <option name="x" value="241" />
+    <option name="y" value="-1008" />
     <option name="width" value="1258" />
     <option name="height" value="1007" />
   </component>
@@ -209,17 +206,19 @@
       <workItem from="1562137447374" duration="25000" />
       <workItem from="1562138132489" duration="5620000" />
       <workItem from="1562230088883" duration="15000" />
+      <workItem from="1562375076526" duration="681000" />
+      <workItem from="1562378428802" duration="3363000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17558000" />
+    <option name="totallyTimeSpent" value="21602000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="625" y="-1057" width="1258" height="1007" extended-state="0" />
+    <frame x="241" y="-1008" width="1258" height="1007" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25328946" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26151314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -304,17 +303,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webadmins2/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
-          <caret line="123" column="16" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="16" />
+        <state relative-caret-position="688">
+          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
+        <state relative-caret-position="424">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webadmins2/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+          <folding>
+            <element signature="e#643#675#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -326,20 +335,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webadmins2/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding>
-            <element signature="e#643#675#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" column="10" selection-start-line="83" selection-start-column="10" selection-end-line="83" selection-end-column="10" />
+        <state relative-caret-position="73">
+          <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
         </state>
       </provider>
     </entry>
