@@ -1,5 +1,125 @@
-<form action="/login/" method="post"  enctype="multipart/form-data">
-        USER:<input type="text" name="username"><br/>
-        PSWD: <input type="password" name="password"><br/>
-        <button type="submit">login</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="jquery.min.js"></script>
+
+
+<script>
+    function get_values() {
+        $.ajax(
+            {
+                url: "http://http://192.168.1.124:8900/index/",
+                async: false,
+                type: "GET",
+                success: function (msg) {
+                    document.getElementById("p1").innerText = msg;
+                    console.log(msg);
+                }
+            });
+    }
+    //BOM
+    // window.setInterval(get_values, 1000)
+</script>
+
+
+<!--<button onclick="get_values()">发一个AJAX请求</button><br/>-->
+
+<!--<p id="p1"></p><br/>-->
+<!--<form action="/upload/" method="POST" enctype="multipart/form-data">-->
+<!--<input type="file" name="files">-->
+<!--<input type="submit">-->
+<!--</form>-->
+
+
+用户名: <input id="username" type="text" placeholder="请输入用户名.."><br/>
+密 码: <input id="password" type="password" placeholder="请输入密码"><br/>
+验证码: <input type="text" id="check_num"> <font id="p1"></font><br/>
+<button onclick="login()">提交</button>
+
+
+<script>
+
+    function ajaxGet(url) {
+//不带参数的 ajaxget请求
+        var result;
+        $.ajax({
+            url: url,
+            async: false,
+            success: function (args) {
+                result = args
+            },
+
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
+                var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
+                alert(msg);
+            },
+        });
+        return result
+    }
+    function ajaxPost(url, data) {
+//ajax POST请求
+        var result;
+        $.ajax({
+            data: data,
+            url: url,
+            type: "POST",
+            async: false,
+            success: function (msg) {
+                result = msg;
+            },
+
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
+                var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
+                alert(msg);
+            },
+
+        });
+        return result
+    }
+
+
+    function login() {
+        var url = 'http://192.168.1.124:8900/login/';
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var check_num = document.getElementById("check_num").value;
+        var data = {"username": username, "password": password, "check_num": check_num};
+        //post 后台
+        console.log(data);
+        var res = ajaxPost(url, data);
+        var jsonObj = JSON.parse(res);
+        console.log(jsonObj);
+
+        if (jsonObj.code == 200) {
+            console.log("xyz");
+            window.open("index.html", '_self');
+            console.log(jsonObj.message)
+        } else {
+            console.log("登录失败!")
+        }
+
+    }
+
+    $(document).ready(function () {
+        var url = 'http://192.168.1.124:8900/login/';
+        var msg = ajaxGet(url);
+        console.log(msg);
+        var jsonObj = JSON.parse(msg);
+        var check_num = jsonObj.message.check_num;
+        console.log(check_num);
+        document.getElementById("p1").innerText = check_num;
+
+    });
+
+</script>
+
+</body>
+</html>

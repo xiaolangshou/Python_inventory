@@ -17,8 +17,8 @@ def index(request):
     username = request.session.get('username', 'unknown')
     s = """
     welcome: %s
-    
-    
+
+
     <a href="/home/">跳转到你自己的主目录..</a>
     """ % username
     return HttpResponse(s)
@@ -38,7 +38,7 @@ def upload(request):
 
 
 def set_cookie(request):
-    resp = HttpResponse("thsi is set cookie")
+    resp = HttpResponse("this is set cookie")
     resp.set_cookie("foo", "bar")
     resp.set_cookie("key", "value")
     return resp

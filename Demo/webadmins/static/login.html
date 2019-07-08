@@ -10,14 +10,15 @@
 
 
 <script>
-    function get_values(){
+    function get_values() {
         $.ajax(
-            {url:"http://172.16.70.233:8901/index/",
-                async:false,
+            {
+                url: "http://192.168.1.124:8900/index/",
+                async: false,
                 type: "GET",
-                success: function (msg){
-                   document.getElementById("p1").innerText = msg;
-                   console.log(msg);
+                success: function (msg) {
+                    document.getElementById("p1").innerText = msg;
+                    console.log(msg);
                 }
             });
     }
@@ -26,7 +27,6 @@
     //BOM
 
     // window.setInterval(get_values, 1000)
-
 
 
 </script>
@@ -38,64 +38,64 @@
 
 
 <!--<form action="/upload/" method="POST" enctype="multipart/form-data">-->
-    <!--<input type="file" name="files">-->
-    <!--<input type="submit">-->
+<!--<input type="file" name="files">-->
+<!--<input type="submit">-->
 <!--</form>-->
 
 
 用户名: <input id="username" type="text" placeholder="请输入用户名.."><br/>
-密  码: <input id="password" type="password" placeholder="请输入密码"><br/>
+密 码: <input id="password" type="password" placeholder="请输入密码"><br/>
 验证码: <input type="text" id="check_num"> <font id="p1"></font><br/>
 <button onclick="login()">提交</button>
 
 
 <script>
 
-    function ajaxGet(url){
+    function ajaxGet(url) {
 //不带参数的 ajaxget请求
-         var result;
-         $.ajax({
+        var result;
+        $.ajax({
             url: url,
             async: false,
             success: function (args) {
-                result=args
+                result = args
             },
 
-             error: function(XMLHttpRequest, textStatus, errorThrown) {
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
                 var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
                 var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
                 alert(msg);
-             },
+            },
         });
         return result
-        }
+    }
 
 
-    function ajaxPost(url, data){
+    function ajaxPost(url, data) {
 //ajax POST请求
         var result;
         $.ajax({
-            data:data,
-            url:url,
-            type:"POST",
-            async:false,
-            success:function(msg){
-                result =  msg;
+            data: data,
+            url: url,
+            type: "POST",
+            async: false,
+            success: function (msg) {
+                result = msg;
             },
 
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
                 var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
                 var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
                 alert(msg);
-             },
+            },
 
         });
         return result
     }
 
 
-    function login(){
-        var url = 'http://172.16.70.233:8901/login/';
+    function login() {
+        var url = 'http://192.168.1.124:8900/login/';
 
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
@@ -107,19 +107,19 @@
         var jsonObj = JSON.parse(res);
         console.log(jsonObj);
 
-        if (jsonObj.code == 200){
+        if (jsonObj.code == 200) {
             console.log("xyz");
             window.open("index.html", '_self');
             console.log(jsonObj.message)
-        }else{
+        } else {
             console.log("登录失败!")
         }
 
     }
 
 
-    $(document).ready(function(){
-        var url = 'http://172.16.70.233:8901/login';
+    $(document).ready(function () {
+        var url = 'http://192.168.1.124:8900/login';
         var msg = ajaxGet(url);
         console.log(msg);
         var jsonObj = JSON.parse(msg);
@@ -130,11 +130,7 @@
     });
 
 
-
-
-
 </script>
-
 
 
 </body>

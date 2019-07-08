@@ -1,89 +1,59 @@
 from django.shortcuts import render
+import random, json
 from django.http import HttpResponse
-from django.http import QueryDict
-from django.conf import settings
-from django.views.decorators.cache import cache_page
-from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect
-
-import time
-import os
-import json
-
-
-# Create your views here.
-
-def login(request):
-    print(request.META)
-    username = request.POST.get("username", "")
-    password = request.POST.get("password", "")
-    request.session["username"] = username
-    return HttpResponseRedirect('/index')
-
-
-def index(request):
-    print(request.META)
-    username = request.session.get("username", 'err')
-    s = ' : %s, <a href="/home"> </a>' % username
-    return HttpResponse(s)
-
-
-def home(request):
-    username = request.session.get("username", 'err')
-    s = 'this is  %s home page! <a href="/logout">安全退出</a>' % username
-    return HttpResponse(s)
 
 
 def logout(request):
-    request.session.clear()
-    s = '          !'
-    return HttpResponse(s)
+    if request.method == "GET":
+        result = {}
+        username = request.session.get("username", '')
+        request.session.clear()
+        result["code"] = 200
+        result["message"] = '%s already safety logout!' % username
+        return HttpResponse(json.dumps(result))
 
 
-def get(request):
-    return request.GET.get('a')
+def login(request):
+    if request.method == "GET":
+        result = {}
+        check_num = ''.join(
+            [str(j) for j in [random.randint(0, 9), random.randint(0, 9), random.randint(0, 9), random.randint(0, 9)]])
+        request.session["check_num"] = check_num
+        msg = {"check_num": check_num}
+        result["code"] = 200
+        result["message"] = msg
+        return HttpResponse(json.dumps(result))
+    elif request.method == "POST":
+        result = {}
+        username = request.POST.get("username", '')
+        password = request.POST.get("password", '')
+        check_num = request.POST.get("check_num", '')
+
+        session_check_num = request.session.get("check_num", '')
+        print(session_check_num, type(session_check_num))
+        print(check_num, type(check_num))
+        print(username, type(username))
+        print(password, type(password))
+
+        if check_num != session_check_num:
+            return HttpResponse("验证码不正确!")
+        else:
+            if username == "lily" and password == "abc123":
+                request.session["username"] = username
+                result["code"] = 200
+                result["message"] = "%s登录成功!" % username
+                return HttpResponse(json.dumps(result))
+            else:
+                return HttpResponse("未知!")
 
 
-def post(request):
-    return request.POST.get('a')
+def get_user(request):
+    if request.method == "GET":
+        result = {}
+        username = request.session.get("username", 'unknown')
+        result["code"] = 200
+        result["message"] = {"username": username}
+        return HttpResponse(json.dumps(result))
 
-
-def put(request):
-    httpPut = QueryDict(request.body)
-    a = httpPut.get("a")
-
-
-def delete(request):
-    httpDel = QueryDict(request.body)
-    a = httpDel.get("a")
-
-
-def file_upload(request):
-    if request.method == 'POST':
-        static_folder = os.path.join(settings.STATIC_ROOT, 'multipart')
-        if not os.path.exists(static_folder):
-            os.makedirs(static_folder)
-        obj = request.FILES.get('files')
-        f = open(os.path.join(static_folder, obj.name), 'wb')
-        for chunk in obj.chunks():
-            f.write(chunk)
-        f.close()
-        return HttpResponse('OK')
-
-
-@cache_page(5)
-def cache(request):
-    x = time.time()
-    return HttpResponse(x)
-
-
-def setCookies(request):
-    response = HttpResponse("this is setcookie page")
-    response.set_cookie("key", 'value')
-    response.set_cookie("foo", "bar")
-    return response
-
-
-def getCookies(request):
-    cookies = request.COOKIES
-    return HttpResponse(json.dumps(cookies))
+# Create your views here.

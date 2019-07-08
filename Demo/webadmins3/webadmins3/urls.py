@@ -16,23 +16,26 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from login import views as login_views
+from index import views as index_views
 
 from django.conf.urls.static import static
 from django.conf import settings
+
 
 static_path = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', login_views.login),
-    url(r'^upload/', login_views.file_upload),
-    url(r'^cache/', login_views.cache),
-    url(r'^setcookie/', login_views.setCookies),
-    url(r'^getcookie/', login_views.getCookies),
+    url(r'^set_cookie/', index_views.set_cookie),
+    url(r'^get_cookie/', index_views.get_cookie),
+    url(r'^set_session/', index_views.set_session),
+    url(r'^get_session/', index_views.get_session),
     url(r'^login/', login_views.login),
-    url(r'^index/', login_views.index),
+    url(r'^index/', index_views.index),
+
     url(r'^logout/', login_views.logout),
-    url(r'^home/', login_views.home),
+    url(r'^get_user/', login_views.get_user),
 ]
 
 urlpatterns += static_path
