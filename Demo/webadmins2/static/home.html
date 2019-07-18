@@ -18,41 +18,40 @@
 
 <script>
 
+    function logout() {
+        var url = 'http://192.168.2.130:8000/logout';
+        var res = ajaxGet(url);
+        console.log(res);
+        var jsonObj = JSON.parse(res);
+        if (jsonObj.code == 200) {
+            window.alert(jsonObj.message);
+            window.open('login.html', '_self')
+        }
+    }
 
-     function logout(){
-         var url = 'http://192.168.2.130:8900/logout';
-         var res = ajaxGet(url);
-         console.log(res);
-         var jsonObj = JSON.parse(res);
-         if (jsonObj.code == 200){
-             window.alert(jsonObj.message);
-             window.open('login.html', '_self')
-         }
-     }
 
-
-     function ajaxGet(url){
+    function ajaxGet(url) {
 //不带参数的 ajaxget请求
-         var result;
-         $.ajax({
+        var result;
+        $.ajax({
             url: url,
             async: false,
             success: function (args) {
-                result=args
+                result = args
             },
 
-             error: function(XMLHttpRequest, textStatus, errorThrown) {
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
                 var ajax_resp = JSON.parse(XMLHttpRequest.responseText);
                 var msg = "错误代码: " + ajax_resp["code"] + " \n错误信息: \n" + ajax_resp["message"];
                 alert(msg);
-             },
+            },
         });
         return result
-        }
+    }
 
 
-     $(document).ready(function(){
-        var url = 'http://192.168.2.130:8900/get_user';
+    $(document).ready(function () {
+        var url = 'http://192.168.2.130:8000/get_user';
         var msg = ajaxGet(url);
         console.log(msg);
         var jsonObj = JSON.parse(msg);

@@ -12,9 +12,14 @@
 <script>
     function get_values() {
         $.ajax(
+<<<<<<< Updated upstream
             {
                 url: "http://192.168.1.124:8900/index/",
                 async: false,
+=======
+            {url:"http://192.168.2.130:8000/index/",
+                async:false,
+>>>>>>> Stashed changes
                 type: "GET",
                 success: function (msg) {
                     document.getElementById("p1").innerText = msg;
@@ -94,8 +99,13 @@
     }
 
 
+<<<<<<< Updated upstream
     function login() {
         var url = 'http://192.168.1.124:8900/login/';
+=======
+    function login(){
+        var url = 'http://192.168.2.130:8000/login/';
+>>>>>>> Stashed changes
 
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
@@ -118,8 +128,13 @@
     }
 
 
+<<<<<<< Updated upstream
     $(document).ready(function () {
         var url = 'http://192.168.1.124:8900/login';
+=======
+    $(document).ready(function(){
+        var url = 'http://192.168.2.130:8000/login';
+>>>>>>> Stashed changes
         var msg = ajaxGet(url);
         console.log(msg);
         var jsonObj = JSON.parse(msg);
