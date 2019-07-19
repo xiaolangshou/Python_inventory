@@ -40,7 +40,11 @@ this is <font id="f1"></font> index page!<br/>
 
 
     $(document).ready(function(){
+<<<<<<< Updated upstream
         var url = 'http://192.168.1.124:8900/get_user';
+=======
+        var url = 'http://192.168.2.130:8000/get_user';
+>>>>>>> Stashed changes
         var msg = ajaxGet(url);
         console.log(msg);
         var jsonObj = JSON.parse(msg);

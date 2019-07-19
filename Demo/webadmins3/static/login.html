@@ -13,7 +13,7 @@
     function get_values() {
         $.ajax(
             {
-                url: "http://http://192.168.1.124:8900/index/",
+                url: "http://192.168.2.130:8900/index/",
                 async: false,
                 type: "GET",
                 success: function (msg) {
@@ -38,7 +38,7 @@
 
 用户名: <input id="username" type="text" placeholder="请输入用户名.."><br/>
 密 码: <input id="password" type="password" placeholder="请输入密码"><br/>
-验证码: <input type="text" id="check_num"> <font id="p1"></font><br/>
+验证码: <input type="text" id="check_num"> <span id="p1"></span><br/>
 <button onclick="login()">提交</button>
 
 
@@ -86,7 +86,7 @@
 
 
     function login() {
-        var url = 'http://192.168.1.124:8900/login/';
+        var url = 'http://192.168.2.130:8900/login/';
 
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
@@ -105,18 +105,16 @@
         } else {
             console.log("登录失败!")
         }
-
     }
 
     $(document).ready(function () {
-        var url = 'http://192.168.1.124:8900/login/';
+        var url = 'http://192.168.2.130:8900/login/';
         var msg = ajaxGet(url);
         console.log(msg);
         var jsonObj = JSON.parse(msg);
         var check_num = jsonObj.message.check_num;
         console.log(check_num);
         document.getElementById("p1").innerText = check_num;
-
     });
 
 </script>

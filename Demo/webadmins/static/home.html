@@ -20,7 +20,7 @@
 
 
      function logout(){
-         var url = 'http://172.16.70.233:8901/logout';
+         var url = 'http://192.168.2.130:8000/logout';
          var res = ajaxGet(url);
          console.log(res);
          var jsonObj = JSON.parse(res);
@@ -52,7 +52,7 @@
 
 
      $(document).ready(function(){
-        var url = 'http://172.16.70.233:8901/get_user';
+        var url = 'http://192.168.2.130:8000/get_user';
         var msg = ajaxGet(url);
         console.log(msg);
         var jsonObj = JSON.parse(msg);

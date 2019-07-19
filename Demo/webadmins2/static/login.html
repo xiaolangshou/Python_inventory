@@ -13,7 +13,7 @@
     function get_values() {
         $.ajax(
             {
-                url: "http://172.16.70.233:8901/index/",
+                url: 'http://192.168.2.130:8000/login/',
                 async: false,
                 type: "GET",
                 success: function (msg) {
@@ -65,7 +65,7 @@
 
     function ajaxPost(url, data) {
 //ajax POST请求
-        var result;
+        let result;
         $.ajax({
             data: data,
             url: url,
@@ -87,29 +87,36 @@
 
 
     function login() {
-        var url = 'http://172.16.70.233:8901/login/';
+        let url = 'http://192.168.2.130:8000/login/';
 
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        var check_num = document.getElementById("check_num").value;
-        var data = {"username": username, "password": password, "check_num": check_num};
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let check_num = document.getElementById("check_num").value;
+        let data = {"username": username, "password": password, "check_num": check_num};
         //post 后台
         console.log(data);
-        var res = ajaxPost(url, data);
-        console.log(res)
+        let res = ajaxPost(url, data);
+        let jsonObj = JSON.parse(res);
+        console.log(jsonObj);
 
+        if (jsonObj.code == 200) {
+            console.log("xyz");
+            window.open("index.html", '_self');
+            console.log(jsonObj.message)
+        } else {
+            console.log("登录失败!")
+        }
     }
 
 
     $(document).ready(function () {
-        var url = 'http://172.16.70.233:8901/login';
-        var msg = ajaxGet(url);
+        let url = 'http://192.168.2.130:8000/login/';
+        let msg = ajaxGet(url);
         console.log(msg);
-        var jsonObj = JSON.parse(msg);
-        var check_num = jsonObj.message.check_num;
+        let jsonObj = JSON.parse(msg);
+        let check_num = jsonObj.message.check_num;
         console.log(check_num);
         document.getElementById("p1").innerText = check_num;
-
     });
 
 </script>
