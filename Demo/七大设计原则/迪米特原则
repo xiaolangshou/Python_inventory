@@ -1,0 +1,27 @@
+class Computer:
+
+    def __init__(self):
+        pass
+
+    def __saveTask(self):
+        print('保存任务')
+
+    def __closeService(self):
+        print('关闭服务')
+
+    def __closeScreen(self):
+        print('关闭服务')
+
+    def __closePower(self):
+        print('关闭电源')
+
+    def closeBtnTapped(self):
+        self.__saveTask()
+        self.__closeService()
+        self.__closeScreen()
+        self.__closePower()
+
+
+if __name__ == '__main__':
+    c = Computer()
+    c.closeBtnTapped()

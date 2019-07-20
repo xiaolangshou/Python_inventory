@@ -1,0 +1,61 @@
+# 子类扩展父类的功能，但不能改变父类原有的功能
+from abc import ABCMeta, abstractmethod
+
+
+class Animal:
+    __metaclass__ = ABCMeta
+
+    def __init__(self):
+        pass
+
+    @abstractmethod
+    def eat(self):
+        pass
+
+    @abstractmethod
+    def sleep(self):
+        pass
+
+    @abstractmethod
+    def run(self):
+        pass
+
+
+class Human(Animal):
+
+    def think(self):
+        print("human can think")
+
+    def eat(self):
+        print("human eat")
+
+    def sleep(self):
+        print("human sleep")
+
+    def run(self):
+        print("human run")
+
+
+class Cat(Animal):
+
+    def jump(self):
+        print("cat can jump high")
+
+    def eat(self):
+        print("cat eat")
+
+    def sleep(self):
+        print("cat sleep")
+
+    def run(self):
+        print("car run")
+
+
+if __name__ == '__main__':
+    human = Human()
+    cat = Cat()
+
+    human.think()
+    human.eat()
+    cat.jump()
+    cat.eat()
