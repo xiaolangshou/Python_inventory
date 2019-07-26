@@ -1,0 +1,24 @@
+import time
+import random
+import threading
+
+
+def loop():
+    print('%s is running...' % threading.current_thread().name)
+    time.sleep(1)
+
+
+if __name__ == '__main__':
+
+    task = []
+
+    for i in range(5):
+        t = threading.Thread(target=loop, name='LoopThread')
+        task.append(t)
+
+    print('%s is running...' % threading.current_thread().name)
+    for j in task:
+        j.start()
+        j.join()
+
+    print('%s ended.' % threading.current_thread().name)
