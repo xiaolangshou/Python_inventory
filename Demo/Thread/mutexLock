@@ -1,0 +1,30 @@
+import threading
+import time
+
+# 全局计数，每个线程获取该计数并加一
+
+num = 0
+lock = threading.Lock()
+array = []
+
+
+def f1():
+    # lock.acquire()
+    global num
+    print('num is %s' % num)
+    num += 1
+    # lock.release()
+
+
+def main():
+    for _ in range(10):
+        t = threading.Thread(target=f1)
+        array.append(t)
+
+    for j in array:
+        j.start()
+        # j.join()
+
+
+if __name__ == "__main__":
+    main()
