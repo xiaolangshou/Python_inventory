@@ -1,0 +1,50 @@
+from abc import ABCMeta, abstractmethod
+
+
+class Driver:
+
+    def __init__(self, name):
+        self.name = name
+
+    @abstractmethod
+    def drive(self, car):
+        pass
+
+
+class CarDrive(Driver):
+
+    def drive(self, car):
+        print("%s is driving a car..." % self.name)
+        car.run()
+
+
+class Car:
+    __metaclass__ = ABCMeta
+
+    def __init__(self, name):
+        self.name = name
+
+    @abstractmethod
+    def run(self):
+        pass
+
+
+class BenzCar(Car):
+    def run(self):
+        print("run car %s" % self.name)
+
+
+class BmwCar(Car):
+    def run(self):
+        print("run car %s" % self.name)
+
+
+if __name__ == '__main__':
+    zs = CarDrive("张三")
+    benz = BenzCar('奔驰')
+    bmw = BmwCar('宝马')
+    zs.drive(benz)
+    zs.drive(bmw)
+    ls = CarDrive('李四')
+    ls.drive(benz)
+    ls.drive(bmw)

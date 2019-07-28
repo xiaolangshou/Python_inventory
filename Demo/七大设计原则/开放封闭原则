@@ -1,0 +1,36 @@
+# 书店售卖书籍，50元以上的8折出售，其它9折出售
+
+from abc import ABCMeta, abstractmethod
+
+
+class Book:
+    __metaclass__ = ABCMeta
+
+    def __init__(self, value):
+        self.value = value
+
+    @abstractmethod
+    def sell(self):
+        pass
+
+
+class NormalBook(Book):
+
+    def sell(self):
+        print("book price =%s" % self.value)
+
+
+class DiscountBook(Book):
+
+    def sell(self):
+        if self.value <= 50:
+            self.value *= 0.8
+            print('book price = %s' % self.value)
+        else:
+            self.value *= 0.9
+            print('book price = %s' % self.value)
+
+
+if __name__ == '__main__':
+    book = DiscountBook(100)
+    book.sell()
