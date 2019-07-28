@@ -9,11 +9,11 @@ array = []
 
 
 def f1():
-    # lock.acquire()
+    lock.acquire()
     global num
     print('num is %s' % num)
     num += 1
-    # lock.release()
+    lock.release()
 
 
 def main():
