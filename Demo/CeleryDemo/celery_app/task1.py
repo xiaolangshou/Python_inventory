@@ -6,6 +6,3 @@ from celery_app import app
 def add(x, y):
     time.sleep(2)
     return x + y
-
-
-

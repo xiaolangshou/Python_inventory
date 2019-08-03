@@ -6,5 +6,3 @@ import time
 def say():
     time.sleep(2)
     return 'hello'
-
-
