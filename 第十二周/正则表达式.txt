@@ -1,0 +1,162 @@
+re 模块来实现正则表达式 
+
+re.split('')   split
+re.sub()
+
+
+re.findall
+re.finditer
+re.compile
+
+正则表达式中的语法.
+
+一般字符
+.: 匹配所有除了\n之外的字符
+\: 转义字符 如果某个特殊的符号例如.就是我们所要匹配的东西, 所以不能让这个符号有正则
+匹配的含义 .  此时就需要把这个符号前面加上\转义
+[]: 匹配字符集 可以匹配字符集中的任意字符.
+
+边界匹配
+^: 以...开头; 注意如果该符号在[]中, 则其含义变为不包括
+$: 以....结尾  如果该符号在[]中  则这个符号的含义就是他本身
+
+
+预定义字符集
+
+\d 代表的所有数字[0-9]
+\D 代表所有的非数字  除了0-9
+\s 空白字符
+\S 非空白字符
+\w 单词字符[a-zA-Z0-9_]
+\W 非单词字符
+
+数量词:
+
+*: 匹配前一个字符0次或者无数次
+
+
++: 匹配前一个字符1次或无限次
+
+?: 匹配前一个字符0次或1次 
+
+{}: 精确匹配前一个字符的次数{m}, {m,n}次
+
+
+
+小结：
+In [120]: r = 'liu.*@.*\.com'                                         
+
+In [121]:                                                             
+
+In [121]: re.findall(r, x)                                            
+Out[121]: ['liushuo890@qq.com']
+
+
+
+贪婪模式和非贪婪模式
+Out[123]: 'liushuo890@contoso.com.cn'
+In [124]: r = '@.+\.'    
+In [125]: re.findall(r, x)                                            
+Out[125]: ['@contoso.com.']
+
+In [126]: r = '@.+?\.'                                                
+In [127]: re.findall(r, x)                                            
+Out[127]: ['@contoso.']
+
+
+逻辑和分组
+
+|: 代表左右表达式匹配任意一个 总是先尝试匹配左边的
+    如果左边匹配成功了 就不再匹配右边的
+     条件1|条件2  
+	 
+() 被括起来的表达式称之为分组.
+a. 组合: 将括号中的内容作为一个整体来进行操作
+In [130]: r = '(\d[a-zA-Z])'                                          
+In [131]: x = '1a2b3c4d'                                              
+In [132]: re.findall(r, x)                                            
+Out[132]: ['1a', '2b', '3c', '4d']
+
+b. 捕获: 使用带括号的正则表达式匹配成功后 只取括号中的内容
+In [133]: x = '<h1>hello</h1>'                                        
+In [134]: r = '<h1>(.*)</h1>'    
+In [136]: re.findall(r, x)                                            
+Out[136]: ['hello']
+
+
+import requests
+import re
+import os
+import threading
+url = 'http://mirrors.163.com/centos/7/os/x86_64/Packages/'
+r = '<a href=.*>(.+\.rpm)</a>'        
+resp = requests.get(url, timeout=10)
+rpm_list = re.findall(r, resp.text)
+url_list = [os.path.join(url, j) for j in rpm_list[0:10]]
+print(url_list)
+
+
+def f1(url):
+    os.system('wget %s' %url)
+ 
+tasks = []
+
+for j in url_list:
+    t = threading.Thread(target=f1, args=(j, ))
+    tasks.append(t)
+for j in tasks:
+    j.start()
+
+for j in tasks:
+    j.join()
+	
+爱情动作片找种子:
+
+
+import requests
+import sys
+
+
+
+headers = {
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, sdch, br',
+    'Accept-Language': 'zh-CN,zh;q=0.8',
+    'Connection': 'keep-alive',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
+}
+
+import re
+import os
+
+urlList = []
+restring = r'<a href="(/download/.*?)">.*</a>'
+baseurl = 'https://sukebei.nyaa.si'
+for j in range(1, 2):
+    if j == 1:
+        url = 'https://sukebei.nyaa.si/'
+    else:
+        url = 'https://sukebei.nyaa.si/?p=%s' % j
+    r = requests.get(url, verify=False, headers=headers)
+    xx = r.text
+    print(xx)
+    urlList.extend(re.findall(restring, xx))
+
+print(urlList)
+
+if not os.path.exists('./movie'):
+    os.mkdir('./movie')
+
+os.chdir('./movie')
+for j in urlList:
+    print(baseurl + j)
+    os.system('curl -O -k ' + baseurl + j)
+
+
+
+
+
+
+
+
+
