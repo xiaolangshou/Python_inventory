@@ -1,0 +1,270 @@
+安装
+
+pip install bs4  -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+
+假设有如下html  快速的入门
+
+html = '''
+<html><head><title>The Dormouse1's story</title></head>
+<body>
+<p class="title"><b>The Dormouse2's story</b></p>
+<p class="story">Once upon a time there were three little sisters; and their names were
+<a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
+<a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
+<a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>
+<p class="story">...</p>'''
+
+
+
+In [10]: type(soup.title)                                                                                                        
+Out[10]: bs4.element.Tag
+
+In [11]: soup.title.name                                                                                                         
+Out[11]: 'title'
+
+In [12]: soup.title.string                                                                                                       
+Out[12]: "The Dormouse1's story"
+
+
+In [14]: soup.title.parent.name                                                                                                  
+Out[14]: 'head'
+
+In [15]: soup.a                                                                                                                  
+Out[15]: <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+
+In [16]: soup.p                                                                                                                  
+Out[16]: <p class="title"><b>The Dormouse2's story</b></p>
+
+
+In [17]: soup.find_all("a")                                                                                                      
+Out[17]: 
+[<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
+ <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
+ <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+ 
+ In [20]: for j in soup.find_all("a"):  
+    ...:     print(j.get("href")) 
+    ...:                                                                                                                         
+http://example.com/elsie
+http://example.com/lacie
+http://example.com/tillie
+
+
+In [21]: soup.get_text()           ##可以拿到文档中的所有的文字                                                                                                
+Out[21]: "\nThe Dormouse1's story\n\nThe Dormouse2's story\nOnce upon a time there were three little sisters; and their names were\nElsie,\nLacie and\nTillie;\nand they lived at the bottom of a well.\n..."
+ 
+ 
+ 
+In [24]: help(soup.find_all)                                                                                                     
+Help on method find_all in module bs4.element:
+
+find_all(name=None, attrs={}, recursive=True, text=None, limit=None, **kwargs) method of bs4.BeautifulSoup instance
+    Extracts a list of Tag objects that match the given
+    criteria.  You can specify the name of the Tag and any
+    attributes you want the Tag to have.
+    
+    The value of a key-value pair in the 'attrs' map can be a
+    string, a list of strings, a regular expression object, or a
+    callable that takes a string and returns whether or not the
+    string matches for some custom definition of 'matches'. The
+    same is true of the tag name.
+
+
+In [23]: help(soup.find)                                                                                                         
+Help on method find in module bs4.element:
+
+find(name=None, attrs={}, recursive=True, text=None, **kwargs) method of bs4.BeautifulSoup instance
+    Return only the first child of this Tag matching the given
+    criteria.
+
+
+
+
+嵌套查找:
+
+In [25]: type(soup)                                                                                                              
+Out[25]: bs4.BeautifulSoup
+
+In [26]: type(soup.body)                                                                                                         
+Out[26]: bs4.element.Tag
+
+In [27]: type(soup.body.p)                                                                                                       
+Out[27]: bs4.element.Tag
+
+
+In [28]: soup.head.title.string                                                                                                  
+Out[28]: "The Dormouse1's story"
+
+
+NavigableString可遍历字符串
+
+
+In [28]: soup.head.title.string                                                                                                  
+Out[28]: "The Dormouse1's story"
+
+In [29]: type(soup.head.title.string )                                                                                           
+Out[29]: bs4.element.NavigableString
+
+
+
+关联查询
+
+html = """
+<html>
+    <head>
+        <title>The Dormouse's story</title>
+    </head>
+    <body>
+        <p class="story">
+            Once upon a time there were three little sisters; and their names were
+            <a href="http://example.com/elsie" class="sister" id="link1">
+                <span>Elsie</span>
+            </a>
+            <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> 
+            and
+            <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>
+            and they lived at the bottom of a well.
+        </p>
+        <p class="story">...</p>
+"""
+
+
+1. 子节点和子孙节点.
+
+方法1  contents属性来获取
+
+方法2:  获取所有的子节点  children
+
+In [39]: for k, v in enumerate(soup.p.children): 
+    ...:     print(k, v) 
+    ...:                                                                                                                         
+0 
+                                        Once upon a time there were three little sisters; and their names were
+                                                    
+1 <a class="sister" href="http://example.com/elsie" id="link1">
+<span>Elsie</span>
+</a>
+2 
+
+3 <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>
+4  
+                                                                                                        and
+                                                                                                                    
+5 <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+6 
+                                                                                                                                and they lived at the bottom of a well.
+
+方法3  获取所有的子孙节点  descendants
+
+
+
+
+In [42]: for k, v in enumerate(soup.p.descendants): 
+    ...:     print(k, v) 
+    ...:                                                                                                                         
+0 
+                                        Once upon a time there were three little sisters; and their names were
+                                                    
+1 <a class="sister" href="http://example.com/elsie" id="link1">
+<span>Elsie</span>
+</a>
+2 
+
+3 <span>Elsie</span>
+4 Elsie
+5 
+
+6 
+
+7 <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>
+8 Lacie
+9  
+                                                                                                        and
+                                                                                                                    
+10 <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+11 Tillie
+12 
+
+
+获取父节点和祖先节点
+
+获取兄弟节点
+
+
+In [54]:                                                                                                                         
+
+In [54]: x = soup.a                                                                                                              
+
+In [55]: x                                                                                                                       
+Out[55]: 
+<a class="sister" href="http://example.com/elsie" id="link1">
+<span>Elsie</span>
+</a>
+
+In [56]: x.next_sibling                                                                                                          
+Out[56]: '\n                                                                            Hello\n                                                                                        '
+
+In [57]: x.previous_sibling                                                                                                      
+Out[57]: '\n                        Once upon a time there were three little sisters; and their names were\n                                    '
+
+
+
+实际的例子:
+爬取电影的排名
+评分  电影名  主演..
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url_list = []
+for j in range(1, 6):
+    url = "http://dianying.2345.com/list/----2019---{page}.html".format(page=j)
+    url_list.append(url)
+
+result_movie = []
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"}
+for j in url_list:
+    result = requests.get(j, headers=headers).text
+    soup = BeautifulSoup(result,'html.parser')
+    film_ul = soup.find(name="ul", attrs={"class": "v_picTxt pic180_240 clearfix"})
+    film_li = film_ul.find_all("li")
+    for k in film_li:
+        tmp = {}
+        for (m, n) in enumerate(k.find_all(name="div", attrs=["pic", "txtPadding"])):
+            if m == 0:
+                tmp["score"] = n.span.em.text.strip("分")
+            else:
+                tmp["name"] = n.em.a.text
+                tmp["actor"] = n.find("span", attrs={"class": "sDes"}).get_text()
+        result_movie.append(tmp)
+        # break
+    # break
+print(result_movie)
+
+sort_dict = {}  ##{"分": [{"name", "actor"}, {}]}
+for j in result_movie:
+    if not j:
+        continue
+    score = float(j.pop("score"))
+    sort_dict.setdefault(score, []).append(j)
+
+sort_key = list(sort_dict.keys())
+sort_key.sort(reverse=True)
+
+
+for j in sort_key:
+    for w in sort_dict[j]:
+        print(str(j), w["name"], w["actor"])
+
+
+
+
+
+
+
+
+
+ 
