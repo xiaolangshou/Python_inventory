@@ -1,0 +1,19 @@
+import re
+
+if __name__ == '__main__':
+    # x = 'asdlfjasldkfjalsdhpythonkfjalsdf python alsjdflasjdf'
+    # # r = r'python'
+    # r = 'a'
+    #
+    # print(re.findall(r, x))
+
+    # x = 'catbatxataat'
+    # r = '^cat'
+    # print(re.findall(r, x))
+
+    x = 'alskdfjlasdjfxiaolangshou@foxmail.comalskjdf'
+
+    r = 'xiao.*@.*\.com'
+
+    print(re.findall(r, x))
+
