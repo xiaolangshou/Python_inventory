@@ -1,0 +1,269 @@
+容器数据类型
+
+
+1. 线程去安全队列..  queue
+
+import queue as Queue
+
+# FIFO first in first out   类似于隧道
+
+q = Queue.Queue()
+for j in range(5):
+    q.put(j)
+
+print(q.qsize())
+print(q.empty())
+
+while not q.empty():
+    print(q.get())
+
+print("####")
+
+q = Queue.LifoQueue()
+
+for j in range(5):
+    q.put(j)
+    
+while not q.empty():
+    print(q.get())
+	
+	
+2. Array定义数组
+
+
+Python列表   变长   异构  任意嵌套的
+
+append extend insert pop remove  向列表中添加或删除数据
+异构   列表中的元素可以是不同的数据类型
+任意嵌套   [[[]]]
+
+
+ArrAy和list区别在于  array是强数据类型的  Array中的元素 必须都是同一个数据类型的。
+
+import array
+
+x = array.array('i', [])
+
+x.append(1)
+
+y  = x.tolist()
+
+print(type(x))
+print(type(y))
+
+
+
+3. 双端队列
+
+
+In [17]: import collections                                                                                                      
+
+In [18]:                                                                                                                         
+
+In [18]: d = collections.deque()                                                                                                 
+
+In [19]: dir(d)       
+
+
+In [20]: d                                                                                                                       
+Out[20]: deque([])
+
+In [21]: d.append('apple')                                                                                                       
+
+In [22]: len(d)                                                                                                                  
+Out[22]: 1
+
+In [23]: d.extend('apple')                                                                                                       
+
+In [24]: len(d)                                                                                                                  
+Out[24]: 6
+
+In [25]: d                                                                                                                       
+Out[25]: deque(['apple', 'a', 'p', 'p', 'l', 'e'])
+
+In [26]:                                                                                                                         
+
+In [26]:                                                                                                                         
+
+In [26]: d.pop()                                                                                                                 
+Out[26]: 'e'
+
+In [27]: d.pop()                                                                                                                 
+Out[27]: 'l'
+
+In [28]: d.popleft()                                                                                                             
+Out[28]: 'apple'
+
+In [29]: d.popleft()                                                                                                             
+Out[29]: 'a'
+
+
+
+
+import collections
+import threading
+
+d = collections.deque(range(10))
+
+
+def f1(direct, method):
+    t_name =threading.current_thread().getName()
+    print("Thread is %s direct is %s value is %s"%(t_name, direct, method()))
+    if len(d) == 0:
+        return
+
+for _ in range(5):
+    t1 = threading.Thread(target=f1, args=("left", d.popleft))
+    t2 = threading.Thread(target=f1, args=("right", d.pop))
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+
+
+
+4. 字典的key是无序的.. 向普通字典中插入键值对的顺序跟取出时的顺序是不一样的.
+
+可能在有些时候  我们需要字典有序. 那么应该怎么办?
+
+
+In [31]: d = collections.OrderedDict()                                                                                           
+
+In [32]: d                                                                                                                       
+Out[32]: OrderedDict()
+In [33]: d[3] = "cat"                                                                                                            
+
+In [34]: d[1] = 'banana'                                                                                                         
+
+In [35]: d[0] = 'apple'                                                                                                          
+
+In [36]:                                                                                                                         
+
+In [36]: d                                                                                                                       
+Out[36]: OrderedDict([(3, 'cat'), (1, 'banana'), (0, 'apple')])
+
+
+5. nametuple
+n [17]: nt = collections.namedtuple('Person', ["name", "age", "score"])                                                         
+
+In [18]:                                                                                                                         
+
+In [18]:                                                                                                                         
+
+In [18]:                                                                                                                         
+
+In [18]: lily = nt(name='lily', age=20, score=100)                                                                               
+
+In [19]: print(lily)                                                                                                             
+Person(name='lily', age=20, score=100)
+
+In [20]: type(lily)                                                                                                              
+Out[20]: __main__.Person
+
+In [21]:                                                                                                                         
+
+In [21]:                                                                                                                         
+
+In [21]: lily[1]                                                                                                                 
+Out[21]: 20
+
+In [22]:                                                                                                                         
+
+In [22]: lily.age                                                                                                                
+Out[22]: 20
+
+
+
+6. Counter
+
+跟踪相同的值增加了多少次.
+
+
+
+In [23]: import collections                                                                                                      
+
+In [24]: c = collections.Counter(['a', 'b', 'a', 'a', 'c'])                                                                      
+
+In [25]: c                                                                                                                       
+Out[25]: Counter({'a': 3, 'b': 1, 'c': 1})
+
+In [26]:                                                                                                                         
+
+In [26]:                                                                                                                         
+
+In [26]:                                                                                                                         
+
+In [26]: c1 = collections.Counter({"a": 4, 'b': 5})                                                                              
+
+In [27]: c1                                                                                                                      
+Out[27]: Counter({'a': 4, 'b': 5})
+
+In [28]:                                                                                                                         
+
+In [28]:                                                                                                                         
+
+In [28]: c2 = collections.Counter(a=10, b=8, c=9)                                                                                
+
+In [29]: c2                                                                                                                      
+Out[29]: Counter({'a': 10, 'b': 8, 'c': 9})
+
+In [30]:                                                                                                                         
+
+In [30]:                                                                                                                         
+
+In [30]: for j in c2: 
+    ...:     print(j, c2[j]) 
+    ...:                                                                                                                         
+a 10
+b 8
+c 9
+
+In [31]:                                                                                                                         
+
+In [31]: for j in c: 
+    ...:     print(j, c2[j]) 
+    ...:                                                                                                                         
+a 10
+b 8
+c 9
+
+In [32]:                                                                                                                         
+
+In [32]: for j in c: 
+    ...:     print(j, c[j]) 
+    ...:      
+    ...:                                                                                                                         
+a 3
+
+
+
+most_common 方法可以用来
+
+In [33]: c6 = collections.Counter("appplle")                                                                                     
+
+In [34]: c6.most_common()                                                                                                        
+Out[34]: [('p', 3), ('l', 2), ('a', 1), ('e', 1)]
+
+In [35]: c6.most_common(1)                                                                                                       
+Out[35]: [('p', 3)]
+
+In [36]: c6.most_common(2)                                                                                                       
+Out[36]: [('p', 3), ('l', 2)]
+
+In [37]: c6.most_common(3)                                                                                                       
+Out[37]: [('p', 3), ('l', 2), ('a', 1)]
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+

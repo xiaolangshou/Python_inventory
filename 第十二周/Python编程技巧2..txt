@@ -1,0 +1,205 @@
+Python编码技巧()
+
+1.1 避免在封装中写重复的代码:
+
+
+
+class  Person:
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str):
+            raise TypeError("Name must be a string")
+        else:
+            self.__name = value
+    @property
+    def age(self):
+        return self.__age
+    @age.setter
+    def age(self, value):
+        if not isinstance(value, int):
+            raise TypeError("Age must be a int")
+        else:
+            self.__age = value
+
+
+def set_property(attr_name, attr_type):
+    storage_attr_name = '__' + attr_name
+    @property
+    def prop(self):
+        return getattr(self,  storage_attr_name)
+
+    @prop.setter
+    def prop(self, value):
+        if not isinstance(value, attr_type):
+            raise ValueError("{name} must be a {type}".format(name=attr_name, type=attr_type))
+        else:
+             setattr(self, storage_attr_name, value)
+
+    return prop
+
+
+class Person:
+    name = set_property("name", str)
+    age = set_property("age", int)
+
+
+
+1.2 批量对源码文件转换为编译文件
+
+项目文件夹中有很多源码文件.   pyc形式结尾的.  如果此时你不想把源码公开
+又想让项目可以正常执行, 此时怎么办. 
+
+import compileall
+compileall.compile_dir(r'/path')
+
+
+1.3 使用模板来格式化字符串 可以规避 参数错误的情况
+
+import string
+
+values = {"name": "lily"}
+
+s = string.Template("""
+  $name is good boy 
+     age is  $age
+     """)
+
+print(s.safe_substitute(values))
+
+
+1.4 针对任意多的字符来分割字符串.  可以针对一个字符串中的多个不同的字符来进行切割 .
+
+In [8]: r = r'[;|,&]'                                                                                                            
+
+In [9]: x                                                                                                                        
+Out[9]: 'a;b|c,d&e'
+
+In [10]:                                                                                                                         
+
+In [10]: re.split(r, x)                                                                                                          
+Out[10]: ['a', 'b', 'c', 'd', 'e']
+
+1.5 对字符串中的某个字符做替换.. replace  一次只能替换一种字符. 
+需求  一次性的把一个字符串中的多个不同的字符  替换成指定的字符
+
+
+In [14]: x                                                                                                                       
+Out[14]: 'a;b|c,d&e'
+
+In [15]:                                                                                                                         
+
+In [15]: r                                                                                                                       
+Out[15]: '[;|,&]'
+
+In [16]:                                                                                                                         
+
+In [16]: re.sub(r, '*', x)                                                                                                       
+Out[16]: 'a*b*c*d*e'
+
+In [17]: re.sub(r, '', x)                                                                                                        
+Out[17]: 'abcde'
+
+
+
+1.6 通过__slot__来限制类的属性.
+
+
+
+class Person:
+    def __init__(self):
+        pass
+
+
+
+x = Person()
+x.name="lilei"
+x.age = 20
+x.score = 100
+
+print(x.__dict__)
+
+
+class student:
+    __slots__ = ["name", "age"]
+
+w = student()
+w.name = "lucy"
+#w.score = 100
+#print(w.__dict__)
+
+#注意1
+#__slots__ 限制的这个类  没有__dict__属性
+
+#注意2
+#slots只对当前类生效 对子类不生效
+
+class boy(student):
+    pass
+
+
+b = boy()
+b.name = "haha"
+b.age = 100
+b.score = 200
+
+
+
+1.7 想要知道当前代码中 有哪些变量 函数对象  以及函数中的局部变量 应该怎么办？？
+
+
+globals()  ##当前模块中的
+
+local() ##函数中的
+
+print(globals())
+
+
+def f1():
+    x = 100
+    print(locals())
+f1()
+
+
+
+
+1.8 对迭代切片  序列类型都可以切片  字符串  列表  元组   文件。。。 
+
+Out[13]: [1, 2, 3, 4, 5]
+
+In [14]: i                                                                                                                       
+Out[14]: <list_iterator at 0x7f7b52a93c50>
+                                                                                                                   
+
+In [15]: itertools.islice(i, 2, 5)                                                                                               
+Out[15]: <itertools.islice at 0x7f7b53b64638>
+
+In [16]: list(itertools.islice(i, 2, 5))                                                                                         
+Out[16]: [3, 4, 5]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+容器数据类型
+
+
+
+
+
+
+
+
