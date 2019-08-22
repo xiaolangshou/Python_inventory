@@ -1,0 +1,53 @@
+步骤1.
+
+需要在Centos上安装一个 chrome浏览器.. 
+
+1. 新建一个yum源
+[google-chrome]
+name=google-chrome
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.google.com/linux/linux_signing_key.pub
+
+
+2. [root@harbor-b yum.repos.d]# yum  -y install google-chrome-stable --nogpgcheck 
+
+
+3. 为了让selenium  框架使用chrome 需要安装一个驱动
+
+驱动要根据chrome的版本来选
+https1://npm.taobao.org/mirrors/chromedriver/
+要把驱动放在$PATH里面
+
+装selenimum框架
+pip install selenium -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+
+
+
+
+import pika
+credentials = pika.PlainCredentials('rabbit', 'rabbit')
+connection = pika.BlockingConnection(pika.ConnectionParameters('172.16.70.251', 5672,'/',credentials))
+channel = connection.channel()
+channel.queue_declare(queue='hello')
+channel.basic_publish(exchange='',
+                      routing_key='hello',
+                      body='Hello World!')
+print(" [x] Sent 'Hello World!'")
+connection.close()
+
+
+
+
+import pika
+credentials = pika.PlainCredentials('rabbit', 'rabbit')
+connection = pika.BlockingConnection(pika.ConnectionParameters('172.16.70.251', 5672,'/',credentials))
+channel = connection.channel()
+channel.queue_declare(queue='hello')
+def callback(ch, method, properties, body):
+    print(" [x] Received %r" % body)
+channel.basic_consume('hello', callback, auto_ack=True)
+print(' [*] Waiting for messages. To exit press CTRL+C')
+channel.start_consuming()
