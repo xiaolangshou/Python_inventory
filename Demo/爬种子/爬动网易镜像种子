@@ -1,0 +1,31 @@
+import requests
+import re
+import os
+import threading
+
+url = 'http://mirrors.163.com/centos/7/os/x86_64/Packages/'
+r = '<a href=.*>(.+\.rpm)</a>'
+resp = requests.get(url, timeout=10)
+rpm_list = re.findall(r, resp.text)
+url_list = [os.path.join(url, j) for j in rpm_list[0:10]]
+print(url_list)
+
+
+def f1(url):
+    os.system('wget %s' % url)
+
+
+if __name__ == '__main__':
+    tasks = []
+
+    for j in url_list:
+        t = threading.Thread(target=f1, args=(j,))
+        tasks.append(t)
+
+    print(tasks)
+
+    for j in tasks:
+        j.start()
+
+    for j in tasks:
+        j.join()

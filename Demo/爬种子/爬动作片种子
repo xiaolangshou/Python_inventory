@@ -1,0 +1,50 @@
+import requests
+import sys
+import re
+import os
+
+# 讲师认证
+# 合格申请人列表
+url1 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/QualifiedTL/QualifiedPxList.aspx"
+
+# 种子讲师列表
+url2 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/SeedTeacher/SeedTeacherList.aspx"
+
+# 内部讲师列表
+url3 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/QualifiedTL/QualifiedTL.aspx"
+
+# 外部讲师列表
+url4 = "http://edu.efoxconn.com/TeacherManage/outerteacher/TurningOuterTeacher.aspx"
+
+# 讲师授课记录
+url5 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/LessonsRecord/CourseRecord.aspx"
+
+# 翻译人审核查询
+url6 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/ApplyAuthentication/InterpreterSH.aspx"
+
+# 费用管理
+# 班级管理：
+url7 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/MoneyApply/classmanage.aspx"
+
+# 已完成费用审核表:
+url8 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/MoneyApply/Verifylist_wc.aspx"
+
+# 审核中费用审核表：
+url9 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/MoneyApply/Verifylist_lc.aspx"
+
+# 已退回费用审核表：
+url10 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/MoneyApply/Verifylist_th.aspx"
+
+# 薪资窗口列表：
+url11 = "http://edu.efoxconn.com/TeacherManage/innerteacher/moneyapply/cmoneylist.aspx"
+
+# 讲师评分
+# 添加讲师评分：
+url12 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/TeacherScore/TeacherGradeAdd.aspx"
+
+# 查看讲师评分：
+url13 = "http://edu.efoxconn.com/TeacherManage/InnerTeacher/TeacherScore/TeacherGradeDetail.aspx"
+
+urlList = []
+
+if __name__ == '__main__':
