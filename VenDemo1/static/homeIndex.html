@@ -1,12 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>this home index page</title>
+	<meta charset="utf-8">
+	<title>Wee-Link 万物互联&nbsp;|&nbsp;蔚来已来</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="Wee-Link" />
+	<meta http-equiv="Page-Exit" content="revealTrans(Duration=1,Transition=14)">
+	<link rel="stylesheet" type="text/css" href="css/style_5.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/static/Assets/favicon.ico" media="screen" />
+	<!--[if lt IE 10]><script>window.location.href='http://www.mshig.com/acomment/index.html?referrer='+location.href;</script><![endif]-->
 </head>
+
 <body>
-<textarea>"主页、介绍、联系方式、留言"</textarea>
-<button type="button" onclick="location.href='http://127.0.0.1:8000/static/projectIntroduce.html'"
-        style="font-size: 16px">项目介绍</button>
+
+	<div class="header" style="background:none;">
+		<div class="header_div">
+			<div id="banner_canvas"></div>
+			<div class="logo">
+				<a href="index.html" data-transition="slide" title="Wee-Link">
+					<img src="/static/Assets/logo_白色.png" alt="Wee-Link" />
+				</a>
+			</div>
+			<div class="nav index-nav">
+				<ul>
+					<li><a href="#" title="蔚来物联">蔚来物联</a></li>
+					<li><a href="#AboutUs" title="联系方式">关于我们</a></li>
+					<li><a href="#TechFrontier" title="项目介绍">项目介绍</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+	<div class="banner_div">
+		<img src="/static/Assets/首页banner.png" alt="关于" />
+		<h1>物联世界，预见未来</h1>
+		<p>—— Wee-Link ——</p>
+	</div>
+	<div class="container" id="AboutUs">
+			<h2>关于我们</h2>
+			<h3 class="solution">About Us</h3>
+			<div class="content_div">
+				<ul class="news_list">
+					<li>
+						<div class="effect-2">
+							<div class="text" id="build1">
+								<div class="img-box">
+									<img src="/static/Assets/icon_智慧建筑.png" alt="">
+								</div>
+								<h3>Wee-Link：先进技术开启万物互联世界</h3>
+							</div>
+
+							<div class="member-image">
+								<img src="/static/Assets/aboutus.png" alt="Member">
+							</div>
+							<div class="member-info" id="build">
+								<div class="bg"></div>
+								<div class="text">
+									<p>Wee-Link是一家从事AI与边缘计算融合产品研发的下一代物联网科技企业，公司基于自主研发的全球领先IoT适配底层架构，搭建安全、高性能AI物联网软硬件平台，为各行业提供“识别”+“记录”的AI-Blockchain物联网产品与解决方案。</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<div class="container" id="TechFrontier">
+		<div class="center-background">
+			<h2>项目介绍</h2>
+			<h3>Tech Frontier</h3>
+			<ul class="specialty_list">
+				<div class="bg-chain"></div>
+				<li>
+					<a href="javascript:void(0)" class="img_a" title="">
+						<img src="/static/Assets/union.png" alt="" />
+					</a>
+					<h3>
+						<a href="javascript:void(0)" title="">物联世界</a>
+					</h3>
+					<p>物联网作为互联网的延伸，为未来全面信息化的世界提供了充分的可能性，数据从此触手可及，信息世界和物质世界不再有界限。</p>
+				</li>
+				<li class="centerLi">
+					<a href="javascript:void(0)" class="img_a" title="">
+						<img src="/static/Assets//AI.png" alt="" />
+					</a>
+					<h3>
+						<a href="javascript:void(0)" title="">AI催化</a>
+					</h3>
+					<p>AI技术是挖掘数据价值的最强大工具，AI的丰富性和普适性带来多维度的数据价值转化渠道，信息光速公路将连接每一种范畴。</p>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="img_a" title="">
+						<img src="/static/Assets//blockchain.png" alt="" />
+					</a>
+					<h3>
+						<a href="javascript:void(0)" title="">区块链基石</a>
+					</h3>
+					<p>高速区块链是价值扩散的底层基础设施，安全、高效、稳健的分布式交互环境成为信息经济的基石，开垦IoT与AI产业绿地的沃土。</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="footer-container">
+			<div class="footer-left">
+				<div class="img-box">
+					<a href="index.html">
+						<img src="/static/Assets//底部logo.png" alt="">
+					</a>
+				</div>
+			</div>
+			<div class="footer-center">
+				<div class="email">
+					<span>Thomas@Wee-Link.com</span>
+				</div>
+				<div class="address">
+					<span>深圳市南山区粤海街道</span>
+				</div>
+
+			</div>
+			<div class="footer-right">
+				<div class="info">
+					<p>Copyright©2020 蔚来物联科技有限公司</p>
+					<p>
+						<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备XXXXXXXX号</a>
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="toTop"></div>
+	<script type="text/javascript">
+		$(document).ready(function (e) {
+			window.sr = ScrollReveal({
+				reset: true
+			});
+			sr.reveal(".banner_div h1,.banner_div p", {
+				duration: 1000,
+				scale: 1,
+				origin: 'top',
+				distance: '20px'
+			}, 500);
+
+			var currentScrollTop = 0;
+			// 返回顶部
+			$(window).scroll(function () {
+				if ($(window).scrollTop() > 500) {
+					$(".toTop").fadeIn(1500);
+				} else {
+					$(".toTop").fadeOut(1500);
+				}
+			});
+
+			//当点击跳转链接后，回到页面顶部位置
+			$(".toTop").click(function () {
+				if ($('html').scrollTop()) {
+					$('html').animate({
+						scrollTop: 0
+					}, 1000);
+					return false;
+				}
+				$('body').animate({
+					scrollTop: 0
+				}, 1000);
+				return false;
+			});
+
+
+		});
+
+	</script>
+	<script type="text/javascript">
+		//页面宽度对应的粒子效果配置
+		var sW = $(document).width();
+		console.log(sW)
+		if (sW > 1280) {
+			var config = {
+				vx: 3, //点x轴速度,正为右，负为左
+				vy: 3, //点y轴速度
+				height: 2, //点高宽，其实为正方形，所以不宜太大
+				width: 2,
+				count: 120, //点个数
+				color: "255,255,255", //点颜色
+				stroke: "255,255,255", //线条颜色
+				dist: 15000, //点吸附距离
+				e_dist: 20000, //鼠标吸附加速距离
+				max_conn: 20 //点到点最大连接数
+			}
+			//创建粒子效果canvas
+			CanvasParticle(config);
+		} else {
+			var config = {
+				vx: 3, //点x轴速度,正为右，负为左
+				vy: 3, //点y轴速度
+				height: 1, //点高宽，其实为正方形，所以不宜太大
+				width: 1,
+				count: 90, //点个数
+				color: "255,255,255", //点颜色
+				stroke: "255,255,255", //线条颜色
+				dist: 6000, //点吸附距离
+				e_dist: 8000, //鼠标吸附加速距离
+				max_conn: 20 //点到点最大连接数
+			}
+			//创建粒子效果canvas
+			CanvasParticle(config);
+		}
+	</script>
 </body>
 </html>
