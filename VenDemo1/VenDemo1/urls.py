@@ -25,6 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login_views.login),
     path('cache/', login_views.cache),
+    path('home/', login_views.home),
+    path('intro/', login_views.intro),
 ]
 
 urlpatterns += static_path

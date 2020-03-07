@@ -10,3 +10,9 @@ def login(request):
 def cache(request):
     x = time.time()
     return HttpResponse(x)
+
+def home(request):
+    return render(request, 'homeIndex.html')
+
+def intro(request):
+    return render(request, 'projectIntroduce.html')
