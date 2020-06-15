@@ -45,7 +45,9 @@
 			<div class="menu-box menu-box-1 menu-box-jrwm">
 				<div class="menu-9">
 					<div class="menu-10">
-						<a href="/Technology/core_technology.html">客户案例</a>
+						<a href="/Technology/core_technology.html">互联网</a>
+                        <a href="/Technology/core_technology.html">电商</a>
+                        <a href="/Technology/core_technology.html">O2</a>
 					</div>
 				</div>
 			</div>
@@ -59,7 +61,6 @@
 					<p>APP/微信/H5应用开发</p>
 					<p>高端网站建设</p>
 				</div>
-
 				<!--智慧城市-->
 				<div class="menu-3 menu4" id="menu-zhcs" style="display:block;">
 					<!--智慧安防-->
@@ -68,91 +69,6 @@
 						<p><a href="/Service/Security_SenseFoundry.html">SenseFoundry 城市级开放视觉平台</a></p>
 					</div>
 				</div>
-
-				<!--智能手机-->
-				<div class="menu-3 menu4">
-					<p><a href="/Service/Phone_SenseMatrix.html">SenseMatrix 人脸3D重建方案</a></p>
-				</div>
-
-				<!--泛文化娱乐-->
-				<div class="menu-3 menu4">
-					<p><a href="/Service/sensear_augmentreality.html">SenseAR 特效引擎</a></p>
-				</div>
-
-				<!--智能汽车-->
-				<div class="menu-3 menu4" id="menu-zncc">
-					<!--智能汽车-->
-					<p class="menu-zhcs hover" style="padding-bottom: 0;"><span class="mui-icon mui-icon-arrowright"></span>智能驾驶</p>
-					<div class="menu-12" style="display: block;">
-						<p><a href="/Service/Drive_SenseDrive.html">SenseDrive 高级驾驶辅助系统</a></p>
-					</div>
-				</div>
-
-				<!--申请试用-->
-				<div class="menu-3 menu5">
-					<p><a href="/Public/form.html">申请试用</a><span class="mui-icon-extra mui-icon-extra-arrowright"></span></p>
-
-				</div>
-
-
-				<script>
-                  $(function() {
-                    //产品线切换
-                    $('.menulist>p').each(function(i) {
-                      $(this).mouseover(function() {
-                        if ($(this).hasClass('hover')) {
-                        } else {
-                          $('.menulist>p').removeClass('hover');
-                          $(this).addClass('hover');
-                          $('.menu4').hide();
-                          $('.menu4').eq(i).stop().fadeIn()
-                        }
-                      })
-                    })
-                    //智慧城市
-                    $('#menu-zhcs>.menu-zhcs').each(function(i){
-                      $(this).click(function(){
-                        if ($(this).hasClass('hover')) {
-                          $(this).removeClass('hover');
-                          $(this).next($('.menu-12')).slideUp()
-                        } else {
-                          $('#menu-zhcs').find($('.menu-zhcs')).removeClass('hover');
-                          $(this).addClass('hover');
-                          $('#menu-zhcs').find($('.menu-12')).slideUp();
-                          $(this).next($('.menu-12')).slideDown()
-                        }
-                      })
-                    })
-                    //智能车舱
-                    $('#menu-zncc>.menu-zhcs').each(function(i){
-                      $(this).click(function(){
-                        if ($(this).hasClass('hover')) {
-                          $(this).removeClass('hover');
-                          $(this).next($('.menu-12')).slideUp()
-                        } else {
-                          $('#menu-zncc').find($('.menu-zhcs')).removeClass('hover');
-                          $(this).addClass('hover');
-                          $('#menu-zncc').find($('.menu-12')).slideUp();
-                          $(this).next($('.menu-12')).slideDown()
-                        }
-                      })
-                    })
-                    //智慧商业
-                    $('#menu-zhsy>.menu-zhcs').each(function(i){
-                      $(this).click(function(){
-                        if ($(this).hasClass('hover')) {
-                          $(this).removeClass('hover');
-                          $(this).next($('.menu-12')).slideUp()
-                        } else {
-                          $('#menu-zhsy').find($('.menu-zhcs')).removeClass('hover');
-                          $(this).addClass('hover');
-                          $('#menu-zhsy').find($('.menu-12')).slideUp();
-                          $(this).next($('.menu-12')).slideDown()
-                        }
-                      })
-                    })
-                  })
-				</script>
 			</div>
 		</li>
 		<li class="">
@@ -162,26 +78,21 @@
 					<div class="scroll_wrap">
 						<div class="scroll_cont">
 							<div class="menu-15">
-								<div class="menu-7" style="border: none;padding: 0;">
-									<a class="menu-8">
-													<p class="menu-13 ">
-														<span class="mui-icon mui-icon-arrowright"></span>
-														智慧城市													</p>
-												</a>
-												<div class="menu-14" style="display: block;">
-														<a href="/Case/index/id/1.html">智慧安防</a><a href="/Case/index/id/9.html">智慧交通</a><a href="/Case/index/id/26.html">智慧地产</a><a href="/Case/index/id/13.html">智能设备</a><a href="/Case/index/id/8.html">运营商</a><a href="/Case/index/id/14.html">遥感</a><a href="/Case/index/id/17.html">视频大数据</a>													</div>
-																																					<a href="/Case/index/id/3.html" class="menu-8">
-													<p>智能手机</p>
-												</a>												<a href="/Case/index/id/2.html" class="menu-8">
-													<p>泛文化娱乐</p>
-												</a><a class="menu-8">
-													<p class="menu-13 ">
-														<span class="mui-icon mui-icon-arrowright"></span>
-														智能汽车													</p>
-												</a>
-																									<div class="menu-14">
-														<a href="/Case/index/id/21.html">智能车舱</a>													</div>																								<a href="/Case/index/id/16.html" class="menu-8">
-												</a>
+								<div class="menu-7" style="border: none; padding: 0;">
+                                    <a href="/Case/index/id/3.html" class="menu-8">
+                                        <p>全网电扇解决方案</p>
+                                    </a>
+                                    <a href="/Case/index/id/2.html" class="menu-8">
+                                        <p>政务门户解决方案</p>
+                                    </a>
+                                    <a href="/Case/index/id/2.html" class="menu-8">
+                                        <p>企业门户解决方案</p>
+                                    </a>
+                                    <a href="/Case/index/id/2.html" class="menu-8">
+                                        <p>生态农业解决方案</p>
+                                    </a>
+                                </div>																								<a href="/Case/index/id/16.html" class="menu-8">
+                                </a>
                                 </div>
 							</div>
 						</div>
