@@ -202,7 +202,7 @@ cursor: pointer;transition: all .5s;}
 
 .index_block_box {
 	text-align:left;
-	width: 31.2%;
+	width: 24%;
 	background-color:#f8f8f8;
 }
 
@@ -219,11 +219,12 @@ cursor: pointer;transition: all .5s;}
 }
 
 .index_block_box .class_name {
-	font-size:32px;
+	font-size:28px;
 	color:#fff;
 	position: absolute;
-	margin-top:.8rem;
+	margin-top:.5rem;
 	margin-left:.8rem;
+	margin-right: .4rem;
 	z-index: 10;
 }
 
@@ -236,7 +237,7 @@ cursor: pointer;transition: all .5s;}
 	width: 120px;
 	height: 20px;
 	position: absolute;
-	margin-top: 2.85rem;
+	margin-top: 2.3rem;
 	margin-left: .8rem;
 	z-index: 10;
 	transition: all 0.3s;
@@ -256,14 +257,14 @@ cursor: pointer;transition: all .5s;}
 	font-size:18px;
 	color:#111111;
 	line-height:30px;
-	padding-top: .2rem;
+	padding-top: 0;
 	padding-bottom: 0.1rem;
 }
 .index_block_bottom li{
 	list-style: none;
 	border-bottom:#dcdcdc 1px solid;
 	overflow:hidden;
-	padding-top:25px;
+	padding-top:0px;
 	padding-bottom:28px;
 }
 .index_block_bottom li:hover{
