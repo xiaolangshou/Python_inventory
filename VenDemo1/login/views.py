@@ -12,7 +12,7 @@ def cache(request):
     return HttpResponse(x)
 
 def home(request):
-    return render(request, 'homeIndex.html')
+    return render(request, 'homePage.html')
 
 def intro(request):
     return render(request, 'projectIntroduce.html')
