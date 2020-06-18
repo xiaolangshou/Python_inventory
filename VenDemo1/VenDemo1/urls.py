@@ -27,6 +27,7 @@ urlpatterns = [
     path('cache/', login_views.cache),
     path('home/', login_views.home),
     path('intro/', login_views.intro),
+    path('cooper/', login_views.cooper),
 ]
 
 urlpatterns += static_path

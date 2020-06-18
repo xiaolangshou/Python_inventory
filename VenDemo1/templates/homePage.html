@@ -42,11 +42,11 @@
             <a>首页</a>
         </li>
         <li class="" style="position: relative;">
-            <a>服务</a>
+            <a onclick="toInternet()">服务</a>
             <div class="menu-box menu-box-1 menu-box-jrwm">
                 <div class="menu-9">
                     <div class="menu-10">
-                        <a onclick="toInternet()">业务系统研发</a>
+                        <a>业务系统研发</a>
                         <a>电商平台开发</a>
                         <a>APP/微信/H5应用开发</a>
                         <a>高端网站建设</a>
@@ -55,7 +55,7 @@
             </div>
         </li>
         <li class="">
-            <a>解决方案</a>
+            <a onclick="toSolution()">解决方案</a>
             <div class="menu-box menu-anli">
                 <div class="scroll_main">
                     <div class="scroll_wrap">
@@ -90,6 +90,10 @@
             <script>
                 function toInternet() {
                     $("html,body").animate({ scrollTop: $("#business").offset().top }, 500);
+                }
+
+                function toSolution() {
+                    $("html,body").animate({ scrollTop: $("#solution").offset().top }, 500);
                 }
 
                 //案例下拉菜单滚动条
@@ -429,7 +433,7 @@
     </div>
 </div>
 <section>
-    <div class="index-bt index_about_info">
+    <div class="index-bt index_about_info" id="business">
         <h1 class=" wow fadeInUp">
             创新型互联网软件开发服务商
         </h1>
@@ -522,7 +526,7 @@
 </section>
 <!--业务领域-->
 <section>
-    <div class="index-bt" id="business">
+    <div class="index-bt" id="solution">
         <h1 class=" wow fadeInUp">互联网+解决方案</h1>
         <p class=" wow fadeInUp">一街已为您定制多套行业解决方案，助你轻松跨入“互联网+”时代</p>
 	<div class="width-1220 index-cp">
@@ -648,9 +652,8 @@
 <!--AI 技术助力行业升级-->
 <section>
     <div class="index-bt index-bt1">
-        <h1 class="wow fadeInUp">客户案例</h1>
-        <p class="wow fadeInUp">AI 技术助力产业升级 </p>
-        <!--a href="/Technology/face.html" class="btn-ljgd btn-ljgd2 wow fadeInUp">了解更多<span></span></a-->
+        <h1 class="wow fadeInUp">精于专注，成就所托</h1>
+        <p class="wow fadeInUp">500+企事业单位共同选择的互联网技术服务商</p>
     </div>
 
     <div class="width-100 index-4" id="index-ai">
@@ -777,41 +780,40 @@
         <div class="index-20">
             <div class="index-21 wow fadeInUpa">
                 <div class="img-box">
-                    <div class="m-center"><img src="/static/upfile/202001/5e255d4841c91.jpg"/></div>
+                    <div class="m-center"><img src="/static/Assets/parterner1.png"/></div>
                 </div>
             </div>
             <div class="index-21 wow fadeInUpa">
                 <div class="img-box">
-                    <div class="m-center"><img src="/static/upfile/201912/5e0ab735e5c30.png"/></div>
+                    <div class="m-center"><img src="/static/Assets/parterner2.png"/></div>
                 </div>
             </div>
             <div class="index-21 wow fadeInUpa">
                 <div class="img-box">
-                    <div class="m-center"><img src="/static/upfile/201912/5e0ab7609a556.jpg"/></div>
+                    <div class="m-center"><img src="/static/Assets/parterner3.png"/></div>
                 </div>
             </div>
             <div class="index-21 wow fadeInUpa">
                 <div class="img-box">
-                    <div class="m-center"><img src="/static/upfile/201912/5e0ab750b5d2c.jpg"/></div>
+                    <div class="m-center"><img src="/static/Assets/parterner4.png"/></div>
                 </div>
             </div>
             <div class="index-21 wow fadeInUpa">
                 <div class="img-box">
-                    <div class="m-center"><img src="/static/upfile/201912/5e0ab773eb0a9.jpg"/></div>
+                    <div class="m-center"><img src="/static/Assets/parterner5.png"/></div>
                 </div>
             </div>
             <div class="index-21 wow fadeInUpa">
                 <div class="img-box">
-                    <div class="m-center"><img src="/static/upfile/201912/5e0ab787254d0.jpg"/></div>
+                    <div class="m-center"><img src="/static/Assets/parterner6.png"/></div>
                 </div>
             </div>
         </div>
         <div class="index-22">
-            <h1 class="wow fadeInUpa">合作伙伴及客户</h1>
-            <p class="wow fadeInUpa" data-wow-delay="0.2s">700+ 战略合作伙伴及客户</p>
-            <a href="/cooperation.html" class="btn-ljgd btn-ljgd4 wow fadeInUpa" data-wow-delay="0.4s">了解更多<span></span></a>
+            <h1 class="wow fadeInUpa">他们选择了一街</h1>
+            <p class="wow fadeInUpa" data-wow-delay="0.2s">11年行业经验，助力互联网+探索之路</p>
+            <a href="/cooper" class="btn-ljgd btn-ljgd4 wow fadeInUpa" data-wow-delay="0.4s">了解更多<span></span></a>
         </div>
-
     </div>
 </section>
 
@@ -868,25 +870,6 @@
     $('.modal-content').click(function (e) {
         e.stopPropagation()
     })
-
-    //微信浏览器点击logo下载弹出图片
-    //var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
-    //if(is_weixin){
-    //  $(function(){
-    //    document.getElementById('logolink').onclick = function(ev){
-    //      ev.preventDefault();
-    //      $(".wxopen").show();
-    //    }
-    //
-    //    $(".wxopen,.wxopen>img").click(function(){
-    //      $(".wxopen").hide();
-    //    });
-    //  });
-    //}else{
-    //  $(function(){
-    //    return false;
-    //  });
-    //}
 
     $(document).ready(function () {
         $("#wxbox").hover(function () {
