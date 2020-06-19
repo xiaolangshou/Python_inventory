@@ -28,6 +28,15 @@ urlpatterns = [
     path('home/', login_views.home),
     path('intro/', login_views.intro),
     path('cooper/', login_views.cooper),
+    path('about/', login_views.about),
+    path('miniProgrammer/', login_views.miniProgrammer),
+    path('companyActive/', login_views.companyActive),
+    path('tradesActive/', login_views.tradesActive),
+    path('developmentActive/', login_views.developmentActive),
+    path('e_commerce/', login_views.e_commerce),
+    path('website/', login_views.website),
+    path('wchat/', login_views.wchat),
+    path('business/', login_views.business),
 ]
 
 urlpatterns += static_path

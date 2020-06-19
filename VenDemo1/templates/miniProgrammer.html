@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no">
+    <title>eacase|一街，助力行业信息化建设</title>
+    <!--[if lte IE9]>
+    <script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+    <![endif]-->
+    <script>
+        /*@cc_on window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); @*/
+    </script>
+    <link rel="stylesheet" href="/static/css/roll.css">
+    <link rel="stylesheet" href="/static/css/animation.css"/>
+    <link rel="stylesheet" href="/static/css/swiper.min.css"/>
+    <link rel="stylesheet" href="/static/js/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/css/public.css?v1.3"/>
+    <link rel="stylesheet" href="/static/css/index.css?v1.3"/>
+    <link rel="stylesheet" href="/static/css/erji.css"/>
+    <link rel="stylesheet" href="/static/css/iconfont.css"/>
+    <link href="/static/css/video-js.min.css" rel="stylesheet">
+    <script src="/static/js/video.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/static/js/wow.js"></script>
+    <script type="text/javascript" src="/static/js/js.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/js/scrollBar.js"></script>
+    <link type="image/x-icon" rel="shortcut icon" href="/static/images/logo.ico"/>
+
+    <!--eacase start-->
+    <link rel="shortcut icon" href="http://www.eacase.com/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="http://www.eacase.com/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/static/eascase/css/style.css">
+    <script type="text/javascript" src="http://www.eacase.com/js/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript">
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                window.location.href = 'http://m.eacase.com/';
+            }
+        }
+
+        browserRedirect();
+
+    </script>
+    <style>
+        .applet-fea-list li > span {
+            height: 90px
+        }
+    </style>
+    <!--eacase end-->
+</head>
+<body>
+<div class="wxopen">
+    <img src="/static/images/wxopen.png" alt="">
+</div>
+<header class="index_header">
+    <a href="/" class="logo" id="logo1">
+        <img src="/static/images/logo.png" class="logo1"/>
+        <img src="/static/images/logo_white.png" class="logo2"/>
+    </a>
+    <a href="/" class="logo" id="logo2">
+        <img src="/static/images/logo.png"/>
+    </a>
+    <ul class="nav" id="nav">
+        <li class="" style="position: relative;">
+            <a>首页</a>
+            <div class="menu-box menu-box-1 menu-box-jrwm">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/Technology/core_technology.html">客户案例</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="">
+            <a href="#">服务</a>
+        </li>
+        <li class="">
+            <a>解决方案</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(46%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/about.html#company" onclick="go_hash('company');">全网电商解决方案</a>
+                        <a href="/about.html#progress" onclick="go_hash('progress');">政务门户解决方案</a>
+                        <a href="/about.html#culture" onclick="go_hash('culture');">企业门户解决方案</a>
+                        <a href="/about.html#culture" onclick="go_hash('culture');">生态农业解决方案</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                //案例下拉菜单滚动条
+                new CusScrollBar({
+                    contentSelector: '.scroll_cont', //滚动内容区
+                    barSelector: '.scroll_bar', //滚动条
+                    sliderSelector: '.scroll_slider' //滚动滑块
+                });
+                /*案例下拉菜单*/
+                $('.menu-7 .menu-13').each(function (i) {
+                    $(this).click(function () {
+                        if ($(this).parent().next('.menu-14').is(":visible")) {
+                            $(this).removeClass('hover');
+                            $('.menu-14').slideUp(300);
+                        } else {
+                            $('.menu-14').slideUp(300);
+                            $('.menu-13').removeClass('hover');
+                            $(this).addClass('hover');
+                            $(this).parent().next('.menu-14').slideDown(300);
+                        }
+                        setTimeout(function () {
+                            if ($('.menu-15').outerHeight() - 10 <= $('.scroll_cont').outerHeight()) {
+                                $('.scroll_bar').css('opacity', 0)
+                            } else {
+                                $('.scroll_bar').css('opacity', 1)
+                            }
+                        }, 400);
+
+                    })
+                })
+            </script>
+        </li>
+        <li class="">
+            <a href="/news.html">客户案例</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(117%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                       <a href="/e_commerce#e_commerce">电商平台</a>
+                        <a href="/website#website">网站建设</a>
+                        <a href="/wchat#wchat">微信/H5</a>
+                        <a href="/business#business">业务系统</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="">
+            <a href="#">智库</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(180%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/companyActive#company">公司动态</a>
+                        <a href="/tradesActive#trades">行业动态</a>
+                        <a href="/developmentActive#development">研发动态</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="" style="position: relative;">
+            <a href="#mini">小程序</a>
+        </li>
+        <li class="" style="position: relative;">
+            <a href="/about#aboutUS">关于我们</a>
+        </li>
+    </ul>
+    <button type="button" class="navbar-toggle" id="nav-btn">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar bar-1"></span>
+        <span class="icon-bar bar-2"></span>
+        <span class="icon-bar bar-3"></span>
+    </button>
+</header>
+<!--手机导航-->
+<ul id="phone-nav" class="phone-nav">
+    <li><a>核心技术</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a href="/Technology/Core_technology.html">技术能力</a>
+            <a href="/Technology/Core_technology.html#styj" onclick="go_hash('styj');">商汤研究</a>
+        </div>
+    </li>
+    <li>
+        <a>产品服务</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a href="/Service/Security_SenseFoundry.html">智慧城市</a>
+            <a href="/Service/Phone_SenseMatrix.html">智能手机</a>
+            <a href="/Service/sensear_augmentreality.html">泛文化娱乐</a>
+            <a class="phone-nav-znqc">
+                智能汽车</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Service/Drive_SenseDrive.html">智能驾驶</a>
+                <a href="/Service/Car_FaceRecognition.html">智能车舱</a>
+            </div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Service/Medical_diagnosis.html">智慧健康</a>
+            <a href="/Service/Finance_SenseID.html">智慧商业与金融</a>
+            <a href="/Service/ai_class.html">教育</a>
+            <a href="/Service/Advertisement_SenseFocus.html">广告</a>
+            <p style="position: absolute;display: block;bottom: 1rem;margin-left: 4.6%;">
+                <a href="/Public/form.html" style="color: #969696;">申请试用</a>
+                <span class="mui-icon-extra mui-icon-extra-arrowright"></span>
+            </p>
+        </div>
+    </li>
+    <script>
+        $(function () {
+            $('.phone-nav-znqc').click(function () {
+                if ($(this).hasClass('hover')) {
+                    $(this).removeClass('hover');
+                    $(this).next('.phone-nav-znqc-box').slideUp();
+                } else {
+                    $(this).addClass('hover');
+                    $(this).next('.phone-nav-znqc-box').slideDown();
+                }
+
+            })
+        })
+    </script>
+    <li>
+        <a>客户案例</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a class="phone-nav-znqc">智慧城市</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Case/index/id/1.html">智慧安防</a>
+                <a href="/Case/index/id/9.html">智慧交通</a>
+                <a href="/Case/index/id/26.html">智慧地产</a>
+                <a href="/Case/index/id/13.html">智能设备</a>
+                <a href="/Case/index/id/8.html">运营商</a>
+                <a href="/Case/index/id/14.html">遥感</a>
+                <a href="/Case/index/id/17.html">视频大数据</a>
+            </div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Case/index/id/3.html">智能手机</a> <a href="/Case/index/id/2.html">泛文化娱乐</a>
+            <a class="phone-nav-znqc">智能汽车</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Case/index/id/21.html">智能车舱</a>
+            </div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Case/index/id/16.html">智慧健康</a>
+            <a class="phone-nav-znqc">智慧商业与金融</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Case/index/id/22.html">线上金融</a>
+                <a href="/Case/index/id/23.html">线下金融</a>
+                <a href="/Case/index/id/5.html">智慧零售</a></div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Case/index/id/7.html">教育</a>
+            <a href="/Case/index/id/25.html">广告</a></div>
+    </li>
+    <li><a href="/news.html">新闻中心</a></li>
+    <li>
+        <a>关于商汤</a>
+        <div class="phone-nav-1">
+            <p class="fanhui">
+                <span class="mui-icon mui-icon-arrowleft"></span>返回
+            </p>
+            <a href="/about.html">使命与愿景</a>
+            <a href="/about.html#company" onclick="go_hash('company');">商汤介绍</a>
+            <a href="/about.html#progress" onclick="go_hash('progress');">商汤之路</a>
+            <a href="/about.html#culture" onclick="go_hash('culture');">联系我们</a>
+
+        </div>
+    </li>
+    <li>
+        <a>加入我们</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a href="https://joinus.sensetime.com/index.html#nrnav-box">走进商汤</a>
+            <a href="https://joinus.sensetime.com/Index/news.html#nrnav-box">商汤动态</a>
+            <a href="https://sensetime.m.zhiye.com/?from=singlemessage&isappinstalled=0">简历投递</a>
+        </div>
+    </li>
+    <li style="height: 3rem;line-height: 3rem;border-bottom: none;">
+        <a href="/en" style="background:none;">EN&nbsp;&nbsp;
+            <span class="mui-icon-extra mui-icon-extra-arrowright"></span>
+        </a>
+    </li>
+</ul>
+<div id="headerHeight"></div>
+<style>
+    .logo1 {
+        display: none;
+    }
+
+    .logo2 {
+        display: block;
+    }
+</style>
+<script>
+    $('body').find('.index_header').removeClass("index_header").addClass("header_hover");
+    $(window).scroll(function () {
+        var scroll_header = $(window).scrollTop();
+        if (scroll_header >= 1) {
+            $("header").addClass("index_header")
+            $("header").removeClass("header_hover")
+            $(".nav>li>a").css({"height": "60px", "line-height": "60px"})
+            $(".logo2").hide();
+            $(".logo1").show();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+
+        } else {
+            $("header").removeClass("index_header")
+            $("header").addClass("header_hover")
+            $(".nav>li>a").css({"height": "70px", "line-height": "70px"})
+            $(".logo2").show();
+            $(".logo1").hide();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").hide();
+                $(".logo2").show();
+            });
+        }
+    });
+    $(document).ready(function () {
+        loop:true;
+        var flag = false;
+        var swiperFlag = false;
+        var mySwiper = new Swiper('.banner_index', {
+            effect: 'fade',
+            pagination: '.banner_index .swiper-pagination',
+            paginationClickable: true,
+            autoplay: 8000,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            onSlideChangeEnd: function (swiper) {
+                var _this = $('.banner_index .swiper-slide').eq(swiper.activeIndex);
+                if (swiper.activeIndex == 0 || swiper.activeIndex == 1) {
+                    var video = $("#v" + swiper.activeIndex)[0];
+                    if ($(window).innerWidth() > 768) {
+                        video.play();
+                    }
+                }
+            }
+        })
+    })
+
+    function showvideo(vurl) {
+        $("#vodeo").modal('show');
+        var vd = videojs("my_player");
+        vd.src(vurl);
+        vd.load(vurl);
+        vd.play();
+    }
+
+    function hidevideo() {
+        $("#vodeo").modal('hide');
+        var vd = videojs("my_player");
+        vd.pause();
+
+    }
+</script>
+<!--关于我们-->
+<selection id="mini">
+    <!-- banner -->
+    <div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner4.jpg) no-repeat center;">
+        <em>微信小程序定制开发</em>
+        <span>抢占小程序万亿市场第一桶金</span>
+    </div>
+    <!-- banner -->
+    <!-- 小程序 -->
+    <div class="applet-tit-box">
+        <h1>小程序定制开发</h1>
+    </div>
+    <div class="applet-fea">
+        <div class="applet-fea-tit">
+            <em>小程序可以<span>做什么？</span></em>
+            <span>Small program can be done</span>
+        </div>
+        <ul class="applet-fea-list clear">
+            <li>
+                <span><img src="http://www.eacase.com/images/icon37.png" alt=""></span>
+                <em>在线商城</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon38.png" alt=""></span>
+                <em>课程培训</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon39.png" alt=""></span>
+                <em>触手可及</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon40.png" alt=""></span>
+                <em>视频直播</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon41.png" alt=""></span>
+                <em>直播聊天</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon42.png" alt=""></span>
+                <em>一键分享</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon43.png" alt=""></span>
+                <em>文章阅读</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon44.png" alt=""></span>
+                <em>活动运营</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/icon45.png" alt=""></span>
+                <em>社交功能</em>
+            </li>
+            <li>
+                <span><img src="http://www.eacase.com/images/gj.png" alt=""></span>
+                <em>小工具</em>
+            </li>
+        </ul>
+    </div>
+    <style>
+        .applet-advan-con img {
+            max-height: none;
+            vertical-align: baseline;
+        }
+    </style>
+    <div class="applet-advan-box">
+        <div class="applet-advan-con">
+            <div class="applet-fea-tit">
+                <em>小程序有什么<span>优势？</span></em>
+                <span>The advantage of small programs</span>
+            </div>
+            <ul class="applet-advan-list clear">
+                <li class="clear">
+            <span>
+              <img src="http://www.eacase.com/images/icon46.png" alt="">
+            </span>
+                    <em>开发成本比APP少50%</em>
+                </li>
+                <li class="clear">
+            <span>
+              <img src="http://www.eacase.com/images/icon47.png" alt="">
+            </span>
+                    <em>后期维护成本低50%</em>
+                </li>
+                <li class="clear">
+            <span>
+              <img src="http://www.eacase.com/images/icon48.png" alt="">
+            </span>
+                    <em>用户体验比公众号好30%</em>
+                </li>
+                <li class="clear">
+            <span>
+              <img src="http://www.eacase.com/images/icon49.png" alt="">
+            </span>
+                    <em>开发速度比APP快30%</em>
+                </li>
+                <li class="clear">
+            <span>
+              <img src="http://www.eacase.com/images/icon50.png" alt="">
+            </span>
+                    <em>推广传播更容易</em>
+                </li>
+                <li class="clear">
+            <span>
+              <img src="http://www.eacase.com/images/icon51.png" alt="">
+            </span>
+                    <em>用户下载无成本</em>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="applet-value-box">
+        <div class="applet-value-con">
+            <div class="applet-fea-tit">
+                <em>小程序有什么<span>价值？</span></em>
+                <span>The value of the small program</span>
+            </div>
+            <div class="applet-con clear">
+                <a href="javascript:void(0);" class="applet-prev"><img src="http://www.eacase.com/images/sub10.png" alt=""></a>
+                <div class="applet-value-list">
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide applet-value-enter clear">
+                            <img src="http://www.eacase.com/images/sub6.png" alt="">
+                            <div class="applet-value-body">
+                                <em>对于企业：</em>
+                                <p>相对于原生app，开发成本低，开发周期短，功能全面，用户体验好本质上微信小程序和appstore或应用商店没有区别不需要做推广运营，只等着用户来使用即可</p>
+                            </div>
+                            <img src="http://www.eacase.com/images/sub7.png" alt="">
+                        </div>
+                        <div class="swiper-slide applet-value-person clear">
+                            <img src="http://www.eacase.com/images/sub8.png" alt="">
+                            <div class="applet-value-body">
+                                <em>对于用户：</em
+                                >
+                                <p>把一些低频的APP从桌面移到微信方便使用，即用即走，占内存与空间小程序不会主动打扰用户</p>
+                            </div>
+                            <img src="http://www.eacase.com/images/sub9.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" class="applet-next"><img src="http://www.eacase.com/images/sub11.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="applet-user-box">
+        <div class="applet-user-con">
+            <div class="applet-fea-tit">
+                <em><span>以用户体验</span>为导向，<span>个性化定制</span>小程序</em>
+                <span>Custom development early movers</span>
+            </div>
+            <ul class="applet-user-list clear">
+                <li class="clear">
+                    <div class="clear">
+                        <img src="http://www.eacase.com/images/icon52.png" alt="">
+                        <img src="http://www.eacase.com/images/icon53.png" alt="">
+                    </div>
+                    <div class="clear">
+                        <em>领先行业</em>
+                        <em>领先行业</em>
+                    </div>
+                    <div class="clear">
+                        <span>2016年10月份<br/>首批参与腾讯内测的开发商</span>
+                        <span>2016年10月份<br/>首批参与腾讯内测的开发商</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <div class="clear">
+                        <img src="http://www.eacase.com/images/icon54.png" alt="">
+                        <img src="http://www.eacase.com/images/icon55.png" alt="">
+                    </div>
+                    <div class="clear">
+                        <em>精研用户体验</em>
+                        <em>精研用户体验</em>
+                    </div>
+                    <div class="clear">
+                        <span>专业产品经理为您保驾护航<br/>这是您全面提升用户体验的一次机会</span>
+                        <span>专业产品经理为您保驾护航<br/>这是您全面提升用户体验的一次机会</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <div class="clear">
+                        <img src="http://www.eacase.com/images/icon56.png" alt="">
+                        <img src="http://www.eacase.com/images/icon57.png" alt="">
+                    </div>
+                    <div class="clear">
+                        <em>实力见证</em>
+                        <em>实力见证</em>
+                    </div>
+                    <div class="clear">
+                        <span>9年行业沉淀<br/>大量APP和微信开发经验积累</span>
+                        <span>9年行业沉淀<br/>大量APP和微信开发经验积累</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <div class="clear">
+                        <img src="http://www.eacase.com/images/icon58.png" alt="">
+                        <img src="http://www.eacase.com/images/icon59.png" alt="">
+                    </div>
+                    <div class="clear">
+                        <em>设计至上</em>
+                        <em>设计至上</em>
+                    </div>
+                    <div class="clear">
+                        <span>领先行业的高端设计<br/>始终秉承设计至上原则</span>
+                        <span>领先行业的高端设计<br/>始终秉承设计至上原则</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="applet-wechat-box">
+        <div class="applet-wechat-con">
+            <div class="applet-fea-tit">
+                <em>连通微信，<span>完美贴合</span><span>时代潮流</span></em>
+                <span>Ccustom development early movers</span>
+            </div>
+            <ul class="applet-wechat-list clear">
+                <li class="clear">
+                    <img src="http://www.eacase.com/images/icon60.png" alt="">
+                    <div>
+                        <em>触手可及</em>
+                        <span>小程序不需要下载安装， 用户扫一<br/>扫或者搜一下即可打开应用</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="http://www.eacase.com/images/icon61.png" alt="">
+                    <div>
+                        <em>用完即走</em>
+                        <span>用户不用关心是否安装太多应用的问题<br/>小程序随手可用，又无需安装卸载</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="http://www.eacase.com/images/icon62.png" alt="">
+                    <div>
+                        <em>丰富的组件和api</em>
+                        <span>界面、视图、内容、按钮、导航、 多媒体<br/>位置、数据、网络、重力感应等</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="http://www.eacase.com/images/icon63.png" alt="">
+                    <div>
+                        <em>完善的用户系统</em>
+                        <span>小独立注册，微信授权数据同步并<br/>配有多种 社交功能</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="http://www.eacase.com/images/icon64.png" alt="">
+                    <div>
+                        <em>与公众号相关联</em>
+                        <span>小程序支持与公众号之间的关联，这将大大<br/>节省开发成本及导流成本</span>
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="http://www.eacase.com/images/icon65.png" alt="">
+                    <div>
+                        <em>一键分享</em>
+                        <span>支持分享页面到微信群和微信好友内容 扩<br/>散一步搞定</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="applet-feat-box">
+        <div class="applet-feat-con">
+            <div class="applet-fea-tit">
+                <em>小程序行业开发<span>功能</span></em>
+                <span>CUSTOM DEVELOPMENT EARLY MOVERS</span>
+            </div>
+            <ul class="applet-feat-list clear">
+                <li class="appelt-feat-">
+                    <img src="http://www.eacase.com/images/icon66.png" alt="">
+                    <em>社区服务</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon67.png" alt="">
+                    <em>美容美发</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon68.png" alt="">
+                    <em>移动电商</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon69.png" alt="">
+                    <em>学习教育</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon70.png" alt="">
+                    <em>出行旅游</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon71.png" alt="">
+                    <em>上门服务</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon72.png" alt="">
+                    <em>求职招聘</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon73.png" alt="">
+                    <em>信息发布</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon74.png" alt="">
+                    <em>上门超市</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon75.png" alt="">
+                    <em>其他行业</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon76.png" alt="">
+                    <em>生鲜水果</em>
+                </li>
+                <li>
+                    <img src="http://www.eacase.com/images/icon77.png" alt="">
+                    <em>外卖点餐</em>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="applet-sys-box">
+        <div class="applet-sys-con">
+            <div class="applet-fea-tit">
+                <em>越来越<span>成熟的</span>开发体系</em>
+                <span>CUSTOM DEVELOPMENT EARLY MOVERS</span>
+            </div>
+            <ul class="applet-sys-list clear">
+                <li>
+                    <div>
+                        <img src="http://www.eacase.com/images/icon78.png" alt="">
+                    </div>
+                    <em>成熟的开发环境</em>
+                    <span>30余位行业精英组成，专注互联网领域9年</span>
+                </li>
+                <li>
+                    <div>
+                        <img src="http://www.eacase.com/images/icon79.png" alt="">
+                    </div>
+                    <em>品牌实力保证</em>
+                    <span>实力见证！500余企事业单位共同的选择</span>
+                </li>
+                <li>
+                    <div>
+                        <img src="http://www.eacase.com/images/icon80.png" alt="">
+                    </div>
+                    <em>顾问一站式服务</em>
+                    <span>产品经理全程跟进，为您一对一定制服务</span>
+                </li>
+            </ul>
+            <ul class="applet-sys-num-list clear">
+                <li>
+                    <em><i>6.0</i><span>年</span></em>
+                    <span>50% 程序员开发经验</span>
+                </li>
+                <li>
+                    <em><i>3.0</i><span>年</span></em>
+                    <span>100% 程序员开发经验</span>
+                </li>
+                <li>
+                    <em><i>30</i><span>名</span></em>
+                    <span>研发工程师</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="applet-demo-box" style="min-height: 890px">
+        <div class="applet-demo-con">
+            <div class="applet-fea-tit">
+                <em>小程序DEMO应用<span>案例</span></em>
+                <span>SMALL PROGRAM DEMO APPLICATION CASE</span>
+            </div>
+            <div class="applet-demo-list-con clear">
+                <a href="javascript:void(0);" class="applet-demo-prev">
+                    <img src="http://www.eacase.com/images/icon81.png" alt="">
+                </a>
+                <div class="applet-demo-list">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="http://www.eacase.com/images/sub15.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://www.eacase.com/images/sub12.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://www.eacase.com/images/sub16.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://www.eacase.com/images/sub15.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://www.eacase.com/images/sub12.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="http://www.eacase.com/images/sub16.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" class="applet-demo-next">
+                    <img src="http://www.eacase.com/images/icon82.png" alt="">
+                </a>
+            </div>
+            <div class="applet-text-list" style="padding-top:8px">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <em>广州公益O2O 小程序</em>
+                        <span>丁香医生小程序为用户提供了一个快速求医问药平台，强大的搜索功<br/>能，让你直接找到病因根本问题，丁香医生小程序即便捷又放心</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <em>丁香医生 小程序</em>
+                        <span>丁香医生小程序为用户提供了一个快速求医问药平台，强大的搜索功<br/>能，让你直接找到病因根本问题，丁香医生小程序即便捷又放心</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <em>去旅拍精选 小程序</em>
+                        <span>丁香医生小程序为用户提供了一个快速求医问药平台，强大的搜索功<br/>能，让你直接找到病因根本问题，丁香医生小程序即便捷又放心</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <em>广州公益O2O 小程序</em>
+                        <span>丁香医生小程序为用户提供了一个快速求医问药平台，强大的搜索功<br/>能，让你直接找到病因根本问题，丁香医生小程序即便捷又放心</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <em>丁香医生 小程序</em>
+                        <span>丁香医生小程序为用户提供了一个快速求医问药平台，强大的搜索功<br/>能，让你直接找到病因根本问题，丁香医生小程序即便捷又放心</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <em>去旅拍精选 小程序</em>
+                        <span>丁香医生小程序为用户提供了一个快速求医问药平台，强大的搜索功<br/>能，让你直接找到病因根本问题，丁香医生小程序即便捷又放心</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 小程序 -->
+</selection>
+<footer style="margin-top:0">
+    <!-- 飘窗 -->
+    <div class="web-float-box">
+        <ul class="web-float-list">
+            <li class="float-kf">
+                <i class="iconfont">&#xe619;</i>
+                <em>联系客服</em>
+            </li>
+            <li>
+                <i class="iconfont">&#xe63a;</i>
+                <em>微信</em>
+                <img src="/static/eascase/images/wechat.jpg" alt="">
+            </li>
+            <li class="go-top">
+                <i class="iconfont">&#xe63b;</i>
+                <em>返回顶部</em>
+            </li>
+        </ul>
+    </div>
+    <!-- 飘窗 end-->
+    <div class="bottom-box">
+        <div class="bottom-top clear">
+            <ul class="bottom-nav clear">
+                <li>
+                    <a href="index2.html" title="服务">服务</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="index2.html" title="业务系统研发">业务系统研发</a></li>
+                        <li><a href="index2.html" title="电商平台业务研发">电商平台业务研发</a></li>
+                        <li><a href="index2.html" title="高端网站建设">高端网站建设</a></li>
+                        <li><a href="index2.html" title="微信/H5应用开发">APP/微信/H5开发</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index-listing_63.html" title="解决方案">解决方案</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="index4.html" title="全网电商解决方案">全网电商解决方案</a></li>
+                        <li><a href="index5.html" title="政务门户解决方案">政务门户解决方案</a></li>
+                        <li><a href="index6.html" title="企业门户解决方案">企业门户解决方案</a></li>
+                        <li><a href="index7.html" title="生态农业互联网解决方案">生态农业解决方案</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index13.html" title="新闻动态">新闻动态</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="index14.html" title="公司动态">公司动态</a></li>
+                        <li><a href="index15.html" title="行业动态">行业动态</a></li>
+                        <li><a href="index16.html" title="研发动态">研发动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" title="关于我们">关于我们</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="" title="公司简介">公司简介</a></li>
+                        <li><a href="#join-us" title="加入我们">加入我们</a></li>
+                        <li><a href="#contact-about" title="联系我们">联系我们</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="bottom-message">
+                <form id="mayform" method="post" action="index.php?m=content&v=message">
+                    <ul class="bottom-message-list">
+                        <li class="clear">
+                            <img src="/static/eascase/images/icon14.png" alt="">
+                            <input type="text" name="name" value="" id="name">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/eascase/images/icon15.png" alt="">
+                            <input type="text" name="phone" value="" id="phone">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/eascase/images/icon16.png" alt="">
+                            <textarea id="message" name="xuqiu"></textarea>
+                        </li>
+                        <li class="clear">
+                            <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4" errormsg="请输入验证码" sucmsg="输入正确"
+                                   onfocus="if($('#code_img_r').attr('src') == 'http://www.eacase.com/res/images/logincode.gif')$('#code_img_r').attr('src', 'http://www.eacase.com/api/identifying_code.php?w=112&h=40&rd='+Math.random());"
+                                   class="li-3">
+                            <p class="li-2">
+                                <img src="/static/eascase/res/images/logincode.gif" id="code_img_r" alt="点击刷新"
+                                     onclick="$(this).attr('src', 'http://www.eacase.com/api/identifying_code.php?w=112&h=40&rd='+Math.random());">
+                            </p>
+                        </li>
+                        <li class="clear">
+                            <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-bottom">
+            <div class="bottom-bottom-con clear">
+                <div class="bottom-b-l">
+                    <p>400-666-4566</p>
+                    <p>0471-4599699</p>
+                </div>
+                <div class="bottom-b-c">
+                    <p>admin@eacase.com</p>
+                    <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
+                    <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
+                </div>
+                <div class="bottom-b-r">
+                    <img src="/static/eascase/images/ewm.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-copy">
+            <p>&copy;2008-2017 呼和浩特市一街科技有限公司 版权所有
+                <a href="javascript:;" target="_blank">蒙ICP备10002867号-7</a>　
+                <a href="javascript:;" target="_blank">
+                    <img src="/static/eascase/images/gaba.png"> 蒙公网安备 15019002150203号</a>
+                <script src="/static/eascase/z_stat-1256560824_1256560824.js" language="JavaScript"></script>
+            </p>
+        </div>
+    </div>
+    <style type="text/css">
+        .li-3 {
+            float: left;
+            width: 200px !important;
+            padding: 0 !important;
+        }
+
+        .li-2 {
+            float: right;
+        }
+
+        .li-2 > img {
+            margin: 0 !important;
+            height: 38px !important;
+        }
+    </style>
+</footer>
+{#<script type="text/javascript" src="http://www.eacase.com/js/jquery.2.0.0.js"></script>#}
+<script type="text/javascript" src="http://www.eacase.com/js/common.js"></script>
+<script type="text/javascript" src="http://www.eacase.com/js/alerttool.js"></script>
+<!-- 客服 -->
+<script type='text/javascript'>
+    (function (m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', '18197');
+    _MEIQIA('withoutBtn');
+    _MEIQIA('init');
+
+    $('.float-kf,.gdsh-top').on('click', function () {
+        _MEIQIA('showPanel');
+    });
+</script>
+<!-- 飘窗 -->
+<style type="text/css">
+    .li-3 {
+        float: left;
+        width: 200px !important;
+        padding: 0 !important;
+    }
+
+    .li-2 {
+        float: right;
+    }
+
+    .li-2 > img {
+        margin: 0 !important;
+        height: 38px !important;
+    }
+</style>
+</body>
+<script type="text/javascript">
+    var appletValue = new Swiper('.applet-value-list', {
+        loop: true,
+        //autoplay:3000
+    });
+    $('.applet-prev').on('click', function () {
+        appletValue.slidePrev();
+    });
+    $('.applet-next').on('click', function () {
+        appletValue.slideNext();
+    });
+    var appletText = new Swiper('.applet-text-list', {
+        loop: true,
+        autoplay: 3000,
+        onlyExternal: true,
+        initialSlide: 1,
+    });
+    var appletList = new Swiper('.applet-demo-list', {
+        loop: true,
+        autoplay: 3000,
+        slidesPerView: 3,
+        onlyExternal: true,
+        spaceBetween: 20,
+    });
+    $('.applet-demo-prev').on('click', function () {
+        appletList.slidePrev();
+        appletText.slidePrev();
+    });
+    $('.applet-demo-next').on('click', function () {
+        appletList.slideNext();
+        appletText.slideNext();
+    });
+</script>
+</html>

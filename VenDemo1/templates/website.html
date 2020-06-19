@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no">
+    <title>eacase|一街，助力行业信息化建设</title>
+    <!--[if lte IE9]>
+    <script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+    <![endif]-->
+    <script>
+        /*@cc_on window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); @*/
+    </script>
+    <link rel="stylesheet" href="/static/css/roll.css">
+    <link rel="stylesheet" href="/static/css/animation.css"/>
+    <link rel="stylesheet" href="/static/css/swiper.min.css"/>
+    <link rel="stylesheet" href="/static/js/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/css/public.css?v1.3"/>
+    <link rel="stylesheet" href="/static/css/index.css?v1.3"/>
+    <link rel="stylesheet" href="/static/css/erji.css"/>
+    <link rel="stylesheet" href="/static/css/iconfont.css"/>
+    <link href="/static/css/video-js.min.css" rel="stylesheet">
+    <script src="/static/js/video.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/static/js/wow.js"></script>
+    <script type="text/javascript" src="/static/js/js.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/js/scrollBar.js"></script>
+    <link type="image/x-icon" rel="shortcut icon" href="/static/images/logo.ico"/>
+    <!--eacase start-->
+    <link rel="shortcut icon" href="http://www.eacase.com/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="http://www.eacase.com/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/static/eascase/css/style.css">
+    <script type="text/javascript" src="http://www.eacase.com/js/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript">
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                window.location.href = 'http://m.eacase.com/';
+            }
+        }
+
+        browserRedirect();
+
+    </script>
+    <!--eacase end-->
+</head>
+<body>
+<div class="wxopen">
+    <img src="/static/images/wxopen.png" alt="">
+</div>
+<header class="index_header">
+    <a href="/" class="logo" id="logo1">
+        <img src="/static/images/logo.png" class="logo1"/>
+        <img src="/static/images/logo_white.png" class="logo2"/>
+    </a>
+    <a href="/" class="logo" id="logo2">
+        <img src="/static/images/logo.png"/>
+    </a>
+    <ul class="nav" id="nav">
+        <li class="" style="position: relative;">
+            <a>首页</a>
+            <div class="menu-box menu-box-1 menu-box-jrwm">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/Technology/core_technology.html">客户案例</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="">
+            <a href="#">服务</a>
+        </li>
+        <li class="">
+            <a>解决方案</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(46%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/about.html#company" onclick="go_hash('company');">全网电商解决方案</a>
+                        <a href="/about.html#progress" onclick="go_hash('progress');">政务门户解决方案</a>
+                        <a href="/about.html#culture" onclick="go_hash('culture');">企业门户解决方案</a>
+                        <a href="/about.html#culture" onclick="go_hash('culture');">生态农业解决方案</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                //案例下拉菜单滚动条
+                new CusScrollBar({
+                    contentSelector: '.scroll_cont', //滚动内容区
+                    barSelector: '.scroll_bar', //滚动条
+                    sliderSelector: '.scroll_slider' //滚动滑块
+                });
+                /*案例下拉菜单*/
+                $('.menu-7 .menu-13').each(function (i) {
+                    $(this).click(function () {
+                        if ($(this).parent().next('.menu-14').is(":visible")) {
+                            $(this).removeClass('hover');
+                            $('.menu-14').slideUp(300);
+                        } else {
+                            $('.menu-14').slideUp(300);
+                            $('.menu-13').removeClass('hover');
+                            $(this).addClass('hover');
+                            $(this).parent().next('.menu-14').slideDown(300);
+                        }
+                        setTimeout(function () {
+                            if ($('.menu-15').outerHeight() - 10 <= $('.scroll_cont').outerHeight()) {
+                                $('.scroll_bar').css('opacity', 0)
+                            } else {
+                                $('.scroll_bar').css('opacity', 1)
+                            }
+                        }, 400);
+
+                    })
+                })
+            </script>
+        </li>
+        <li class="">
+            <a href="/news.html">客户案例</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(117%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                       <a href="/e_commerce#e_commerce">电商平台</a>
+                        <a href="/website#website">网站建设</a>
+                        <a href="/wchat#wchat">微信/H5</a>
+                        <a href="/business#business">业务系统</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="">
+            <a href="#">智库</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(180%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/companyActive#company">公司动态</a>
+                        <a href="/tradesActive#trades">行业动态</a>
+                        <a href="/developmentActive#development">研发动态</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="" style="position: relative;">
+            <a href="/miniProgrammer#mini">小程序</a>
+        </li>
+        <li class="" style="position: relative;">
+            <a href="#aboutUS">关于我们</a>
+        </li>
+    </ul>
+    <button type="button" class="navbar-toggle" id="nav-btn">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar bar-1"></span>
+        <span class="icon-bar bar-2"></span>
+        <span class="icon-bar bar-3"></span>
+    </button>
+</header>
+<!--手机导航-->
+<ul id="phone-nav" class="phone-nav">
+    <li><a>核心技术</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a href="/Technology/Core_technology.html">技术能力</a>
+            <a href="/Technology/Core_technology.html#styj" onclick="go_hash('styj');">商汤研究</a>
+        </div>
+    </li>
+    <li>
+        <a>产品服务</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a href="/Service/Security_SenseFoundry.html">智慧城市</a>
+            <a href="/Service/Phone_SenseMatrix.html">智能手机</a>
+            <a href="/Service/sensear_augmentreality.html">泛文化娱乐</a>
+            <a class="phone-nav-znqc">
+                智能汽车</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Service/Drive_SenseDrive.html">智能驾驶</a>
+                <a href="/Service/Car_FaceRecognition.html">智能车舱</a>
+            </div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Service/Medical_diagnosis.html">智慧健康</a>
+            <a href="/Service/Finance_SenseID.html">智慧商业与金融</a>
+            <a href="/Service/ai_class.html">教育</a>
+            <a href="/Service/Advertisement_SenseFocus.html">广告</a>
+            <p style="position: absolute;display: block;bottom: 1rem;margin-left: 4.6%;">
+                <a href="/Public/form.html" style="color: #969696;">申请试用</a>
+                <span class="mui-icon-extra mui-icon-extra-arrowright"></span>
+            </p>
+        </div>
+    </li>
+    <script>
+        $(function () {
+            $('.phone-nav-znqc').click(function () {
+                if ($(this).hasClass('hover')) {
+                    $(this).removeClass('hover');
+                    $(this).next('.phone-nav-znqc-box').slideUp();
+                } else {
+                    $(this).addClass('hover');
+                    $(this).next('.phone-nav-znqc-box').slideDown();
+                }
+
+            })
+        })
+    </script>
+    <li>
+        <a>客户案例</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a class="phone-nav-znqc">智慧城市</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Case/index/id/1.html">智慧安防</a>
+                <a href="/Case/index/id/9.html">智慧交通</a>
+                <a href="/Case/index/id/26.html">智慧地产</a>
+                <a href="/Case/index/id/13.html">智能设备</a>
+                <a href="/Case/index/id/8.html">运营商</a>
+                <a href="/Case/index/id/14.html">遥感</a>
+                <a href="/Case/index/id/17.html">视频大数据</a>
+            </div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Case/index/id/3.html">智能手机</a> <a href="/Case/index/id/2.html">泛文化娱乐</a>
+            <a class="phone-nav-znqc">智能汽车</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Case/index/id/21.html">智能车舱</a>
+            </div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Case/index/id/16.html">智慧健康</a>
+            <a class="phone-nav-znqc">智慧商业与金融</a>
+            <div class="phone-nav-znqc-box">
+                <a href="/Case/index/id/22.html">线上金融</a>
+                <a href="/Case/index/id/23.html">线下金融</a>
+                <a href="/Case/index/id/5.html">智慧零售</a></div>
+            <div style="margin-left: 4.6%;border-bottom: 1px solid #e6e6e6;"></div>
+            <a href="/Case/index/id/7.html">教育</a>
+            <a href="/Case/index/id/25.html">广告</a></div>
+    </li>
+    <li><a href="/news.html">新闻中心</a></li>
+    <li>
+        <a>关于商汤</a>
+        <div class="phone-nav-1">
+            <p class="fanhui">
+                <span class="mui-icon mui-icon-arrowleft"></span>返回
+            </p>
+            <a href="/about.html">使命与愿景</a>
+            <a href="/about.html#company" onclick="go_hash('company');">商汤介绍</a>
+            <a href="/about.html#progress" onclick="go_hash('progress');">商汤之路</a>
+            <a href="/about.html#culture" onclick="go_hash('culture');">联系我们</a>
+
+        </div>
+    </li>
+    <li>
+        <a>加入我们</a>
+        <div class="phone-nav-1">
+            <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
+            <a href="https://joinus.sensetime.com/index.html#nrnav-box">走进商汤</a>
+            <a href="https://joinus.sensetime.com/Index/news.html#nrnav-box">商汤动态</a>
+            <a href="https://sensetime.m.zhiye.com/?from=singlemessage&isappinstalled=0">简历投递</a>
+        </div>
+    </li>
+    <li style="height: 3rem;line-height: 3rem;border-bottom: none;">
+        <a href="/en" style="background:none;">EN&nbsp;&nbsp;
+            <span class="mui-icon-extra mui-icon-extra-arrowright"></span>
+        </a>
+    </li>
+</ul>
+<div id="headerHeight"></div>
+<style>
+    .logo1 {
+        display: none;
+    }
+
+    .logo2 {
+        display: block;
+    }
+</style>
+<script>
+    $('body').find('.index_header').removeClass("index_header").addClass("header_hover");
+    $(window).scroll(function () {
+        var scroll_header = $(window).scrollTop();
+        if (scroll_header >= 1) {
+            $("header").addClass("index_header")
+            $("header").removeClass("header_hover")
+            $(".nav>li>a").css({"height": "60px", "line-height": "60px"})
+            $(".logo2").hide();
+            $(".logo1").show();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+
+        } else {
+            $("header").removeClass("index_header")
+            $("header").addClass("header_hover")
+            $(".nav>li>a").css({"height": "70px", "line-height": "70px"})
+            $(".logo2").show();
+            $(".logo1").hide();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").hide();
+                $(".logo2").show();
+            });
+        }
+    });
+    $(document).ready(function () {
+        loop:true;
+        var flag = false;
+        var swiperFlag = false;
+        var mySwiper = new Swiper('.banner_index', {
+            effect: 'fade',
+            //		pagination : '.banner_index .swiper-pagination',
+            //		prevButton: '.banner_index .swiper-button-prev',
+            pagination: '.banner_index .swiper-pagination',
+            paginationClickable: true,
+            autoplay: 8000,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            onSlideChangeEnd: function (swiper) {
+                //console.log(swiper.activeIndex);
+                //			console.log(11);
+                var _this = $('.banner_index .swiper-slide').eq(swiper.activeIndex);
+                if (swiper.activeIndex == 0 || swiper.activeIndex == 1) {
+                    var video = $("#v" + swiper.activeIndex)[0];
+                    if ($(window).innerWidth() > 768) {
+                        video.play();
+                    }
+                }
+            }
+        })
+    })
+
+    function showvideo(vurl) {
+        $("#vodeo").modal('show');
+        var vd = videojs("my_player");
+        vd.src(vurl);
+        vd.load(vurl);
+        vd.play();
+    }
+
+    function hidevideo() {
+        $("#vodeo").modal('hide');
+        var vd = videojs("my_player");
+        vd.pause();
+
+    }
+</script>
+<section id="website">
+    <!-- banner -->
+    <div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner5.jpg) no-repeat center;">
+        <em>一街，助力行业信息化建设</em>
+        <span>我们已为500+企事业单位提供了互联网+解决方案</span>
+    </div>
+    <!-- banner -->
+    <!-- 客户案例 -->
+    <div class="agric-tit">
+        <em>客户案例</em>
+        <img src="http://www.eacase.com/images/service1.jpg" alt="">
+    </div>
+    <ul class="sub-nav-con clear">
+        <li>
+            <a href="http://www.eacase.com/case/" class="clear">
+                <i class="iconfont">&#xe65c;</i>
+                <em>全部案例</em>
+                <span>All the cases</span>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.eacase.com/case/e-commerce/" class="clear">
+                <i class="iconfont">&#xe621;</i>
+                <em>电商平台</em>
+                <span>E-commerce</span>
+            </a>
+        </li>
+        <li class="sub-nav-on">
+            <a href="http://www.eacase.com/case/web/" class="clear">
+                <i class="iconfont">&#xe855;</i>
+                <em>网站建设</em>
+                <span>Website design</span>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.eacase.com/case/wechat/" class="clear">
+                <i class="iconfont">&#xe606;</i>
+                <em>微信/H5</em>
+                <span>Wechat/HTML5</span>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.eacase.com/case/system/" class="clear">
+                <i class="iconfont">&#xe60d;</i>
+                <em>业务系统</em>
+                <span>Operation system</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="case-list">
+        <li class="clear">
+            <a href="/case/web/201712/49.html" target="_blank">
+                <em>日信海清物业服务有限责任公司</em>
+                <span> 呼和浩特市日信海清物业服务有限责任公司成立于2007年5月，国家物业管理一级资质，是由内蒙古日信集团投资的一家集物业服务、家政服务、养老服务、职业培训（鉴定）、公益性家政信息服务、安防科技、电子商务为一体的综合性服务企业。</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/12/12/20171212151126gSlUEj.png" alt="日信海清物业服务有限责任公司">
+            <h3>日信海清物业服务有限责任公司</h3>
+            <div class="case-des">
+                呼和浩特市日信海清物业服务有限责任公司成立于2007年5月，国家物业管理一级资质，是由内蒙古日信集团投资的一家集物业服务、家政服务、养老服务、职业培训（鉴定）、公益性家政信息服务、安防科技、电子商务为一体的综合性服务企业。
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+        <li class="clear">
+            <a href="/case/web/201708/38.html" target="_blank">
+                <em>内蒙古农业大学门户</em>
+                <span> 内蒙古农业大学是自治区重点大学，是国家首批32个大学生文化素质教育基地之一。2001年学校成为国家西部大开发“一省一校”重点支持建设院校，2012年成为自治区人民政府和国家林业局合作共建高校，2013年进入国家“中西部高等教育振兴计划”支持院校行列。学校位于中国历史文化名城——呼和浩特市，是“全国绿...</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/08/18/20170818133011qSD5Wm.png" alt="内蒙古农业大学门户">
+            <h3>内蒙古农业大学门户</h3>
+            <div class="case-des">
+                内蒙古农业大学是自治区重点大学，是国家首批32个大学生文化素质教育基地之一。2001年学校成为国家西部大开发“一省一校”重点支持建设院校，2012年成为自治区人民政府和国家林业局合作共建高校，2013年进入国家“中西部高等教育振兴计划”支持院校行列。学校位于中国历史文化名城——呼和浩特市，是“全国绿...
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+        <li class="clear">
+            <a href="/case/web/201708/36.html" target="_blank">
+                <em>内蒙古大牧场牧业（集团）有限责任公司</em>
+                <span> 内蒙古大牧场牧业集团，从2005年创业至今，始终致力于开发内蒙古大草原优质的牛羊资源，坚持打造基于食品安全管理闭环运行的“全产业链 全程溯源”的牛羊肉产业链，目前已实现从牧场养殖、屠宰、精加工、连锁专卖系统、电子商务拓展全覆盖，集团化、品牌化发展。大牧场集团拥有1处大型养殖基地、3处生产加工基...</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/08/18/20170818163350acE2Tn.png" alt="内蒙古大牧场牧业（集团）有限责任公司">
+            <h3>内蒙古大牧场牧业（集团）有限责任公司</h3>
+            <div class="case-des">
+                内蒙古大牧场牧业集团，从2005年创业至今，始终致力于开发内蒙古大草原优质的牛羊资源，坚持打造基于食品安全管理闭环运行的“全产业链
+                全程溯源”的牛羊肉产业链，目前已实现从牧场养殖、屠宰、精加工、连锁专卖系统、电子商务拓展全覆盖，集团化、品牌化发展。大牧场集团拥有1处大型养殖基地、3处生产加工基...
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+        <li class="clear">
+            <a href="/case/web/201708/34.html" target="_blank">
+                <em>和林格尔县人民医院</em>
+                <span> 和林格尔县人民医院是集医、教、研于一体的二级乙等综合性医院。医院现有职工129人，其中大学毕业22人，大专毕业35人，中专毕业50人；副主任医7人，主治医（主管药、护、技）师57人，医（药、护、技）师38人，医（药、护、技）士9人；医务人员占全院职工的比例为86%。临床科室设内科、外科（脑外、胸外）、骨...</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/08/18/20170818120047P2YuXv.png" alt="和林格尔县人民医院">
+            <h3>和林格尔县人民医院</h3>
+            <div class="case-des">
+                和林格尔县人民医院是集医、教、研于一体的二级乙等综合性医院。医院现有职工129人，其中大学毕业22人，大专毕业35人，中专毕业50人；副主任医7人，主治医（主管药、护、技）师57人，医（药、护、技）师38人，医（药、护、技）士9人；医务人员占全院职工的比例为86%。临床科室设内科、外科（脑外、胸外）、骨...
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+        <li class="clear">
+            <a href="/case/web/201708/33.html" target="_blank">
+                <em>内蒙古社会扶贫基金会</em>
+                <span> 内蒙古社会扶贫基金会（简称基金会）成立于2015年6月，是由内蒙古社会扶贫工作促进会注资，在内蒙古自治区民政厅正式核准注册的具有公募性质的基金会。基金会的主管部门是内蒙古自治区扶贫开发（革命老区建设）办公室，主要任务是：紧紧围绕自治区扶贫开发工作大局，动员、整合社会资源参与社会扶贫开发工作，...</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/08/18/20170818115844aE9u1r.png" alt="内蒙古社会扶贫基金会">
+            <h3>内蒙古社会扶贫基金会</h3>
+            <div class="case-des">
+                内蒙古社会扶贫基金会（简称基金会）成立于2015年6月，是由内蒙古社会扶贫工作促进会注资，在内蒙古自治区民政厅正式核准注册的具有公募性质的基金会。基金会的主管部门是内蒙古自治区扶贫开发（革命老区建设）办公室，主要任务是：紧紧围绕自治区扶贫开发工作大局，动员、整合社会资源参与社会扶贫开发工作，...
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+        <li class="clear">
+            <a href="/case/web/201708/32.html" target="_blank">
+                <em>内蒙古鸿锋环保科技有限公司</em>
+                <span> 内蒙古鸿锋环境科技有限公司是一家集技术研发、工艺设计、设备生产与安装、现场调试及运营于一体的现代化高新企业。公司致力于城镇生活污水、制药、食品、煤炭、屠宰、印染、造纸等领域的环保工程，拥有高效微生物、高效生物填料、高级催化氧化反应器、砂滤罐、地埋式污水处理设备、MBR膜生物反应器、平流式气...</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/08/18/20170818115723sc0ZnS.png" alt="内蒙古鸿锋环保科技有限公司">
+            <h3>内蒙古鸿锋环保科技有限公司</h3>
+            <div class="case-des">
+                内蒙古鸿锋环境科技有限公司是一家集技术研发、工艺设计、设备生产与安装、现场调试及运营于一体的现代化高新企业。公司致力于城镇生活污水、制药、食品、煤炭、屠宰、印染、造纸等领域的环保工程，拥有高效微生物、高效生物填料、高级催化氧化反应器、砂滤罐、地埋式污水处理设备、MBR膜生物反应器、平流式气...
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+        <li class="clear">
+            <a href="/case/web/201708/31.html" target="_blank">
+                <em>内蒙古大盛业羊绒制品有限公司</em>
+                <span> 内蒙古大盛业羊绒制品有限公司，位于内蒙古呼和浩特市玉泉区裕隆工业园区，占地面积16,411.16平方米，是目前呼和浩特地区最具规模的羊绒生产企业，公司在2008年就通过了ISO9001质量体系认证。公司主要经营原料采购、印染、纺纱、以及成衣加工等业务。</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/08/18/20170818115530RSkXpq.png" alt="内蒙古大盛业羊绒制品有限公司">
+            <h3>内蒙古大盛业羊绒制品有限公司</h3>
+            <div class="case-des">
+                内蒙古大盛业羊绒制品有限公司，位于内蒙古呼和浩特市玉泉区裕隆工业园区，占地面积16,411.16平方米，是目前呼和浩特地区最具规模的羊绒生产企业，公司在2008年就通过了ISO9001质量体系认证。公司主要经营原料采购、印染、纺纱、以及成衣加工等业务。
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+        <li class="clear">
+            <a href="/case/web/201708/30.html" target="_blank">
+                <em>慈惠日日放生网</em>
+                <span> 日日放生网站于2017年8月成立于山东，是一个以放生为主僧众共修，日积一善的组织。从2016年4月13日开始天天放生。风雨无阻。至今已走过一年多的时间。一切为众生考虑。整个放生过程如理如法，为众生念诵放生仪轨，使用系解脱，转经轮等加持所放物命。</span>
+            </a>
+            <img src="http://www.eacase.com/uploadfile/2017/08/18/20170818115202nlCjZz.png" alt="慈惠日日放生网">
+            <h3>慈惠日日放生网</h3>
+            <div class="case-des">
+                日日放生网站于2017年8月成立于山东，是一个以放生为主僧众共修，日积一善的组织。从2016年4月13日开始天天放生。风雨无阻。至今已走过一年多的时间。一切为众生考虑。整个放生过程如理如法，为众生念诵放生仪轨，使用系解脱，转经轮等加持所放物命。
+            </div>
+            <div class="case-tag clear">
+                <i>网站建设</i></i>
+            </div>
+        </li>
+    </ul>
+    <!-- 分页 -->
+    <div id="pages" class="c2">
+        <li title="按住向左方向键 向前翻页"><a href="/case/web/index.html">首页</a></li>
+        <li title="总数"><a href="javascript:;">24</a></li>
+        <li title="按住向左方向键 向前翻页"><a href="/case/web/index.html">&lt;</a></li>
+        <li><a class="active" href="/case/web/index.html">1</a></li>
+        <li><a href="/case/web/2.html">2</a></li>
+        <li><a href="/case/web/3.html">3</a></li>
+        <input type="hidden" id="page-up" value="/case/web/index.html"><input type="hidden" id="page-next" value="/case/web/2.html">
+        <script>$(this).focus();</script>
+        <li title="按住向右方向键 向后翻页"><a href="/case/web/2.html">&gt;</a></li>
+        <li title="按住向右方向键 向后翻页"><a href="/case/web/3.html">末页</a></li>
+    </div>
+
+    <!-- 分页 -->
+</section>
+<footer>
+    <!-- 底部 -->
+
+    <div class="bottom-box">
+        <div class="bottom-top clear">
+            <ul class="bottom-nav clear">
+                <li>
+                    <a href="http://www.eacase.com/service/" title="服务">服务</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/service/" title="业务系统研发">业务系统研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="电商平台业务研发">电商平台业务研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="高端网站建设">高端网站建设</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="微信/H5应用开发">APP/微信/H5开发</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/index.php?v=listing&cid=63" title="解决方案">解决方案</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/solution/e-commerce/" title="全网电商解决方案">全网电商解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/government/" title="政务门户解决方案">政务门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/company/" title="企业门户解决方案">企业门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/agriculture/" title="生态农业互联网解决方案">生态农业解决方案</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/news/" title="新闻动态">新闻动态</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
+                        <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
+                        <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/aboutus/" title="关于我们">关于我们</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/aboutus/" title="公司简介">公司简介</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#join-us" title="加入我们">加入我们</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="bottom-message">
+                <form id="mayform" method="post" action="index.php?m=content&v=message">
+                    <ul class="bottom-message-list">
+                        <li class="clear">
+                            <img src="http://www.eacase.com/images/icon14.png" alt="">
+                            <input type="text" name="name" value="" id="name">
+                        </li>
+                        <li class="clear">
+                            <img src="http://www.eacase.com/images/icon15.png" alt="">
+                            <input type="text" name="phone" value="" id="phone">
+                        </li>
+                        <li class="clear">
+                            <img src="http://www.eacase.com/images/icon16.png" alt="">
+                            <textarea id="message" name="xuqiu"></textarea>
+                        </li>
+                        <li class="clear">
+                            <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4" errormsg="请输入验证码" sucmsg="输入正确"
+                                   onfocus="if($('#code_img_r').attr('src') == 'http://www.eacase.com/res/images/logincode.gif')$('#code_img_r').attr('src', 'http://www.eacase.com/api/identifying_code.php?w=112&h=40&rd='+Math.random());"
+                                   class="li-3">
+                            <p class="li-2">
+                                <img src="http://www.eacase.com/res/images/logincode.gif" id="code_img_r" alt="点击刷新"
+                                     onclick="$(this).attr('src', 'http://www.eacase.com/api/identifying_code.php?w=112&h=40&rd='+Math.random());">
+                            </p>
+                        </li>
+                        <li class="clear">
+                            <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-bottom">
+            <div class="bottom-bottom-con clear">
+                <div class="bottom-b-l">
+                    <p>400-666-4566</p>
+                    <p>0471-4599699</p>
+                </div>
+                <div class="bottom-b-c">
+                    <p>admin@eacase.com</p>
+                    <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
+                    <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
+                </div>
+                <div class="bottom-b-r">
+                    <img src="http://www.eacase.com/images/ewm.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-copy">
+            <p>&copy;2008-2017 呼和浩特市一街科技有限公司 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">蒙ICP备10002867号-7</a>　<a
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203" target="_blank"><img
+                    src="http://www.eacase.com/images/gaba.png"/> 蒙公网安备 15019002150203号</a>
+                <script src="https://s4.cnzz.com/z_stat.php?id=1256560824&web_id=1256560824" language="JavaScript"></script>
+            </p>
+        </div>
+    </div>
+    <!-- 飘窗 -->
+    <div class="web-float-box">
+        <ul class="web-float-list">
+            <li class="float-kf">
+                <i class="iconfont">&#xe619;</i>
+                <em>联系客服</em>
+            </li>
+            <!--<li>
+              <i class="iconfont">&#xe631;</i>
+              <em>QQ</em>
+            </li> -->
+            <li>
+                <i class="iconfont">&#xe63a;</i>
+                <em>微信</em>
+                <img src="http://www.eacase.com/images/wechat.jpg" alt="">
+            </li>
+            <li class="go-top">
+                <i class="iconfont">&#xe63b;</i>
+                <em>返回顶部</em>
+            </li>
+        </ul>
+    </div>
+    <!-- 飘窗 -->
+</footer>
+<!-- 飘窗 -->
+<style type="text/css">
+    .li-3 {
+        float: left;
+        width: 200px !important;
+        padding: 0 !important;
+    }
+
+    .li-2 {
+        float: right;
+    }
+
+    .li-2 > img {
+        margin: 0 !important;
+        height: 38px !important;
+    }
+</style>    <!-- 底部 -->
+<!-- 脚部 -->
+{#<script type="text/javascript" src="http://www.eacase.com/js/jquery.2.0.0.js"></script>#}
+<script type="text/javascript" src="http://www.eacase.com/js/common.js"></script>
+<script type="text/javascript" src="http://www.eacase.com/js/alerttool.js"></script>
+<!-- 客服 -->
+<script type='text/javascript'>
+    (function (m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', '18197');
+    _MEIQIA('withoutBtn');
+    _MEIQIA('init');
+
+    $('.float-kf,.gdsh-top').on('click', function () {
+        _MEIQIA('showPanel');
+    });
+</script>
+<!-- 客服 -->
+
+<!-- 脚部 -->
+</body>
+</html>

@@ -8,8 +8,12 @@
     <meta name="format-detection" content="telephone=no">
 
     <title>eacase|一街，助力行业信息化建设</title>
-
-    <script>/*@cc_on window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); @*/</script>
+    <!--[if lte IE9]>
+    <script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+    <![endif]-->
+    <script>
+        /*@cc_on window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); @*/
+    </script>
     <link rel="stylesheet" href="/static/css/roll.css">
     <link rel="stylesheet" href="/static/css/animation.css"/>
     <link rel="stylesheet" href="/static/css/swiper.min.css"/>
@@ -27,6 +31,33 @@
     <script type="text/javascript" src="/static/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="/static/js/scrollBar.js"></script>
     <link type="image/x-icon" rel="shortcut icon" href="/static/images/logo.ico"/>
+
+    <!--eacase start-->
+    <link rel="shortcut icon" href="/static/eascase/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/eascase/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/static/eascase/css/style.css">
+    <script type="text/javascript" src="/static/eascase/js/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript">
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                window.location.href = 'http://m.eacase.com/';
+            }
+        }
+
+        browserRedirect();
+    </script>
+    <script type="text/javascript" src="/static/eascase/maps-1.3_ee2616508c5901d518ab15d.js"></script>
+    <!--eacase end-->
 
 </head>
 <body id="backView">
@@ -132,45 +163,35 @@
             </script>
         </li>
         <li class="">
-            <a href="/news.html">客户案例</a>
+            <a href="#">客户案例</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(117%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/e_commerce#e_commerce">电商平台</a>
+                        <a href="/website#website">网站建设</a>
+                        <a href="/wchat#wchat">微信/H5</a>
+                        <a href="/business#business">业务系统</a>
+                    </div>
+                </div>
+            </div>
         </li>
         <li class="">
-            <a>智库</a>
-            <div class="menu-box menu-box-1">
+            <a href="#">智库</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(180%)">
                 <div class="menu-9">
                     <div class="menu-10">
-                        <a href="/about.html">使命与愿景</a>
-                        <a href="/about.html#company" onclick="go_hash('company');">商汤介绍</a>
-                        <a href="/about.html#progress" onclick="go_hash('progress');">商汤之路</a>
-                        <a href="/about.html#culture" onclick="go_hash('culture');">联系我们</a>
-
+                        <a href="/companyActive#company">公司动态</a>
+                        <a href="/tradesActive#trades">行业动态</a>
+                        <a href="/developmentActive#development">研发动态</a>
                     </div>
                 </div>
             </div>
         </li>
         <li class="" style="position: relative;">
-            <a>小程序</a>
-            <div class="menu-box menu-box-1 menu-box-jrwm">
-                <div class="menu-9">
-                    <div class="menu-10">
-                        <a href="https://joinus.sensetime.com/index.html#nrnav-box">走进商汤</a>
-                        <a href="https://joinus.sensetime.com/Index/news.html#nrnav-box">商汤动态</a>
-                        <a href="https://joinus.sensetime.com/Index/resume.html">简历投递</a>
-                    </div>
-                </div>
-            </div>
+            <a href="/miniProgrammer#mini">小程序</a>
         </li>
         <li class="" style="position: relative;">
-            <a>关于我们</a>
-            <div class="menu-box menu-box-1 menu-box-jrwm">
-                <div class="menu-9">
-                    <div class="menu-10">
-                        <a href="https://joinus.sensetime.com/index.html#nrnav-box">走进商汤</a>
-                        <a href="https://joinus.sensetime.com/Index/news.html#nrnav-box">商汤动态</a>
-                        <a href="https://joinus.sensetime.com/Index/resume.html">简历投递</a>
-                    </div>
-                </div>
-            </div>
+            <a href="/about#aboutUS">关于我们</a>
         </li>
     </ul>
     <button type="button" class="navbar-toggle" id="nav-btn">
@@ -187,10 +208,10 @@
             <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
             <a href="/Technology/Core_technology.html">技术能力</a>
             <a href="/Technology/Core_technology.html#styj" onclick="go_hash('styj');">商汤研究</a>
-
         </div>
     </li>
-    <li><a>产品服务</a>
+    <li>
+        <a>产品服务</a>
         <div class="phone-nav-1">
             <p class="fanhui"><span class="mui-icon mui-icon-arrowleft"></span>返回</p>
             <a href="/Service/Security_SenseFoundry.html">智慧城市</a>
@@ -396,7 +417,6 @@
     })
 
     function showvideo(vurl) {
-
         $("#vodeo").modal('show');
         var vd = videojs("my_player");
         vd.src(vurl);
@@ -824,15 +844,6 @@
         <p class="footer-3">商业合作：<span>400 900 5986</span><i> ( 周一到周五 9:00-18:00 )</i>
             <span class="pull-right">business@sensetime.com</span>
         </p>
-        <div class="footer-2">
-            <!--<a href="/logo.zip" id="logolink">商汤LOGO</a>-->
-            <a href="/en/news/resources.html#nrnav-box">资源中心</a>
-            <a href="/cooperation.html">合作伙伴</a>
-            <a href="/events.html">活动中心</a>
-            <a href="/statement.html">法律声明</a>
-            <a href="/clause.html">使用条款</a>
-            <!--			<a href="/en" class="visible-xs-inline">ENGLISH</a>-->
-        </div>
         <div class="footer-4">
             <div class="footer-logo"><img src="/static/images/footer-logo.png"/></div>
             <a class="footer-6" id="wxbox2">
@@ -907,10 +918,6 @@
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
-
-<!-- GrowingIO Analytics code version 2.1 -->
-<!-- Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com -->
-
 <script type='text/javascript'>
     !function (e, t, n, g, i) {
         e[i] = e[i] || function () {
@@ -918,13 +925,7 @@
         }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
     }(window, document, "script", "assets.giocdn.com/2.1/gio.js", "gio");
     gio('init', '8539273bfa333d53', {});
-
-    //custom page code begin here
-
-    //custom page code end here
-
     gio('send');
-
 </script>
 
 <!-- End GrowingIO Analytics code version: 2.1 -->
@@ -945,7 +946,6 @@
     }
 
     gtag('js', new Date());
-
     gtag('config', 'UA-143749905-1');
 </script>
 </body>
