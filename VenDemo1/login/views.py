@@ -17,6 +17,9 @@ def cache(request):
 def home(request):
     return render(request, 'homePage.html')
 
+def service(request):
+    return render(request, 'service.html')
+
 
 def intro(request):
     return render(request, 'projectIntroduce.html')

@@ -37,6 +37,7 @@ urlpatterns = [
     path('website/', login_views.website),
     path('wchat/', login_views.wchat),
     path('business/', login_views.business),
+    path('service/', login_views.service)
 ]
 
 urlpatterns += static_path
