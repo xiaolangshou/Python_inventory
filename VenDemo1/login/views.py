@@ -17,6 +17,7 @@ def cache(request):
 def home(request):
     return render(request, 'homePage.html')
 
+
 def service(request):
     return render(request, 'service.html')
 
@@ -27,6 +28,7 @@ def intro(request):
 
 def cooper(request):
     return render(request, 'cooperation.html')
+
 
 def about(request):
     return render(request, 'about.html')
@@ -62,3 +64,20 @@ def wchat(request):
 
 def business(request):
     return render(request, 'business.html')
+
+
+def solution_ecommerce(request):
+    return render(request, 'solution_ecommerce.html')
+
+
+def solution_government(request):
+    return render(request, 'solution_government.html')
+
+
+def solution_company(request):
+    return render(request, 'solution_company.html')
+
+
+def solution_agriculture(request):
+    return render(request, 'solution_agriculture.html')
+
