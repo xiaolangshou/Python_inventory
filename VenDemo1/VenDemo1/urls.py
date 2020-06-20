@@ -41,7 +41,7 @@ urlpatterns = [
     path('solution_ecommerce/', login_views.solution_ecommerce),
     path('solution_government/', login_views.solution_government),
     path('solution_company/', login_views.solution_company),
-    path('solution_agriculture/', login_views.solution_agriculture)
+    path('solution_agriculture/', login_views.solution_agriculture),
 ]
 
 urlpatterns += static_path

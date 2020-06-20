@@ -979,9 +979,9 @@ footer {
 }
 
 .footer-4 {
-    padding-top: 1.6rem;
+    padding-top: 0rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
