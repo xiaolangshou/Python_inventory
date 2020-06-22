@@ -41,6 +41,58 @@
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style data-styled="" data-styled-version="4.4.1"></style>
     <style data-styled="" data-styled-version="4.4.1"></style>
+
+    <!--[if lte IE9]>
+<script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+<![endif]-->
+    <script>
+        /*@cc_on window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); @*/
+    </script>
+    <link rel="stylesheet" href="/static/css/roll.css">
+    <link rel="stylesheet" href="/static/css/animation.css"/>
+    <link rel="stylesheet" href="/static/demo/css/swiper.min.css"/>
+    <link rel="stylesheet" href="/static/js/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/css/public.css?v1.3"/>
+    <link rel="stylesheet" href="/static/css/index.css?v1.3"/>
+    <link rel="stylesheet" href="/static/css/erji.css"/>
+    <link rel="stylesheet" href="/static/css/iconfont.css"/>
+    <link href="/static/css/video-js.min.css" rel="stylesheet">
+    <script src="/static/js/video.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/static/js/wow.js"></script>
+    <script type="text/javascript" src="/static/js/js.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/js/scrollBar.js"></script>
+    <link type="image/x-icon" rel="shortcut icon" href="/static/images/logo.ico"/>
+
+    <!--eacase start-->
+    <link rel="shortcut icon" href="/static/eascase/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/eascase/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/static/eascase/css/style.css">
+    <script type="text/javascript" src="/static/eascase/js/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript">
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                window.location.href = 'http://m.eacase.com/';
+            }
+        }
+
+        browserRedirect();
+    </script>
+    <script type="text/javascript" src="/static/eascase/maps-1.3_ee2616508c5901d518ab15d.js"></script>
+    <!--eacase end-->
+
 </head>
 <body style="">
 
@@ -51,65 +103,142 @@
 <![endif]-->
 
 <!-- 导航 -->
-<div class="header-box">
-    <div class="header clear"><em>客服热线：400-666-4566　0471-4599699</em> <span><a href="javascript:void(0);"
-                                                                               class="gdsh-top" title="工单售后">工单售后</a><a
-            href="http://www.eacase.com/aboutus/#join-us" title="人才招聘">人才招聘</a><a
-            href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a></span></div>
-</div>
-<div class="nav-box">
-    <div class="nav-con clear"><a href="http://www.eacase.com/" title="一街科技" class="logo"> <img
-            src="/static/solution/logo.png" alt="" class="logo-w"> <img src="/static/solution/logo2.png" alt=""
-                                                                         class="logo-b"> </a>
-        <ul class="nav-list">
-            <li>
-                <a href="/home" title="首页"> <em>首页</em> <span></span> </a>
+<header class="index_header">
+    <a href="/" class="logo" id="logo1"><img src="/static/images/logo.png" class="logo1"/><img
+            src="/static/images/logo_white.png" class="logo2"/></a>
+    <a href="/" class="logo" id="logo2"><img src="/static/images/logo.png"/></a>
+    <ul class="nav" id="nav">
+        <li class="" style="position: relative;">
+            <a>首页</a>
+        </li>
+        <li class="" style="position: relative;">
+            <a onclick="toInternet()">服务</a>
+            <div class="menu-box menu-box-1 menu-box-jrwm">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a onclick="toInternet()">业务系统研发</a>
+                        <a onclick="toInternet()">电商平台开发</a>
+                        <a onclick="toInternet()">APP/微信/H5应用开发</a>
+                        <a onclick="toInternet()">高端网站建设</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="" style="position: relative">
+            <a onclick="toSolution()">解决方案</a>
+            <div class="menu-box menu-anli" style="transform:translateX(-50%)">
+                <div class="scroll_main">
+                    <div class="scroll_wrap">
+                        <div class="scroll_cont">
+                            <div class="menu-15">
+                                <div class="menu-7" style="border: none; padding: 0;">
+                                    <a href="/solution_ecommerce#solution_ecommerce" class="menu-8">
+                                        <p>全网电商解决方案</p>
+                                    </a>
+                                    <a href="/solution_government" class="menu-8">
+                                        <p>政务门户解决方案</p>
+                                    </a>
+                                    <a href="/solution_company" class="menu-8">
+                                        <p>企业门户解决方案</p>
+                                    </a>
+                                    <a href="/solution_agriculture" class="menu-8">
+                                        <p>生态农业解决方案</p>
+                                    </a>
+                                </div>
+                                <a href="/solution_ecommerce" class="menu-8">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-            </li>
-            <li>
-                <a href="/service" title="服务"> <em>服务</em> <span></span> </a>
+                    <div class="scroll_bar">
+                        <div class="scroll_slider"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <script>
+                function toInternet() {
+                    $("html,body").animate({ scrollTop: $("#business").offset().top }, 500);
+                }
 
-            </li>
-            <li>
-                <a href="/solution" title="解决方案"> <em>解决方案</em> <span></span> </a>
-                <ul class="nav-sec clear">
-                    <li><a href="/solution_ecommerce/" title="全网电商解决方案">全网电商解决方案</a></li>
-                    <li><a href="/solution_government/" title="政务门户解决方案">政务门户解决方案</a></li>
-                    <li><a href="/solution_company" title="企业门户解决方案">企业门户解决方案</a></li>
-                    <li><a href="/solution_agriculture/" title="生态农业解决方案">生态农业解决方案</a></li>
-                </ul>
+                function toSolution() {
+                    $("html,body").animate({ scrollTop: $("#solution").offset().top }, 500);
+                }
 
-            </li>
-            <li>
-                <a href="http://www.eacase.com/case/" title="客户案例"> <em>客户案例</em> <span></span> </a>
-                <ul class="nav-sec clear">
-                    <li><a href="http://www.eacase.com/case/e-commerce/" title="电商平台">电商平台</a></li>
-                    <li><a href="http://www.eacase.com/case/web/" title="网站建设">网站建设</a></li>
-                    <li><a href="http://www.eacase.com/case/wechat/" title="微信/APP/H5">微信/APP/H5</a></li>
-                    <li><a href="http://www.eacase.com/case/system/" title="业务系统">业务系统</a></li>
-                </ul>
+                //案例下拉菜单滚动条
+                new CusScrollBar({
+                    contentSelector: '.scroll_cont', //滚动内容区
+                    barSelector: '.scroll_bar', //滚动条
+                    sliderSelector: '.scroll_slider' //滚动滑块
+                });
 
-            </li>
-            <li>
-                <a href="http://www.eacase.com/news/" title="智库"> <em>智库</em> <span></span> </a>
-                <ul class="nav-sec clear">
-                    <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
-                    <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
-                    <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
-                </ul>
+                /*案例下拉菜单*/
 
-            </li>
-            <li>
-                <a href="http://www.eacase.com/applet/" title="小程序"> <em>小程序</em> <span></span> </a>
+                $('.menu-7 .menu-13').each(function (i) {
+                    $(this).click(function () {
+                        if ($(this).parent().next('.menu-14').is(":visible")) {
+                            $(this).removeClass('hover');
+                            $('.menu-14').slideUp(300);
+                        } else {
+                            $('.menu-14').slideUp(300);
+                            $('.menu-13').removeClass('hover');
+                            $(this).addClass('hover');
+                            $(this).parent().next('.menu-14').slideDown(300);
+                        }
 
-            </li>
-            <li>
-                <a href="http://www.eacase.com/aboutus/" title="关于我们"> <em>关于我们</em> <span></span> </a>
+                        setTimeout(function () {
+                            if ($('.menu-15').outerHeight() - 10 <= $('.scroll_cont').outerHeight()) {
+                                $('.scroll_bar').css('opacity', 0)
+                            } else {
+                                $('.scroll_bar').css('opacity', 1)
+                            }
+                        }, 400);
 
-            </li>
-        </ul>
-    </div>
-</div>
+                    })
+                })
+            </script>
+        </li>
+        <li class="" style="position: relative">
+            <a href="#">客户案例</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(-50%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/e_commerce#e_commerce">电商平台</a>
+                        <a href="/website#website">网站建设</a>
+                        <a href="/wchat#wchat">微信/H5</a>
+                        <a href="/business#business">业务系统</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="" style="position: relative">
+            <a href="#">智库</a>
+            <div class="menu-box menu-box-1" style="transform:translateX(-50%)">
+                <div class="menu-9">
+                    <div class="menu-10">
+                        <a href="/companyActive#company">公司动态</a>
+                        <a href="/tradesActive#trades">行业动态</a>
+                        <a href="/developmentActive#development">研发动态</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="" style="position: relative;">
+            <a href="/miniProgrammer#mini">小程序</a>
+        </li>
+        <li class="" style="position: relative;">
+            <a href="/about#aboutUS">关于我们</a>
+        </li>
+    </ul>
+    <button type="button" class="navbar-toggle" id="nav-btn">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar bar-1"></span>
+        <span class="icon-bar bar-2"></span>
+        <span class="icon-bar bar-3"></span>
+    </button>
+</header>
+
 
 
 <!-- 导航 -->
