@@ -70,15 +70,15 @@
     <script type="text/javascript" src="/static/eascase/js/swiper-3.4.2.min.js"></script>
     <script type="text/javascript">
         function browserRedirect() {
-            var sUserAgent = navigator.userAgent.toLowerCase();
-            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
-            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
-            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
-            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
-            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
-            var bIsAndroid = sUserAgent.match(/android/i) == "android";
-            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
-            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            let sUserAgent = navigator.userAgent.toLowerCase();
+            let bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            let bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            let bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            let bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            let bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            let bIsAndroid = sUserAgent.match(/android/i) == "android";
+            let bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            let bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
 
             if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
                 window.location.href = 'http://m.eacase.com/';
@@ -105,10 +105,10 @@
     <a href="/" class="logo" id="logo2"><img src="/static/images/logo.png"/></a>
     <ul class="nav" id="nav">
         <li class="" style="position: relative;">
-            <a>首页</a>
+            <a href="/home">首页</a>
         </li>
         <li class="" style="position: relative;">
-            <a onclick="toInternet()">服务</a>
+            <a href="/home" onclick="toInternet()">服务</a>
             <div class="menu-box menu-box-1 menu-box-jrwm">
                 <div class="menu-9">
                     <div class="menu-10">
@@ -155,11 +155,11 @@
             </div>
             <script>
                 function toInternet() {
-                    $("html,body").animate({ scrollTop: $("#business").offset().top }, 500);
+                    $("html,body").animate({scrollTop: $("#business").offset().top}, 500);
                 }
 
                 function toSolution() {
-                    $("html,body").animate({ scrollTop: $("#solution").offset().top }, 500);
+                    $("html,body").animate({scrollTop: $("#solution").offset().top}, 500);
                 }
 
                 //案例下拉菜单滚动条
@@ -235,493 +235,586 @@
     </button>
 </header>
 
+<div id="headerHeight"></div>
+<style>
+    .logo1 {
+        display: none;
+    }
+
+    .logo2 {
+        display: block;
+    }
+</style>
+<script>
+    $('body').find('.index_header').removeClass("index_header").addClass("header_hover");
+    $(window).scroll(function () {
+        var scroll_header = $(window).scrollTop();
+        if (scroll_header >= 1) {
+            $("header").addClass("index_header")
+            $("header").removeClass("header_hover")
+            $(".nav>li>a").css({"height": "60px", "line-height": "60px"})
+            $(".logo2").hide();
+            $(".logo1").show();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+
+        } else {
+            $("header").removeClass("index_header")
+            $("header").addClass("header_hover")
+            $(".nav>li>a").css({"height": "70px", "line-height": "70px"})
+            $(".logo2").show();
+            $(".logo1").hide();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").hide();
+                $(".logo2").show();
+            });
+        }
+    });
+    $(document).ready(function () {
+        loop:true;
+        var flag = false;
+        var swiperFlag = false;
+        var mySwiper = new Swiper('.banner_index', {
+            effect: 'fade',
+            //		pagination : '.banner_index .swiper-pagination',
+            //		prevButton: '.banner_index .swiper-button-prev',
+            pagination: '.banner_index .swiper-pagination',
+            paginationClickable: true,
+            autoplay: 8000,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            onSlideChangeEnd: function (swiper) {
+                //console.log(swiper.activeIndex);
+                //			console.log(11);
+                var _this = $('.banner_index .swiper-slide').eq(swiper.activeIndex);
+                if (swiper.activeIndex == 0 || swiper.activeIndex == 1) {
+                    var video = $("#v" + swiper.activeIndex)[0];
+                    if ($(window).innerWidth() > 768) {
+                        video.play();
+                    }
+                }
+            }
+        })
+    })
+
+    function showvideo(vurl) {
+        $("#vodeo").modal('show');
+        var vd = videojs("my_player");
+        vd.src(vurl);
+        vd.load(vurl);
+        vd.play();
+    }
+
+    function hidevideo() {
+        $("#vodeo").modal('hide');
+        var vd = videojs("my_player");
+        vd.pause();
+
+    }
+</script>
 <!-- 导航 -->
 
-<!-- banner -->
-<div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner6.jpg) no-repeat center;">
-    <em>新零售全网电商解决方案</em>
-    <span>构建一套全新电商生态理念</span>
-</div>
-<!-- banner -->
-<!-- 全网电商解决方案 -->
-<div class="ebus-top-box">
-    <div class="ebus-tit">
-        <em>新零售时代，多渠道与生态化，才有未来</em>
-        <span>打通PC端、微信端、APP端数据，多端同步，实现线上线下业务全覆盖</span>
+<section id="ecommerce">
+    <!-- banner -->
+    <div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner6.jpg) no-repeat center;">
+        <em>新零售全网电商解决方案</em>
+        <span>构建一套全新电商生态理念</span>
     </div>
-    <div class="ebus-top-con">
-        <img src="/static/solution/sub17.png" alt="">
+    <!-- banner -->
+    <!-- 全网电商解决方案 -->
+    <div class="ebus-top-box">
+        <div class="ebus-tit">
+            <em>新零售时代，多渠道与生态化，才有未来</em>
+            <span>打通PC端、微信端、APP端数据，多端同步，实现线上线下业务全覆盖</span>
+        </div>
+        <div class="ebus-top-con">
+            <img src="/static/solution/sub17.png" alt="">
+        </div>
     </div>
-</div>
-<div class="ebus-ecolo-box">
-    <div class="ebus-tit">
-        <em>创新的运营模式，构建一套全新的电商生态理念</em>
-        <span>一街Mall结合“站点—供货—入驻商家—区域配送”的四位一体思路，从平台到站点到供货商供货，从商家入驻到门<br>店区域配送，再到终端顾客，形成一个完整的电商生态系统。</span>
+    <div class="ebus-ecolo-box">
+        <div class="ebus-tit">
+            <em>创新的运营模式，构建一套全新的电商生态理念</em>
+            <span>一街Mall结合“站点—供货—入驻商家—区域配送”的四位一体思路，从平台到站点到供货商供货，从商家入驻到门<br>店区域配送，再到终端顾客，形成一个完整的电商生态系统。</span>
+        </div>
+        <div class="ebus-ecolo-con">
+            <img src="/static/solution/sub18.png" alt="">
+            <em><img src="/static/solution/icon83.png" alt="">　平台多种盈利模式</em>
+            <ul class="ebus-mod-list clear">
+                <li style="color:#ff7300;">
+                    <img src="/static/solution/icon84.png" alt="">
+                    <em>入驻平台服务费/佣金</em>
+                </li>
+                <li style="color: #31ad23;">
+                    <img src="/static/solution/icon85.png" alt="">
+                    <em>批发商品服务费/佣金</em>
+                </li>
+                <li style="color: #fc0344;">
+                    <img src="/static/solution/icon86.png" alt="">
+                    <em>分销商服务费/佣金</em>
+                </li>
+                <li style="color: #1880d6;">
+                    <img src="/static/solution/icon87.png" alt="">
+                    <em>自营销售收入</em>
+                </li>
+                <li style="color:#7f18d6;">
+                    <img src="/static/solution/icon88.png" alt="">
+                    <em>广告销售收入</em>
+                </li>
+                <li style="color: #ff4800;">
+                    <img src="/static/solution/icon89.png" alt="">
+                    <em>资金沉淀</em>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="ebus-ecolo-con">
-        <img src="/static/solution/sub18.png" alt="">
-        <em><img src="/static/solution/icon83.png" alt="">　平台多种盈利模式</em>
-        <ul class="ebus-mod-list clear">
-            <li style="color:#ff7300;">
-                <img src="/static/solution/icon84.png" alt="">
-                <em>入驻平台服务费/佣金</em>
+    <div class="ebus-app-box">
+        <div class="ebus-tit">
+            <em>移动应用，多端展示，一目了然</em>
+            <span>首页、专题、店铺从PC到移动，想变就变，以更高标准打造的触屏版商城，给用户带来更顺畅、更自然的<br>操作体验，美观兼具实用。</span>
+        </div>
+        <div class="ebus-app-con">
+            <a href="javascript:void(0);" class="ebus-app-prev">
+                <img src="/static/solution/icon32.png" alt="">
+            </a>
+            <div class="ebus-app-list swiper-container-horizontal">
+                <div class="swiper-wrapper" style="transform: translate3d(-710px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                         data-swiper-slide-index="0" style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>微分销</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                         data-swiper-slide-index="1"
+                         style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>APP移动端</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="2"
+                         style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>微商城</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0"
+                         style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>微分销</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1"
+                         style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>APP移动端</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="2"
+                         style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>微商城</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                         data-swiper-slide-index="0" style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>微分销</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                         data-swiper-slide-index="1"
+                         style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>APP移动端</em>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2"
+                         style="width: 166.667px; margin-right: 70px;">
+                        <div>
+                            <img src="/static/solution/sub19.png" alt="">
+                        </div>
+                        <em>微商城</em>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="ebus-app-next">
+                <img src="/static/solution/icon33.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="ebus-mode-con">
+        <div class="ebus-tit">
+            <em>区域新模式，您需要的模式我们都有</em>
+            <span>电商精细化运营时代来临，一街Mall拥有丰富的系统运营模式，商家可在这个电商多样化的时代下随时随意调整运<br>营方案。总有一款适合您的电商运营模式。</span>
+        </div>
+        <ul class="ebus-mode-list clear">
+            <li class="ebus-mode-list-active">
+                <div>
+                    <img src="/static/solution/icon90.png" alt="">
+                    <img src="/static/solution/icon91.png" alt="">
+                </div>
+                <em>B2C自营平台</em>
             </li>
-            <li style="color: #31ad23;">
-                <img src="/static/solution/icon85.png" alt="">
-                <em>批发商品服务费/佣金</em>
+            <li>
+                <div>
+                    <img src="/static/solution/icon92.png" alt="">
+                    <img src="/static/solution/icon93.png" alt="">
+                </div>
+                <em>批发零售</em>
             </li>
-            <li style="color: #fc0344;">
-                <img src="/static/solution/icon86.png" alt="">
-                <em>分销商服务费/佣金</em>
+            <li>
+                <div>
+                    <img src="/static/solution/icon94.png" alt="">
+                    <img src="/static/solution/icon98.png" alt="">
+                </div>
+                <em>B2B招商入驻</em>
             </li>
-            <li style="color: #1880d6;">
-                <img src="/static/solution/icon87.png" alt="">
-                <em>自营销售收入</em>
+            <li>
+                <div>
+                    <img src="/static/solution/icon95.png" alt="">
+                    <img src="/static/solution/icon99.png" alt="">
+                </div>
+                <em>O2O上门服务</em>
             </li>
-            <li style="color:#7f18d6;">
-                <img src="/static/solution/icon88.png" alt="">
-                <em>广告销售收入</em>
+            <li>
+                <div>
+                    <img src="/static/solution/icon96.png" alt="">
+                    <img src="/static/solution/icon100.png" alt="">
+                </div>
+                <em>C2C分销电商</em>
             </li>
-            <li style="color: #ff4800;">
-                <img src="/static/solution/icon89.png" alt="">
-                <em>资金沉淀</em>
+            <li>
+                <div>
+                    <img src="/static/solution/icon97.png" alt="">
+                    <img src="/static/solution/icon101.png" alt="">
+                </div>
+                <em>社群电商</em>
+            </li>
+        </ul>
+        <div class="ebus-mode-body-box">
+            <div class="ebus-mode-body" style="display: block;">
+                <h3>B2C自主运营平台</h3>
+                <span>想做好自身商品资源的商家，可以关闭商家入驻的入口，专心的运营自主<br>商品，通过大商创的多终端覆盖，全面宣传自己的品牌</span>
+                <div class="ebus-mode-des">
+                    <img src="/static/solution/sub20.png" alt="">
+                </div>
+            </div>
+            <div class="ebus-mode-body">
+                <h3>B2B招商入住</h3>
+                <span>一街MALL可以为你招商入驻，除了可以招纳零售商进行平台店铺扩充外<br>还可以招纳供货批发商，为及零售商解决货源问题，让入驻的商家更快速的开店运行</span>
+                <div class="ebus-mode-des">
+                    <img src="/static/solution/sub21.png" alt="">
+                </div>
+            </div>
+            <div class="ebus-mode-body">
+                <h3>B2B招商入住</h3>
+                <span>一街MALL可以为你招商入驻，除了可以招纳零售商进行平台店铺扩充外<br>还可以招纳供货批发商，为及零售商解决货源问题，让入驻的商家更快速的开店运行</span>
+                <div class="ebus-mode-des">
+                    <img src="/static/solution/sub25.png" alt="">
+                </div>
+            </div>
+            <div class="ebus-mode-body">
+                <h3>O2O上门服务</h3>
+                <span>一街MALL移动端的微商城及APP都带有LBS定位功能，用户可通过大商创的移动端<br>清晰的定位到周边的商家店铺，在选择商品后可以到店体验，也可以由商家进行上门服务</span>
+                <div class="ebus-mode-des">
+                    <img src="/static/solution/sub22.png" alt="">
+                </div>
+            </div>
+            <div class="ebus-mode-body">
+                <h3>发展分销模式为平台更好解决推广问题</h3>
+                <span>平台拥有多种分销渠道，PC端分成，拼团众筹，微信分销，APP分销等众多渠道<br>吸纳更多用户成为你的分销商。为平台更好的解决推广及销量的问题</span>
+                <div class="ebus-mode-des">
+                    <img src="/static/solution/sub23.png" alt="">
+                </div>
+            </div>
+            <div class="ebus-mode-body">
+                <h3>通过社群聚拢粉丝互动，转化为订单销量</h3>
+                <span>平台的人气发展离不开粉丝的支撑，而社群就是为了聚拢粉丝而产生的模块，通过社群的互动交流更有效的促进用户对平<br>台的粘性，通过社群里的晒单已经新品发布帖，更好的提高订单转化率</span>
+                <div class="ebus-mode-des">
+                    <img src="/static/solution/sub24.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ebus-solut-box">
+        <ul class="ebus-solut-list clear">
+            <li>
+                <h3>全国电商解决方案</h3>
+                <img src="/static/solution/icon102.png" alt="">
+                <span>通过多城市仓库管理库存功能<br>实现全国电商业务的覆盖</span>
+                <div>
+                    <img src="/static/solution/icon5.png" alt="">
+                </div>
+            </li>
+            <li>
+                <h3>同城电商解决方案</h3>
+                <img src="/static/solution/icon102.png" alt="">
+                <span>建立城市电子商务便民服务中<br>心搭建一站式购物平台</span>
+                <div>
+                    <img src="/static/solution/icon5.png" alt="">
+                </div>
+            </li>
+            <li>
+                <h3>跨境电商解决方案</h3>
+                <img src="/static/solution/icon102.png" alt="">
+                <span>打破传统外贸模式全面发展国<br>外渠道</span>
+                <div>
+                    <img src="/static/solution/icon5.png" alt="">
+                </div>
+            </li>
+            <li>
+                <h3>区域电商解决方案</h3>
+                <img src="/static/solution/icon102.png" alt="">
+                <span>整合一块区域的资源精准做好<br>区域供销</span>
+                <div>
+                    <img src="/static/solution/icon5.png" alt="">
+                </div>
             </li>
         </ul>
     </div>
-</div>
-<div class="ebus-app-box">
-    <div class="ebus-tit">
-        <em>移动应用，多端展示，一目了然</em>
-        <span>首页、专题、店铺从PC到移动，想变就变，以更高标准打造的触屏版商城，给用户带来更顺畅、更自然的<br>操作体验，美观兼具实用。</span>
-    </div>
-    <div class="ebus-app-con">
-        <a href="javascript:void(0);" class="ebus-app-prev">
-            <img src="/static/solution/icon32.png" alt="">
-        </a>
-        <div class="ebus-app-list swiper-container-horizontal">
-            <div class="swiper-wrapper" style="transform: translate3d(-710px, 0px, 0px); transition-duration: 0ms;">
-                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
-                     data-swiper-slide-index="0" style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>微分销</em>
-                </div>
-                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1"
-                     style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>APP移动端</em>
-                </div>
-                <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="2"
-                     style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>微商城</em>
-                </div>
-                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0"
-                     style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>微分销</em>
-                </div>
-                <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1"
-                     style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>APP移动端</em>
-                </div>
-                <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="2"
-                     style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>微商城</em>
-                </div>
-                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
-                     data-swiper-slide-index="0" style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>微分销</em>
-                </div>
-                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="1"
-                     style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>APP移动端</em>
-                </div>
-                <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2"
-                     style="width: 166.667px; margin-right: 70px;">
-                    <div>
-                        <img src="/static/solution/sub19.png" alt="">
-                    </div>
-                    <em>微商城</em>
-                </div>
-            </div>
+    <div class="ebus-demo-con">
+        <div class="ebus-tit">
+            <em>我们帮助更多客户创造奇迹，让天下没有难做的电商</em>
+            <span>为企业实现商业与技术的完美融合，成就一街在电商行业的领先地位</span>
         </div>
-        <a href="javascript:void(0);" class="ebus-app-next">
-            <img src="/static/solution/icon33.png" alt="">
-        </a>
-    </div>
-</div>
-<div class="ebus-mode-con">
-    <div class="ebus-tit">
-        <em>区域新模式，您需要的模式我们都有</em>
-        <span>电商精细化运营时代来临，一街Mall拥有丰富的系统运营模式，商家可在这个电商多样化的时代下随时随意调整运<br>营方案。总有一款适合您的电商运营模式。</span>
-    </div>
-    <ul class="ebus-mode-list clear">
-        <li class="ebus-mode-list-active">
-            <div>
-                <img src="/static/solution/icon90.png" alt="">
-                <img src="/static/solution/icon91.png" alt="">
-            </div>
-            <em>B2C自营平台</em>
-        </li>
-        <li>
-            <div>
-                <img src="/static/solution/icon92.png" alt="">
-                <img src="/static/solution/icon93.png" alt="">
-            </div>
-            <em>批发零售</em>
-        </li>
-        <li>
-            <div>
-                <img src="/static/solution/icon94.png" alt="">
-                <img src="/static/solution/icon98.png" alt="">
-            </div>
-            <em>B2B招商入驻</em>
-        </li>
-        <li>
-            <div>
-                <img src="/static/solution/icon95.png" alt="">
-                <img src="/static/solution/icon99.png" alt="">
-            </div>
-            <em>O2O上门服务</em>
-        </li>
-        <li>
-            <div>
-                <img src="/static/solution/icon96.png" alt="">
-                <img src="/static/solution/icon100.png" alt="">
-            </div>
-            <em>C2C分销电商</em>
-        </li>
-        <li>
-            <div>
-                <img src="/static/solution/icon97.png" alt="">
-                <img src="/static/solution/icon101.png" alt="">
-            </div>
-            <em>社群电商</em>
-        </li>
-    </ul>
-    <div class="ebus-mode-body-box">
-        <div class="ebus-mode-body" style="display: block;">
-            <h3>B2C自主运营平台</h3>
-            <span>想做好自身商品资源的商家，可以关闭商家入驻的入口，专心的运营自主<br>商品，通过大商创的多终端覆盖，全面宣传自己的品牌</span>
-            <div class="ebus-mode-des">
-                <img src="/static/solution/sub20.png" alt="">
-            </div>
-        </div>
-        <div class="ebus-mode-body">
-            <h3>B2B招商入住</h3>
-            <span>一街MALL可以为你招商入驻，除了可以招纳零售商进行平台店铺扩充外<br>还可以招纳供货批发商，为及零售商解决货源问题，让入驻的商家更快速的开店运行</span>
-            <div class="ebus-mode-des">
-                <img src="/static/solution/sub21.png" alt="">
-            </div>
-        </div>
-        <div class="ebus-mode-body">
-            <h3>B2B招商入住</h3>
-            <span>一街MALL可以为你招商入驻，除了可以招纳零售商进行平台店铺扩充外<br>还可以招纳供货批发商，为及零售商解决货源问题，让入驻的商家更快速的开店运行</span>
-            <div class="ebus-mode-des">
-                <img src="/static/solution/sub25.png" alt="">
-            </div>
-        </div>
-        <div class="ebus-mode-body">
-            <h3>O2O上门服务</h3>
-            <span>一街MALL移动端的微商城及APP都带有LBS定位功能，用户可通过大商创的移动端<br>清晰的定位到周边的商家店铺，在选择商品后可以到店体验，也可以由商家进行上门服务</span>
-            <div class="ebus-mode-des">
-                <img src="/static/solution/sub22.png" alt="">
-            </div>
-        </div>
-        <div class="ebus-mode-body">
-            <h3>发展分销模式为平台更好解决推广问题</h3>
-            <span>平台拥有多种分销渠道，PC端分成，拼团众筹，微信分销，APP分销等众多渠道<br>吸纳更多用户成为你的分销商。为平台更好的解决推广及销量的问题</span>
-            <div class="ebus-mode-des">
-                <img src="/static/solution/sub23.png" alt="">
-            </div>
-        </div>
-        <div class="ebus-mode-body">
-            <h3>通过社群聚拢粉丝互动，转化为订单销量</h3>
-            <span>平台的人气发展离不开粉丝的支撑，而社群就是为了聚拢粉丝而产生的模块，通过社群的互动交流更有效的促进用户对平<br>台的粘性，通过社群里的晒单已经新品发布帖，更好的提高订单转化率</span>
-            <div class="ebus-mode-des">
-                <img src="/static/solution/sub24.png" alt="">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="ebus-solut-box">
-    <ul class="ebus-solut-list clear">
-        <li>
-            <h3>全国电商解决方案</h3>
-            <img src="/static/solution/icon102.png" alt="">
-            <span>通过多城市仓库管理库存功能<br>实现全国电商业务的覆盖</span>
-            <div>
-                <img src="/static/solution/icon5.png" alt="">
-            </div>
-        </li>
-        <li>
-            <h3>同城电商解决方案</h3>
-            <img src="/static/solution/icon102.png" alt="">
-            <span>建立城市电子商务便民服务中<br>心搭建一站式购物平台</span>
-            <div>
-                <img src="/static/solution/icon5.png" alt="">
-            </div>
-        </li>
-        <li>
-            <h3>跨境电商解决方案</h3>
-            <img src="/static/solution/icon102.png" alt="">
-            <span>打破传统外贸模式全面发展国<br>外渠道</span>
-            <div>
-                <img src="/static/solution/icon5.png" alt="">
-            </div>
-        </li>
-        <li>
-            <h3>区域电商解决方案</h3>
-            <img src="/static/solution/icon102.png" alt="">
-            <span>整合一块区域的资源精准做好<br>区域供销</span>
-            <div>
-                <img src="/static/solution/icon5.png" alt="">
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="ebus-demo-con">
-    <div class="ebus-tit">
-        <em>我们帮助更多客户创造奇迹，让天下没有难做的电商</em>
-        <span>为企业实现商业与技术的完美融合，成就一街在电商行业的领先地位</span>
-    </div>
-    <ul class="ebus-demo-list clear">
-        <li>
-            <img src="/static/solution/e-case1.jpg" alt="">
-            <div class="ebus-demo-body">
-                <img src="/static/solution/e-case-logo1.jpg" alt="">
-                <div>内蒙古商网是内蒙古自治区电子商务公共服务体系的重要组成部分，是开放性的电商综合服务平台。</div>
-                <em>网站链接：<a href="http://www.nmgbuy.com/" target="_blank">http://www.nmgbuy.com/</a></em>
-            </div>
-        </li>
-        <li>
-            <img src="/static/solution/e-case2.jpg" alt="科尔沁商城">
-            <div class="ebus-demo-body">
-                <img src="/static/solution/e-case-logo2.jpg" alt="科尔沁商城">
-                <div>科尔沁商城是县域电子商务创新的销售载体，致力于发展县域传统商家的电子商务应用，由内蒙古联创电子商务有限公司在2016年12月创立。</div>
-                <em>网站链接：<a href="http://www.ynsc360.com/" target="_blank">http://www.ynsc360.com/</a></em>
-            </div>
-        </li>
-        <li>
-            <img src="/static/solution/e-case3.jpg" alt="cake+时尚蛋糕">
-            <div class="ebus-demo-body">
-                <img src="/static/solution/e-case-logo3.jpg" alt="cake+时尚蛋糕">
-                <div>Cake+以蛋糕订购、蛋糕DIY为业务中心点，其视野半径可延伸至生日party策划，企业集体蛋糕订购，蛋糕材料家庭装、庆典蛋糕定制等。</div>
-                <em>网站链接：<a href="http://cakejia.laiwa.cc/" target="_blank">http://cakejia.laiwa.cc/</a></em>
-            </div>
-        </li>
-    </ul>
-</div>
-<!-- 全网电商解决方案 -->
-<!-- 底部 -->
-
-<div class="bottom-box">
-    <div class="bottom-top clear">
-        <ul class="bottom-nav clear">
+        <ul class="ebus-demo-list clear">
             <li>
-                <a href="http://www.eacase.com/service/" title="服务">服务</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/service/" title="业务系统研发">业务系统研发</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="电商平台业务研发">电商平台业务研发</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="高端网站建设">高端网站建设</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="微信/H5应用开发">APP/微信/H5开发</a></li>
-                </ul>
+                <img src="/static/solution/e-case1.jpg" alt="">
+                <div class="ebus-demo-body">
+                    <img src="/static/solution/e-case-logo1.jpg" alt="">
+                    <div>内蒙古商网是内蒙古自治区电子商务公共服务体系的重要组成部分，是开放性的电商综合服务平台。</div>
+                    <em>网站链接：<a href="http://www.nmgbuy.com/" target="_blank">http://www.nmgbuy.com/</a></em>
+                </div>
             </li>
             <li>
-                <a href="http://www.eacase.com/index.php?v=listing&amp;cid=63" title="解决方案">解决方案</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/solution/e-commerce/" title="全网电商解决方案">全网电商解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/government/" title="政务门户解决方案">政务门户解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/company/" title="企业门户解决方案">企业门户解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/agriculture/" title="生态农业互联网解决方案">生态农业解决方案</a></li>
-                </ul>
+                <img src="/static/solution/e-case2.jpg" alt="科尔沁商城">
+                <div class="ebus-demo-body">
+                    <img src="/static/solution/e-case-logo2.jpg" alt="科尔沁商城">
+                    <div>科尔沁商城是县域电子商务创新的销售载体，致力于发展县域传统商家的电子商务应用，由内蒙古联创电子商务有限公司在2016年12月创立。</div>
+                    <em>网站链接：<a href="http://www.ynsc360.com/" target="_blank">http://www.ynsc360.com/</a></em>
+                </div>
             </li>
             <li>
-                <a href="http://www.eacase.com/news/" title="新闻动态">新闻动态</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
-                    <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
-                    <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="http://www.eacase.com/aboutus/" title="关于我们">关于我们</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/aboutus/" title="公司简介">公司简介</a></li>
-                    <li><a href="http://www.eacase.com/aboutus/#join-us" title="加入我们">加入我们</a></li>
-                    <li><a href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a>
-                    </li>
-                </ul>
+                <img src="/static/solution/e-case3.jpg" alt="cake+时尚蛋糕">
+                <div class="ebus-demo-body">
+                    <img src="/static/solution/e-case-logo3.jpg" alt="cake+时尚蛋糕">
+                    <div>Cake+以蛋糕订购、蛋糕DIY为业务中心点，其视野半径可延伸至生日party策划，企业集体蛋糕订购，蛋糕材料家庭装、庆典蛋糕定制等。</div>
+                    <em>网站链接：<a href="http://cakejia.laiwa.cc/" target="_blank">http://cakejia.laiwa.cc/</a></em>
+                </div>
             </li>
         </ul>
-        <div class="bottom-message">
-            <form id="mayform" method="post" action="http://www.eacase.com/solution/index.php?m=content&amp;v=message">
-                <ul class="bottom-message-list">
-                    <li class="clear">
-                        <img src="/static/solution/icon14.png" alt="">
-                        <input type="text" name="name" value="" id="name">
-                    </li>
-                    <li class="clear">
-                        <img src="/static/solution/icon15.png" alt="">
-                        <input type="text" name="phone" value="" id="phone">
-                    </li>
-                    <li class="clear">
-                        <img src="/static/solution/icon16.png" alt="">
-                        <textarea id="message" name="xuqiu"></textarea>
-                    </li>
-                    <li class="clear">
-                        <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4"
-                               errormsg="请输入验证码" sucmsg="输入正确"
-                               onfocus="if($(&#39;#code_img_r&#39;).attr(&#39;src&#39;) == &#39;http://www.eacase.com/res/images/logincode.gif&#39;)$(&#39;#code_img_r&#39;).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());"
-                               class="li-3">
-                        <p class="li-2">
-                            <img src="/static/solution/logincode.gif" id="code_img_r" alt="点击刷新"
-                                 onclick="$(this).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());">
-                        </p>
-                    </li>
-                    <li class="clear">
-                        <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
-                    </li>
-                </ul>
-            </form>
+    </div>
+    <!-- 全网电商解决方案 -->
+    <!-- 底部 -->
+
+    <div class="bottom-box">
+        <div class="bottom-top clear">
+            <ul class="bottom-nav clear">
+                <li>
+                    <a href="http://www.eacase.com/service/" title="服务">服务</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/service/" title="业务系统研发">业务系统研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="电商平台业务研发">电商平台业务研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="高端网站建设">高端网站建设</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="微信/H5应用开发">APP/微信/H5开发</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/index.php?v=listing&amp;cid=63" title="解决方案">解决方案</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/solution/e-commerce/" title="全网电商解决方案">全网电商解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/government/" title="政务门户解决方案">政务门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/company/" title="企业门户解决方案">企业门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/agriculture/" title="生态农业互联网解决方案">生态农业解决方案</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/news/" title="新闻动态">新闻动态</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
+                        <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
+                        <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/aboutus/" title="关于我们">关于我们</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/aboutus/" title="公司简介">公司简介</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#join-us" title="加入我们">加入我们</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="bottom-message">
+                <form id="mayform" method="post"
+                      action="http://www.eacase.com/solution/index.php?m=content&amp;v=message">
+                    <ul class="bottom-message-list">
+                        <li class="clear">
+                            <img src="/static/solution/icon14.png" alt="">
+                            <input type="text" name="name" value="" id="name">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/solution/icon15.png" alt="">
+                            <input type="text" name="phone" value="" id="phone">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/solution/icon16.png" alt="">
+                            <textarea id="message" name="xuqiu"></textarea>
+                        </li>
+                        <li class="clear">
+                            <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4"
+                                   errormsg="请输入验证码" sucmsg="输入正确"
+                                   onfocus="if($(&#39;#code_img_r&#39;).attr(&#39;src&#39;) == &#39;http://www.eacase.com/res/images/logincode.gif&#39;)$(&#39;#code_img_r&#39;).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());"
+                                   class="li-3">
+                            <p class="li-2">
+                                <img src="/static/solution/logincode.gif" id="code_img_r" alt="点击刷新"
+                                     onclick="$(this).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());">
+                            </p>
+                        </li>
+                        <li class="clear">
+                            <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-bottom">
+            <div class="bottom-bottom-con clear">
+                <div class="bottom-b-l">
+                    <p>400-666-4566</p>
+                    <p>0471-4599699</p>
+                </div>
+                <div class="bottom-b-c">
+                    <p>admin@eacase.com</p>
+                    <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
+                    <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
+                </div>
+                <div class="bottom-b-r">
+                    <img src="/static/solution/ewm.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-copy">
+            <p>©2008-2017 呼和浩特市一街科技有限公司 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">蒙ICP备10002867号-7</a>　<a
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203"
+                    target="_blank"><img
+                    src="/static/solution/gaba.png"> 蒙公网安备 15019002150203号</a>
+                <script src="/static/solution/z_stat.php" language="JavaScript"></script>
+                <script src="/static/solution/core.php" charset="utf-8" type="text/javascript"></script>
+                <a href="https://www.cnzz.com/stat/website.php?web_id=1256560824" target="_blank" title="站长统计">站长统计</a>
+            </p>
         </div>
     </div>
-    <div class="bottom-bottom">
-        <div class="bottom-bottom-con clear">
-            <div class="bottom-b-l">
-                <p>400-666-4566</p>
-                <p>0471-4599699</p>
-            </div>
-            <div class="bottom-b-c">
-                <p>admin@eacase.com</p>
-                <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
-                <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
-            </div>
-            <div class="bottom-b-r">
-                <img src="/static/solution/ewm.png" alt="">
-            </div>
-        </div>
+    <!-- 飘窗 -->
+    <div class="web-float-box">
+        <ul class="web-float-list">
+            <li class="float-kf">
+                <i class="iconfont"></i>
+                <em>联系客服</em>
+            </li>
+            <!--<li>
+              <i class="iconfont">&#xe631;</i>
+              <em>QQ</em>
+            </li> -->
+            <li>
+                <i class="iconfont"></i>
+                <em>微信</em>
+                <img src="/static/solution/wechat.jpg" alt="">
+            </li>
+            <li class="go-top">
+                <i class="iconfont"></i>
+                <em>返回顶部</em>
+            </li>
+        </ul>
     </div>
-    <div class="bottom-copy">
-        <p>©2008-2017 呼和浩特市一街科技有限公司 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">蒙ICP备10002867号-7</a>　<a
-                href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203" target="_blank"><img
-                src="/static/solution/gaba.png"> 蒙公网安备 15019002150203号</a>
-            <script src="/static/solution/z_stat.php" language="JavaScript"></script>
-            <script src="/static/solution/core.php" charset="utf-8" type="text/javascript"></script>
-            <a href="https://www.cnzz.com/stat/website.php?web_id=1256560824" target="_blank" title="站长统计">站长统计</a></p>
-    </div>
-</div>
-<!-- 飘窗 -->
-<div class="web-float-box">
-    <ul class="web-float-list">
-        <li class="float-kf">
-            <i class="iconfont"></i>
-            <em>联系客服</em>
-        </li>
-        <!--<li>
-          <i class="iconfont">&#xe631;</i>
-          <em>QQ</em>
-        </li> -->
-        <li>
-            <i class="iconfont"></i>
-            <em>微信</em>
-            <img src="/static/solution/wechat.jpg" alt="">
-        </li>
-        <li class="go-top">
-            <i class="iconfont"></i>
-            <em>返回顶部</em>
-        </li>
-    </ul>
-</div>
-<!-- 飘窗 -->
-<style type="text/css">
-    .li-3 {
-        float: left;
-        width: 200px !important;
-        padding: 0 !important;
-    }
+    <!-- 飘窗 -->
+    <style type="text/css">
+        .li-3 {
+            float: left;
+            width: 200px !important;
+            padding: 0 !important;
+        }
 
-    .li-2 {
-        float: right;
-    }
+        .li-2 {
+            float: right;
+        }
 
-    .li-2 > img {
-        margin: 0 !important;
-        height: 38px !important;
-    }
-</style>    <!-- 底部 -->
-<!-- 脚部 -->
+        .li-2 > img {
+            margin: 0 !important;
+            height: 38px !important;
+        }
+    </style>    <!-- 底部 -->
+    <!-- 脚部 -->
 
-<script type="text/javascript" src="/static/solution/jquery.2.0.0.js"></script>
-<script type="text/javascript" src="/static/solution/common.js"></script>
-<script type="text/javascript" src="/static/solution/alerttool.js"></script>
-<!-- 客服 -->
-<script type="text/javascript">
-    (function (m, ei, q, i, a, j, s) {
-        m[i] = m[i] || function () {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        j = ei.createElement(q),
-            s = ei.getElementsByTagName(q)[0];
-        j.async = true;
-        j.charset = 'UTF-8';
-        j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
-        s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '_MEIQIA');
-    _MEIQIA('entId', '18197');
-    _MEIQIA('withoutBtn');
-    _MEIQIA('init');
+    <script type="text/javascript" src="/static/solution/jquery.2.0.0.js"></script>
+    <script type="text/javascript" src="/static/solution/common.js"></script>
+    <script type="text/javascript" src="/static/solution/alerttool.js"></script>
+    <!-- 客服 -->
+    <script type="text/javascript">
+        (function (m, ei, q, i, a, j, s) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '_MEIQIA');
+        _MEIQIA('entId', '18197');
+        _MEIQIA('withoutBtn');
+        _MEIQIA('init');
 
-    $('.float-kf,.gdsh-top').on('click', function () {
-        _MEIQIA('showPanel');
-    });
-</script>
-<!-- 客服 -->
-<!-- 脚部 -->
+        $('.float-kf,.gdsh-top').on('click', function () {
+            _MEIQIA('showPanel');
+        });
+    </script>
+    <!-- 客服 -->
+    <!-- 脚部 -->
 
-<script type="text/javascript">
-    var ebusAppList = new Swiper('.ebus-app-list', {
-        loop: true,
-        slidesPerView: 3,
-        spaceBetween: 70,
-        autoPlay: 3000
-    });
-    $('.ebus-app-prev').on('click', function () {
-        ebusAppList.slidePrev();
-    });
-    $('.ebus-app-next').on('click', function () {
-        ebusAppList.slideNext();
-    });
-    var index = 0;
-    $('.ebus-mode-list>li').eq(index).addClass('ebus-mode-list-active');
-    $('.ebus-mode-body').eq(index).show();
-    $('.ebus-mode-list>li').hover(function () {
-        $('.ebus-mode-list>li').removeClass('ebus-mode-list-active');
-        $('.ebus-mode-body').hide();
-        var index = $(this).index();
+    <script type="text/javascript">
+        var ebusAppList = new Swiper('.ebus-app-list', {
+            loop: true,
+            slidesPerView: 3,
+            spaceBetween: 70,
+            autoPlay: 3000
+        });
+        $('.ebus-app-prev').on('click', function () {
+            ebusAppList.slidePrev();
+        });
+        $('.ebus-app-next').on('click', function () {
+            ebusAppList.slideNext();
+        });
+        var index = 0;
         $('.ebus-mode-list>li').eq(index).addClass('ebus-mode-list-active');
         $('.ebus-mode-body').eq(index).show();
-</script>
+        $('.ebus-mode-list>li').hover(function () {
+            $('.ebus-mode-list>li').removeClass('ebus-mode-list-active');
+            $('.ebus-mode-body').hide();
+            var index = $(this).index();
+            $('.ebus-mode-list>li').eq(index).addClass('ebus-mode-list-active');
+            $('.ebus-mode-body').eq(index).show();
+    </script>
+</section>
 
 <iframe name="meiqia" id="_meiqia_messager" width="0" height="0" src="/static/solution/sync-cookie.html"
         style="width: 0px !important; height: 0px !important; display: none !important; visibility: hidden !important;"></iframe>

@@ -159,11 +159,11 @@
             </div>
             <script>
                 function toInternet() {
-                    $("html,body").animate({ scrollTop: $("#business").offset().top }, 500);
+                    $("html,body").animate({scrollTop: $("#business").offset().top}, 500);
                 }
 
                 function toSolution() {
-                    $("html,body").animate({ scrollTop: $("#solution").offset().top }, 500);
+                    $("html,body").animate({scrollTop: $("#solution").offset().top}, 500);
                 }
 
                 //案例下拉菜单滚动条
@@ -239,296 +239,384 @@
     </button>
 </header>
 
+<div id="headerHeight"></div>
+<style>
+    .logo1 {
+        display: none;
+    }
 
+    .logo2 {
+        display: block;
+    }
+</style>
+<script>
+    $('body').find('.index_header').removeClass("index_header").addClass("header_hover");
+    $(window).scroll(function () {
+        var scroll_header = $(window).scrollTop();
+        if (scroll_header >= 1) {
+            $("header").addClass("index_header")
+            $("header").removeClass("header_hover")
+            $(".nav>li>a").css({"height": "60px", "line-height": "60px"})
+            $(".logo2").hide();
+            $(".logo1").show();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
 
-<!-- 导航 -->
-<!-- banner -->
-<div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner3.jpg) no-repeat center;">
-    <em>生态农业互联网解决方案</em>
-    <span>让绿色生态能用眼睛看见</span>
-</div>
-<!-- banner -->
-<!-- 农业解决方案 -->
-<div class="agric-tit">
-    <em>生态农业互联网解决方案</em>
-    <img src="/static/solution/service1.jpg" alt="">
-    <span>生态农业就在身边，绿色生态并不遥远，通过具象化的手段向消费者展示您的企业实力与规模，将商品的生产、包装、运输的过程事无巨细<br>的呈现在消费者眼前，配合参观、体验活动，全方位的展现企业绿色生态的经营理念。</span>
-</div>
-<div class="argic-mean-box">
-    <ul class="argic-mean-list clear">
-        <li class="clear">
-            <img src="/static/solution/ny1.png" alt="">
-            <div class="argic-mean-info">
-                <em>图文快速分享</em>
-                <span>想展现绿色生态，却又不知道如何呈现？图文快速分享，不仅让你高端大气上档次的在网站上...</span>
-            </div>
-            <div class="argic-mean-alert clear">
+        } else {
+            $("header").removeClass("index_header")
+            $("header").addClass("header_hover")
+            $(".nav>li>a").css({"height": "70px", "line-height": "70px"})
+            $(".logo2").show();
+            $(".logo1").hide();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").hide();
+                $(".logo2").show();
+            });
+        }
+    });
+    $(document).ready(function () {
+        loop:true;
+        var flag = false;
+        var swiperFlag = false;
+        var mySwiper = new Swiper('.banner_index', {
+            effect: 'fade',
+            //		pagination : '.banner_index .swiper-pagination',
+            //		prevButton: '.banner_index .swiper-button-prev',
+            pagination: '.banner_index .swiper-pagination',
+            paginationClickable: true,
+            autoplay: 8000,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            onSlideChangeEnd: function (swiper) {
+                //console.log(swiper.activeIndex);
+                //			console.log(11);
+                var _this = $('.banner_index .swiper-slide').eq(swiper.activeIndex);
+                if (swiper.activeIndex == 0 || swiper.activeIndex == 1) {
+                    var video = $("#v" + swiper.activeIndex)[0];
+                    if ($(window).innerWidth() > 768) {
+                        video.play();
+                    }
+                }
+            }
+        })
+    })
+
+    function showvideo(vurl) {
+        $("#vodeo").modal('show');
+        var vd = videojs("my_player");
+        vd.src(vurl);
+        vd.load(vurl);
+        vd.play();
+    }
+
+    function hidevideo() {
+        $("#vodeo").modal('hide');
+        var vd = videojs("my_player");
+        vd.pause();
+
+    }
+</script>
+
+<section id="agriculture">
+    <!-- 导航 -->
+    <!-- banner -->
+    <div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner3.jpg) no-repeat center;">
+        <em>生态农业互联网解决方案</em>
+        <span>让绿色生态能用眼睛看见</span>
+    </div>
+    <!-- banner -->
+    <!-- 农业解决方案 -->
+    <div class="agric-tit">
+        <em>生态农业互联网解决方案</em>
+        <img src="/static/solution/service1.jpg" alt="">
+        <span>生态农业就在身边，绿色生态并不遥远，通过具象化的手段向消费者展示您的企业实力与规模，将商品的生产、包装、运输的过程事无巨细<br>的呈现在消费者眼前，配合参观、体验活动，全方位的展现企业绿色生态的经营理念。</span>
+    </div>
+    <div class="argic-mean-box">
+        <ul class="argic-mean-list clear">
+            <li class="clear">
                 <img src="/static/solution/ny1.png" alt="">
                 <div class="argic-mean-info">
                     <em>图文快速分享</em>
-                    <span>想展现绿色生态，却又不知道如何呈现？图文快速分享，不仅让你高端大气上档次的在网站上展示出来，更能够多屏互通，不受终端影响，还可以一键分享，利用社交媒体分享给更多人。</span>
+                    <span>想展现绿色生态，却又不知道如何呈现？图文快速分享，不仅让你高端大气上档次的在网站上...</span>
                 </div>
-            </div>
-        </li>
-        <li class="clear">
-            <img src="/static/solution/ny2.png" alt="">
-            <div class="argic-mean-info">
-                <em>可追溯信息查询</em>
-                <span>消费者关注食品安全的意识越来越强，对于生态农业企业来说，可追溯无疑是向消费者展示...</span>
-            </div>
-            <div class="argic-mean-alert clear">
+                <div class="argic-mean-alert clear">
+                    <img src="/static/solution/ny1.png" alt="">
+                    <div class="argic-mean-info">
+                        <em>图文快速分享</em>
+                        <span>想展现绿色生态，却又不知道如何呈现？图文快速分享，不仅让你高端大气上档次的在网站上展示出来，更能够多屏互通，不受终端影响，还可以一键分享，利用社交媒体分享给更多人。</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clear">
                 <img src="/static/solution/ny2.png" alt="">
                 <div class="argic-mean-info">
                     <em>可追溯信息查询</em>
-                    <span>消费者关注食品安全的意识越来越强，对于生态农业企业来说，可追溯无疑是向消费者展示自身商品安全的一个最简单有效的方法。我们为企业提供了一个追溯信息的展示系统，该系统与可追溯系统对接后，消费者根据条码即可快速查看商品追溯信息。</span>
+                    <span>消费者关注食品安全的意识越来越强，对于生态农业企业来说，可追溯无疑是向消费者展示...</span>
                 </div>
-            </div>
-        </li>
-        <li class="clear">
-            <img src="/static/solution/ny5.png" alt="">
-            <div class="argic-mean-info">
-                <em>轻松尝试新零售</em>
-                <span>摆脱传统经销模式，摆脱传统渠道束缚，带你尝试互联网新零售。上架商品、在线购买...</span>
-            </div>
-            <div class="argic-mean-alert clear">
+                <div class="argic-mean-alert clear">
+                    <img src="/static/solution/ny2.png" alt="">
+                    <div class="argic-mean-info">
+                        <em>可追溯信息查询</em>
+                        <span>消费者关注食品安全的意识越来越强，对于生态农业企业来说，可追溯无疑是向消费者展示自身商品安全的一个最简单有效的方法。我们为企业提供了一个追溯信息的展示系统，该系统与可追溯系统对接后，消费者根据条码即可快速查看商品追溯信息。</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clear">
                 <img src="/static/solution/ny5.png" alt="">
                 <div class="argic-mean-info">
                     <em>轻松尝试新零售</em>
-                    <span>摆脱传统经销模式，摆脱传统渠道束缚，带你尝试互联网新零售。上架商品、在线购买、订单发货一样都不少，你需要的，也许只是联系一家快递公司进行合作而已。</span>
+                    <span>摆脱传统经销模式，摆脱传统渠道束缚，带你尝试互联网新零售。上架商品、在线购买...</span>
                 </div>
-            </div>
-        </li>
-        <li class="clear">
-            <img src="/static/solution/ny6.png" alt="">
-            <div class="argic-mean-info">
-                <em>图文展示</em>
-                <span>在后台将拍摄照片进行上传，配上对应的文字内容，根据系统结构进行排版编辑，信息展示...</span>
-            </div>
-            <div class="argic-mean-alert clear">
+                <div class="argic-mean-alert clear">
+                    <img src="/static/solution/ny5.png" alt="">
+                    <div class="argic-mean-info">
+                        <em>轻松尝试新零售</em>
+                        <span>摆脱传统经销模式，摆脱传统渠道束缚，带你尝试互联网新零售。上架商品、在线购买、订单发货一样都不少，你需要的，也许只是联系一家快递公司进行合作而已。</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clear">
                 <img src="/static/solution/ny6.png" alt="">
                 <div class="argic-mean-info">
                     <em>图文展示</em>
-                    <span>在后台将拍摄照片进行上传，配上对应的文字内容，根据系统结构进行排版编辑，信息展示，轻松完成。</span>
+                    <span>在后台将拍摄照片进行上传，配上对应的文字内容，根据系统结构进行排版编辑，信息展示...</span>
                 </div>
-            </div>
-        </li>
-        <li class="clear">
-            <img src="/static/solution/ny7.png" alt="">
-            <div class="argic-mean-info">
-                <em>农场生态实时直播呈现</em>
-                <span>给农场装上摄像头，即可实现农场生态的实时查看，打开电脑或手机，即可实时查看农场...</span>
-            </div>
-            <div class="argic-mean-alert clear">
+                <div class="argic-mean-alert clear">
+                    <img src="/static/solution/ny6.png" alt="">
+                    <div class="argic-mean-info">
+                        <em>图文展示</em>
+                        <span>在后台将拍摄照片进行上传，配上对应的文字内容，根据系统结构进行排版编辑，信息展示，轻松完成。</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clear">
                 <img src="/static/solution/ny7.png" alt="">
                 <div class="argic-mean-info">
                     <em>农场生态实时直播呈现</em>
-                    <span>给农场装上摄像头，即可实现农场生态的实时查看，打开电脑或手机，即可实时查看农场实时的生态风光。</span>
+                    <span>给农场装上摄像头，即可实现农场生态的实时查看，打开电脑或手机，即可实时查看农场...</span>
                 </div>
-            </div>
-        </li>
-        <li class="clear">
-            <img src="/static/solution/ny9.png" alt="">
-            <div class="argic-mean-info">
-                <em>生态农业体验（种植、采摘）活动组织</em>
-                <span>活动从报名开始，到活动最终结束，全程都有系统进行支持，报名、签到、互动、抽奖...</span>
-            </div>
-            <div class="argic-mean-alert clear">
+                <div class="argic-mean-alert clear">
+                    <img src="/static/solution/ny7.png" alt="">
+                    <div class="argic-mean-info">
+                        <em>农场生态实时直播呈现</em>
+                        <span>给农场装上摄像头，即可实现农场生态的实时查看，打开电脑或手机，即可实时查看农场实时的生态风光。</span>
+                    </div>
+                </div>
+            </li>
+            <li class="clear">
                 <img src="/static/solution/ny9.png" alt="">
                 <div class="argic-mean-info">
                     <em>生态农业体验（种植、采摘）活动组织</em>
-                    <span>活动从报名开始，到活动最终结束，全程都有系统进行支持，报名、签到、互动、抽奖，功能一应俱全，让企业的体验活动简单快捷却又精彩纷呈。</span>
+                    <span>活动从报名开始，到活动最终结束，全程都有系统进行支持，报名、签到、互动、抽奖...</span>
                 </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="argic-demo-con">
-    <div class="agric-tit">
-        <em>客户案例</em>
-        <img src="/static/solution/service1.jpg" alt="">
-    </div>
-    <ul class="argic-demo-list clear">
-        <li>
-            <div>
-                <img src="/static/solution/a-case1.jpg" alt="大牧场">
-                <a href="http://www.damuchang.com/" target="_blank" title="大牧场">
-                    <img src="/static/solution/ny10.png">
-                    <em>大牧场</em>
-                </a>
-            </div>
-            <h3>
-                <a href="http://www.damuchang.com/" title="大牧场">大牧场</a>
-            </h3>
-        </li>
-    </ul>
-</div>
-<!-- 农业解决方案 -->
-<!-- 底部 -->
-<div class="bottom-box">
-    <div class="bottom-top clear">
-        <ul class="bottom-nav clear">
-            <li>
-                <a href="http://www.eacase.com/service/" title="服务">服务</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/service/" title="业务系统研发">业务系统研发</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="电商平台业务研发">电商平台业务研发</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="高端网站建设">高端网站建设</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="微信/H5应用开发">APP/微信/H5开发</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="http://www.eacase.com/index.php?v=listing&amp;cid=63" title="解决方案">解决方案</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/solution/e-commerce/" title="全网电商解决方案">全网电商解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/government/" title="政务门户解决方案">政务门户解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/company/" title="企业门户解决方案">企业门户解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/agriculture/" title="生态农业互联网解决方案">生态农业解决方案</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="http://www.eacase.com/news/" title="新闻动态">新闻动态</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
-                    <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
-                    <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="http://www.eacase.com/aboutus/" title="关于我们">关于我们</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/aboutus/" title="公司简介">公司简介</a></li>
-                    <li><a href="http://www.eacase.com/aboutus/#join-us" title="加入我们">加入我们</a></li>
-                    <li><a href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a>
-                    </li>
-                </ul>
+                <div class="argic-mean-alert clear">
+                    <img src="/static/solution/ny9.png" alt="">
+                    <div class="argic-mean-info">
+                        <em>生态农业体验（种植、采摘）活动组织</em>
+                        <span>活动从报名开始，到活动最终结束，全程都有系统进行支持，报名、签到、互动、抽奖，功能一应俱全，让企业的体验活动简单快捷却又精彩纷呈。</span>
+                    </div>
+                </div>
             </li>
         </ul>
-        <div class="bottom-message">
-            <form id="mayform" method="post"
-                  action="http://www.eacase.com/solution/agriculture/index.php?m=content&amp;v=message">
-                <ul class="bottom-message-list">
-                    <li class="clear">
-                        <img src="/static/solution/icon14.png" alt="">
-                        <input type="text" name="name" value="" id="name">
-                    </li>
-                    <li class="clear">
-                        <img src="/static/solution/icon15.png" alt="">
-                        <input type="text" name="phone" value="" id="phone">
-                    </li>
-                    <li class="clear">
-                        <img src="/static/solution/icon16.png" alt="">
-                        <textarea id="message" name="xuqiu"></textarea>
-                    </li>
-                    <li class="clear">
-                        <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4"
-                               errormsg="请输入验证码" sucmsg="输入正确"
-                               onfocus="if($(&#39;#code_img_r&#39;).attr(&#39;src&#39;) == &#39;http://www.eacase.com/res/images/logincode.gif&#39;)$(&#39;#code_img_r&#39;).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());"
-                               class="li-3">
-                        <p class="li-2">
-                            <img src="/static/solution/logincode.gif" id="code_img_r" alt="点击刷新"
-                                 onclick="$(this).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());">
-                        </p>
-                    </li>
-                    <li class="clear">
-                        <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
-                    </li>
-                </ul>
-            </form>
+    </div>
+    <div class="argic-demo-con">
+        <div class="agric-tit">
+            <em>客户案例</em>
+            <img src="/static/solution/service1.jpg" alt="">
+        </div>
+        <ul class="argic-demo-list clear">
+            <li>
+                <div>
+                    <img src="/static/solution/a-case1.jpg" alt="大牧场">
+                    <a href="http://www.damuchang.com/" target="_blank" title="大牧场">
+                        <img src="/static/solution/ny10.png">
+                        <em>大牧场</em>
+                    </a>
+                </div>
+                <h3>
+                    <a href="http://www.damuchang.com/" title="大牧场">大牧场</a>
+                </h3>
+            </li>
+        </ul>
+    </div>
+    <!-- 农业解决方案 -->
+    <!-- 底部 -->
+    <div class="bottom-box">
+        <div class="bottom-top clear">
+            <ul class="bottom-nav clear">
+                <li>
+                    <a href="http://www.eacase.com/service/" title="服务">服务</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/service/" title="业务系统研发">业务系统研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="电商平台业务研发">电商平台业务研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="高端网站建设">高端网站建设</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="微信/H5应用开发">APP/微信/H5开发</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/index.php?v=listing&amp;cid=63" title="解决方案">解决方案</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/solution/e-commerce/" title="全网电商解决方案">全网电商解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/government/" title="政务门户解决方案">政务门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/company/" title="企业门户解决方案">企业门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/agriculture/" title="生态农业互联网解决方案">生态农业解决方案</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/news/" title="新闻动态">新闻动态</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
+                        <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
+                        <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/aboutus/" title="关于我们">关于我们</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/aboutus/" title="公司简介">公司简介</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#join-us" title="加入我们">加入我们</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="bottom-message">
+                <form id="mayform" method="post"
+                      action="http://www.eacase.com/solution/agriculture/index.php?m=content&amp;v=message">
+                    <ul class="bottom-message-list">
+                        <li class="clear">
+                            <img src="/static/solution/icon14.png" alt="">
+                            <input type="text" name="name" value="" id="name">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/solution/icon15.png" alt="">
+                            <input type="text" name="phone" value="" id="phone">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/solution/icon16.png" alt="">
+                            <textarea id="message" name="xuqiu"></textarea>
+                        </li>
+                        <li class="clear">
+                            <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4"
+                                   errormsg="请输入验证码" sucmsg="输入正确"
+                                   onfocus="if($(&#39;#code_img_r&#39;).attr(&#39;src&#39;) == &#39;http://www.eacase.com/res/images/logincode.gif&#39;)$(&#39;#code_img_r&#39;).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());"
+                                   class="li-3">
+                            <p class="li-2">
+                                <img src="/static/solution/logincode.gif" id="code_img_r" alt="点击刷新"
+                                     onclick="$(this).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());">
+                            </p>
+                        </li>
+                        <li class="clear">
+                            <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-bottom">
+            <div class="bottom-bottom-con clear">
+                <div class="bottom-b-l">
+                    <p>400-666-4566</p>
+                    <p>0471-4599699</p>
+                </div>
+                <div class="bottom-b-c">
+                    <p>admin@eacase.com</p>
+                    <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
+                    <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
+                </div>
+                <div class="bottom-b-r">
+                    <img src="/static/solution/ewm.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-copy">
+            <p>©2008-2017 呼和浩特市一街科技有限公司 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">蒙ICP备10002867号-7</a>　<a
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203"
+                    target="_blank"><img
+                    src="/static/solution/gaba.png"> 蒙公网安备 15019002150203号</a>
+                <script src="/static/solution/z_stat.php" language="JavaScript"></script>
+                <script src="/static/solution/core.php" charset="utf-8" type="text/javascript"></script>
+                <a href="https://www.cnzz.com/stat/website.php?web_id=1256560824" target="_blank" title="站长统计">站长统计</a>
+            </p>
         </div>
     </div>
-    <div class="bottom-bottom">
-        <div class="bottom-bottom-con clear">
-            <div class="bottom-b-l">
-                <p>400-666-4566</p>
-                <p>0471-4599699</p>
-            </div>
-            <div class="bottom-b-c">
-                <p>admin@eacase.com</p>
-                <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
-                <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
-            </div>
-            <div class="bottom-b-r">
-                <img src="/static/solution/ewm.png" alt="">
-            </div>
-        </div>
+    <!-- 飘窗 -->
+    <div class="web-float-box">
+        <ul class="web-float-list">
+            <li class="float-kf">
+                <i class="iconfont"></i>
+                <em>联系客服</em>
+            </li>
+            <!--<li>
+              <i class="iconfont">&#xe631;</i>
+              <em>QQ</em>
+            </li> -->
+            <li>
+                <i class="iconfont"></i>
+                <em>微信</em>
+                <img src="/static/solution/wechat.jpg" alt="">
+            </li>
+            <li class="go-top">
+                <i class="iconfont"></i>
+                <em>返回顶部</em>
+            </li>
+        </ul>
     </div>
-    <div class="bottom-copy">
-        <p>©2008-2017 呼和浩特市一街科技有限公司 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">蒙ICP备10002867号-7</a>　<a
-                href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203" target="_blank"><img
-                src="/static/solution/gaba.png"> 蒙公网安备 15019002150203号</a>
-            <script src="/static/solution/z_stat.php" language="JavaScript"></script>
-            <script src="/static/solution/core.php" charset="utf-8" type="text/javascript"></script>
-            <a href="https://www.cnzz.com/stat/website.php?web_id=1256560824" target="_blank" title="站长统计">站长统计</a></p>
-    </div>
-</div>
-<!-- 飘窗 -->
-<div class="web-float-box">
-    <ul class="web-float-list">
-        <li class="float-kf">
-            <i class="iconfont"></i>
-            <em>联系客服</em>
-        </li>
-        <!--<li>
-          <i class="iconfont">&#xe631;</i>
-          <em>QQ</em>
-        </li> -->
-        <li>
-            <i class="iconfont"></i>
-            <em>微信</em>
-            <img src="/static/solution/wechat.jpg" alt="">
-        </li>
-        <li class="go-top">
-            <i class="iconfont"></i>
-            <em>返回顶部</em>
-        </li>
-    </ul>
-</div>
-<!-- 飘窗 -->
-<style type="text/css">
-    .li-3 {
-        float: left;
-        width: 200px !important;
-        padding: 0 !important;
-    }
+    <!-- 飘窗 -->
+    <style type="text/css">
+        .li-3 {
+            float: left;
+            width: 200px !important;
+            padding: 0 !important;
+        }
 
-    .li-2 {
-        float: right;
-    }
+        .li-2 {
+            float: right;
+        }
 
-    .li-2 > img {
-        margin: 0 !important;
-        height: 38px !important;
-    }
-</style>
+        .li-2 > img {
+            margin: 0 !important;
+            height: 38px !important;
+        }
+    </style>
 
-<!-- 底部 -->
-<!-- 脚部 -->
-<script type="text/javascript" src="/static/solution/jquery.2.0.0.js"></script>
-<script type="text/javascript" src="/static/solution/common.js"></script>
-<script type="text/javascript" src="/static/solution/alerttool.js"></script>
-<!-- 客服 -->
-<script type="text/javascript">
-    (function (m, ei, q, i, a, j, s) {
-        m[i] = m[i] || function () {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        j = ei.createElement(q),
-            s = ei.getElementsByTagName(q)[0];
-        j.async = true;
-        j.charset = 'UTF-8';
-        j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
-        s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '_MEIQIA');
-    _MEIQIA('entId', '18197');
-    _MEIQIA('withoutBtn');
-    _MEIQIA('init');
+    <!-- 底部 -->
+    <!-- 脚部 -->
+    <script type="text/javascript" src="/static/solution/jquery.2.0.0.js"></script>
+    <script type="text/javascript" src="/static/solution/common.js"></script>
+    <script type="text/javascript" src="/static/solution/alerttool.js"></script>
+    <!-- 客服 -->
+    <script type="text/javascript">
+        (function (m, ei, q, i, a, j, s) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '_MEIQIA');
+        _MEIQIA('entId', '18197');
+        _MEIQIA('withoutBtn');
+        _MEIQIA('init');
 
-    $('.float-kf,.gdsh-top').on('click', function () {
-        _MEIQIA('showPanel');
-    });
-</script>
-<!-- 客服 -->
-
+        $('.float-kf,.gdsh-top').on('click', function () {
+            _MEIQIA('showPanel');
+        });
+    </script>
+    <!-- 客服 -->
+</section>
 
 <!-- 脚部 -->
 

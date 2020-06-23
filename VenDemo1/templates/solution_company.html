@@ -157,11 +157,11 @@
             </div>
             <script>
                 function toInternet() {
-                    $("html,body").animate({ scrollTop: $("#business").offset().top }, 500);
+                    $("html,body").animate({scrollTop: $("#business").offset().top}, 500);
                 }
 
                 function toSolution() {
-                    $("html,body").animate({ scrollTop: $("#solution").offset().top }, 500);
+                    $("html,body").animate({scrollTop: $("#solution").offset().top}, 500);
                 }
 
                 //案例下拉菜单滚动条
@@ -236,459 +236,594 @@
         <span class="icon-bar bar-3"></span>
     </button>
 </header>
+<div id="headerHeight"></div>
 
+<style>
+    .logo1 {
+        display: none;
+    }
 
-<!-- 导航 -->
-<!-- banner -->
-<div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner9.jpg) no-repeat center;">
-    <em>企业门户解决方案</em>
-    <span>完美呈现企业品牌形象</span>
-</div>
-<!-- banner -->
-<!-- 企业门户网站解决方案 -->
-<div class="enter-tit">
-    <em>企业门户网站解决方案</em>
-    <img src="/static/solution/service1.jpg" alt="">
-    <span>借助企业门户，企业可以覆盖几乎全部终端与网络营销渠道，无论客户是在使用电脑进行搜索，还是在使用PAD浏览资讯，<br>亦或是在刷朋友圈，您的企业门户都具备推送信息与触达能力。</span>
-</div>
-<ul class="enter-mean-list clear">
-    <li class="">
-        <div>
-            <img src="/static/solution/entity1.png" alt="">
-            <img src="/static/solution/entity2.png" alt="">
+    .logo2 {
+        display: block;
+    }
+</style>
+<!--banner-->
+<section class="banner" id="banner">
+    <!--图片轮播-->
+    <div class="swiper-container banner_index">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <a target="_blank" class=" visible-a">
+                    <div class="a-background bannerbg"
+                         style="background-image: url(/static/images/banner17_bg.jpg);"></div>
+                </a>
+                <a target="_blank" class=" visible-b">
+                    <div class="a-background bannerbg"
+                         style="background-image: url(/static/images/banner17_bg_mobi.jpg);"></div>
+                </a>
+            </div>
+
+            <div class="swiper-slide">
+                <a>
+                    <div class="a-background bannerbg visible-a	"
+                         style="background-image: url(/static/images/banner16_bg.jpg);"></div>
+                    <div class="a-background bannerbg visible-b"
+                         style="background-image: url(/static/images/banner16_bg_mobi.jpg);"></div>
+                </a>
+            </div>
+
+            <div class="swiper-slide">
+                <a>
+                    <div class="a-background bannerbg visible-a	"
+                         style="background-image: url(/static/images/banner14_bg.jpg);"></div>
+                    <div class="a-background bannerbg visible-b"
+                         style="background-image: url(/static/images/banner14_bg_mobi.jpg);"></div>
+                </a>
+            </div>
+
         </div>
-        <em>商机汇集管理</em>
-    </li>
-    <li>
-        <div>
-            <img src="/static/solution/entity3.png" alt="">
-            <img src="/static/solution/entity4.png" alt="">
-        </div>
-        <em>内容管理与分享</em>
-    </li>
-    <li class="enter-mean-on">
-        <div>
-            <img src="/static/solution/entity5.png" alt="">
-            <img src="/static/solution/entity6.png" alt="">
-        </div>
-        <em>移动场景营销</em>
-    </li>
-    <li>
-        <div>
-            <img src="/static/solution/entity7.png" alt="">
-            <img src="/static/solution/entity8.png" alt="">
-        </div>
-        <em>商机意向获取</em>
-    </li>
-    <li>
-        <div>
-            <img src="/static/solution/entity9.png" alt="">
-            <img src="/static/solution/entity10.png" alt="">
-        </div>
-        <em>外部平台连接</em>
-    </li>
-</ul>
-<div class="enter-mean-box">
-    <ul class="entrty-mean-body clear" style="display: none;">
-        <li>
-            <em>商机汇集</em>
-            <div>
-                <p>整合汇集各个终端分散的意向信息，提供统一管理；将不同渠道的客户意向数据，汇集到统一后台，方便集中管理。</p>
-            </div>
-        </li>
-        <li>
-            <em>商机提醒</em>
-            <div>
-                <p>当企业门户捕获商机信息时可以通过邮件、短信方式实时提醒企业，保证商机不丢；不同商机来源可以设置不同的提醒对象，实现专项跟踪。</p>
-            </div>
-        </li>
-        <li>
-            <em>商机对接移动CRM管理</em>
-            <div>
-                <p>商机同步：实时同步企业门户商机信息，并在手机端提醒；商机分配：手机端分配商机给专人跟进；销管过程管理：销售过程记录、提醒、在线协同；销售报表：销售情况汇总统计，图形化展示，一目了然。</p>
-            </div>
-        </li>
-    </ul>
-    <ul class="entrty-mean-body clear" style="display: none;">
-        <li>
-            <em>让内容更精美</em>
-            <div>
-                <p>
-                    详情设计工具，让产品信息彻底告别呆板展示；详情设计服务，让企业更快速度、更低成本、更生动的展现产品信息。H5移动场景设计工具，快速的制作出炫酷的移动H5企业秀；H5企业秀设计服务，让企业的移动内容更精彩。微信图文设计服务，让企业在微信圈里的内容，更胜人一筹。</p>
-            </div>
-        </li>
-        <li>
-            <em>让传播更便捷</em>
-            <div>
-                <p>企业内容一键分享至社交媒体（微博、微信）。企业内容一键推送至新闻媒体、B2B平台。企业内容实现短信群发、邮件群发、粉丝群发。企业内容通过二维码连接线下客户。</p>
-            </div>
-        </li>
-        <li>
-            <em>让管理更轻松</em>
-            <div>
-                <p>统一的内容中心，企业在一个后台管理所有内容，企业内容，一次发布、全网更新。</p>
-            </div>
-        </li>
-    </ul>
-    <ul class="entrty-mean-body clear" style="display: block;">
-        <li>
-            <em>为您的营销提供足够的支持</em>
-            <div>
-                <p>宣传品牌与产品是企业做营销的根本目的，利用企业秀对品牌与产品进行介绍并包装，通过二维码与转发有奖分享至主流社交平台与各类媒体，将营销内容传播至每一个目标群体中。</p>
-            </div>
-        </li>
-        <li>
-            <em>营销内容一键直达</em>
-            <div>
-                <p>微信、微博及其他第三方平台是如今网络营销的主要载体和入口,营销宝可直接将营销内容一键直达各大社交平台，传播速度更快捷、传播范围更宽阔。</p>
-            </div>
-        </li>
-        <li>
-            <em>准确、直观的数据统计</em>
-            <div>
-                <p>营销宝包含的每一个营销工具都具备独立的数据统计功能，进入营销宝首页即可直观的看到每一次营销带来的效果，帮助企业快速进行分析，及时监控并调整营销方向.</p>
-            </div>
-        </li>
-    </ul>
-    <ul class="entrty-mean-body clear" style="display: none;">
-        <li>
-            <em>覆盖更多终端与营销触点</em>
-            <div>
-                <p>PC站、移动站、微信站、企业APP全都有。电脑、手机、PAD、电视，浏览全适配。搜索引擎、社交平台、新闻媒体、B2B平台、线下二维码，营销场景全支持。</p>
-            </div>
-        </li>
-        <li>
-            <em>智能响应</em>
-            <div>
-                <p>PC站页面与移动站页面一一对应、智能响应，访客访问时智能识别客户访问终端（例如：PC页面分享至手机，打开手机页面展示），保证更好的浏览体验，同时支持PC页面与移动页面的手动切换。</p>
-            </div>
-        </li>
-        <li>
-            <em>搜索引擎友好</em>
-            <div>
-                <p>
-                    创新的语义化地址技术，收录更好；Sitemap自动提交技术，收录更快；关键词自动提取技术，排名更好；整站及制定栏目、内容SEO自定义设置功能；PC与手机页面双向指引技术，保障PC搜索、移动搜索效果双向提升。</p>
-            </div>
-        </li>
-    </ul>
-    <ul class="entrty-mean-body clear" style="display: none;">
-        <li>
-            <em>功能扩展</em>
-            <div>
-                <p>企业门户提供各种功能扩展，来辅助企业实现业务。包括：职位发布、服务网点、直播接入、在线询价、预约申请、样品申请、活动报名、在线预订、文件下载、企业视频库。</p>
-            </div>
-        </li>
-        <li>
-            <em>第三方商城一键关联</em>
-            <div>
-                <p>企业商品可支持添加“一键购买”、“一键批发”按钮，包括：京东、淘宝、天猫、亚马逊、苏宁、国美、1688、兰亭集势及自定义三方平台。</p>
-            </div>
-        </li>
-        <li>
-            <em>个性化功能定制</em>
-            <div>
-                <p>可实现与企业自有系统对接或扩展功能定制开发，满足企业业务在线，如：行业应用、在线查询、服务自助、信息采集等等。</p>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="entity-ver-box">
+        <div class="swiper-pagination" style="bottom:22px;"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</section>
+<script>
+
+    $('body').find('.index_header').removeClass("index_header").addClass("header_hover");
+    $(window).scroll(function () {
+        var scroll_header = $(window).scrollTop();
+        if (scroll_header >= 1) {
+            $("header").addClass("index_header")
+            $("header").removeClass("header_hover")
+            $(".nav>li>a").css({"height": "60px", "line-height": "60px"})
+            $(".logo2").hide();
+            $(".logo1").show();
+            $("header").mouseover(function () {
+                $(".logo1").show();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+
+        } else {
+            $("header").removeClass("index_header")
+            $("header").addClass("header_hover")
+            $(".nav>li>a").css({"height": "70px", "line-height": "70px"})
+            $(".logo2").show();
+            $(".logo1").hide();
+            $("header").mouseover(function () {
+
+                $(".logo1").show();
+                $(".logo2").hide();
+            });
+            $("header").mouseout(function () {
+                $(".logo1").hide();
+                $(".logo2").show();
+            });
+        }
+
+    });
+    $(document).ready(function () {
+
+        loop:true;
+        var flag = false;
+        var swiperFlag = false;
+        var mySwiper = new Swiper('.banner_index', {
+
+            effect: 'fade',
+            //		pagination : '.banner_index .swiper-pagination',
+            //		prevButton: '.banner_index .swiper-button-prev',
+            pagination: '.banner_index .swiper-pagination',
+            paginationClickable: true,
+            autoplay: 8000,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            onSlideChangeEnd: function (swiper) {
+                //console.log(swiper.activeIndex);
+                //			console.log(11);
+                var _this = $('.banner_index .swiper-slide').eq(swiper.activeIndex);
+                if (swiper.activeIndex == 0 || swiper.activeIndex == 1) {
+                    var video = $("#v" + swiper.activeIndex)[0];
+                    if ($(window).innerWidth() > 768) {
+                        video.play();
+                    }
+                }
+            }
+        })
+    })
+
+    function showvideo(vurl) {
+        $("#vodeo").modal('show');
+        var vd = videojs("my_player");
+        vd.src(vurl);
+        vd.load(vurl);
+        vd.play();
+    }
+
+    function hidevideo() {
+        $("#vodeo").modal('hide');
+        var vd = videojs("my_player");
+        vd.pause();
+
+    }
+</script>
+<section id="company">
+    <!-- 导航 -->
+    <!-- banner -->
+    <div class="sub-banner" style="background: url(http://www.eacase.com/images/sub-banner9.jpg) no-repeat center;">
+        <em>企业门户解决方案</em>
+        <span>完美呈现企业品牌形象</span>
+    </div>
+    <!-- banner -->
+    <!-- 企业门户网站解决方案 -->
     <div class="enter-tit">
-        <em>企业门户网站产品版本</em>
+        <em>企业门户网站解决方案</em>
         <img src="/static/solution/service1.jpg" alt="">
+        <span>借助企业门户，企业可以覆盖几乎全部终端与网络营销渠道，无论客户是在使用电脑进行搜索，还是在使用PAD浏览资讯，<br>亦或是在刷朋友圈，您的企业门户都具备推送信息与触达能力。</span>
     </div>
-    <ul class="entity-ver-list clear">
-        <li>
+    <ul class="enter-mean-list clear">
+        <li class="">
             <div>
-                <img src="/static/solution/ver1.png">
-                <img src="/static/solution/ver2.png">
+                <img src="/static/solution/entity1.png" alt="">
+                <img src="/static/solution/entity2.png" alt="">
             </div>
-            <em>PC门户</em>
-            <span>专注于PC端企业展示，<br>一对一定制化设计。</span>
-            <a href="javascript:void(0);">免费咨询</a>
+            <em>商机汇集管理</em>
         </li>
         <li>
             <div>
-                <img src="/static/solution/ver3.png">
-                <img src="/static/solution/ver4.png">
+                <img src="/static/solution/entity3.png" alt="">
+                <img src="/static/solution/entity4.png" alt="">
             </div>
-            <em>PC双语门户</em>
-            <span>中文+英文，<br>定制化双语门户，<br>兼顾全球客户。</span>
-            <a href="javascript:void(0);">免费咨询</a>
+            <em>内容管理与分享</em>
+        </li>
+        <li class="enter-mean-on">
+            <div>
+                <img src="/static/solution/entity5.png" alt="">
+                <img src="/static/solution/entity6.png" alt="">
+            </div>
+            <em>移动场景营销</em>
         </li>
         <li>
             <div>
-                <img src="/static/solution/ver5.png">
-                <img src="/static/solution/ver6.png">
+                <img src="/static/solution/entity7.png" alt="">
+                <img src="/static/solution/entity8.png" alt="">
             </div>
-            <em>全网门户</em>
-            <span>PC门户+移动门户+微信门户<br>+APP，一体化定制，<br>营销场景全覆盖</span>
-            <a href="javascript:void(0);">免费咨询</a>
+            <em>商机意向获取</em>
         </li>
         <li>
             <div>
-                <img src="/static/solution/ver7.png">
-                <img src="/static/solution/ver8.png">
+                <img src="/static/solution/entity9.png" alt="">
+                <img src="/static/solution/entity10.png" alt="">
             </div>
-            <em>全网双语门户</em>
-            <span>中文+英文，双语言、一体化、<br>全定制的覆盖PC/移动，实现全<br>球商机获取的企业门户。</span>
-            <a href="javascript:void(0);">免费咨询</a>
+            <em>外部平台连接</em>
         </li>
     </ul>
-</div>
-<div class="enter-tit">
-    <em>企业品牌形象完美呈现，吸引客户眼球</em>
-    <img src="/static/solution/service1.jpg" alt="">
-    <span>凭借整站使用H5技术的创新体验、一对一的专业定制设计、千人设计团队积累与透明式的服务过程，确保企业门户的视<br>觉展现效果，让您的企业形象高品质展示、与众不同。</span>
-</div>
-<div class="enter-introd-box">
-    <div class="enter-introd-con clear">
-        <p>&nbsp;</p>
-        <img src="/static/solution/sub32.png" style="float: left;margin-right: 73px;">
-        <p>&nbsp;</p>
-        <p style="color:#2f8ae7;font-size: 20px;">全站H5技术使用</p>
-        <p>整站采用H5技术实现，彻底抛弃flash等过时技术，因此永远更短的启动时间、更快的加载速度，同时基于SVG、Canvas、WebGL及CSS3，可以实现更为炫酷的视觉效果。</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p style="color:#2f8ae7;font-size: 20px;">全定制</p>
-        <p>PC站、手机站、微信站，一对一分别定制，更加贴合企业品牌与页面；业界独有的设计云生态体系，凝聚中企动力上千名设计师，数十万家客户的视觉积累，保障企业网站的炫酷效果同时，有效的降低了企业成本。
-            摆脱模版建站的各种限制，有效避免了自适应网站的代码冗余、搜索不友好、打开速度慢、访问体验不佳、业务功能不能兼容等问题。</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p style="color:#2f8ae7;font-size: 20px;">透明服务过程</p>
-        <p>服务过程全程透明化服务，每个客户享受专属的设计提案服务，设计过程企业可以随时查看设计进度，直到确认验收网站，全程品质监控与服务评价、反馈机制，确保企业满意。</p>
-    </div>
-</div>
-<div class="argic-demo-con">
-    <div class="agric-tit">
-        <em>客户案例</em>
-        <img src="/static/solution/service1.jpg" alt="">
-    </div>
-    <ul class="argic-demo-list clear">
-        <li>
-            <div>
-                <img src="/static/solution/c-case1.jpg" alt="大连金普现货交易中心">
-                <a href="http://www.eacase.com/solution/company/#" target="_blank" title="大连金普现货交易中心">
-                    <img src="/static/solution/ny10.png">
-                    <em>大连金普现货交易中心</em>
-                </a>
-            </div>
-            <h3>
-                <a href="http://www.eacase.com/solution/company/#" title="内蒙古商务厅">大连金普现货交易中心</a>
-            </h3>
-        </li>
-        <li>
-            <div>
-                <img src="/static/solution/c-case2.jpg" alt="北京派特恩知识产权代理有限公司">
-                <a href="http://www.chinapat.com.cn/" target="_blank" title="北京派特恩知识产权代理有限公司">
-                    <img src="/static/solution/ny10.png">
-                    <em>北京派特恩知识产权代理有限公司</em>
-                </a>
-            </div>
-            <h3>
-                <a href="http://www.chinapat.com.cn/" title="北京派特恩知识产权代理有限公司">北京派特恩知识产权代理有限公司</a>
-            </h3>
-        </li>
-        <li>
-            <div>
-                <img src="/static/solution/c-case3.jpg" alt="华风爱科气象科技（北京）有限公司">
-                <a href="http://www.weathercn.com/" target="_blank" title="华风爱科气象科技（北京）有限公司">
-                    <img src="/static/solution/ny10.png">
-                    <em>华风爱科气象科技（北京）有限公司</em>
-                </a>
-            </div>
-            <h3>
-                <a href="http://www.weathercn.com/" title="华风爱科气象科技（北京）有限公司">华风爱科气象科技（北京）有限公司</a>
-            </h3>
-        </li>
-    </ul>
-</div>
-<!-- 企业门户网站解决方案 -->
-<!-- 底部 -->
-
-<div class="bottom-box">
-    <div class="bottom-top clear">
-        <ul class="bottom-nav clear">
+    <div class="enter-mean-box">
+        <ul class="entrty-mean-body clear" style="display: none;">
             <li>
-                <a href="http://www.eacase.com/service/" title="服务">服务</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/service/" title="业务系统研发">业务系统研发</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="电商平台业务研发">电商平台业务研发</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="高端网站建设">高端网站建设</a></li>
-                    <li><a href="http://www.eacase.com/service/" title="微信/H5应用开发">APP/微信/H5开发</a></li>
-                </ul>
+                <em>商机汇集</em>
+                <div>
+                    <p>整合汇集各个终端分散的意向信息，提供统一管理；将不同渠道的客户意向数据，汇集到统一后台，方便集中管理。</p>
+                </div>
             </li>
             <li>
-                <a href="http://www.eacase.com/index.php?v=listing&amp;cid=63" title="解决方案">解决方案</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/solution/e-commerce/" title="全网电商解决方案">全网电商解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/government/" title="政务门户解决方案">政务门户解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/company/" title="企业门户解决方案">企业门户解决方案</a></li>
-                    <li><a href="http://www.eacase.com/solution/agriculture/" title="生态农业互联网解决方案">生态农业解决方案</a></li>
-                </ul>
+                <em>商机提醒</em>
+                <div>
+                    <p>当企业门户捕获商机信息时可以通过邮件、短信方式实时提醒企业，保证商机不丢；不同商机来源可以设置不同的提醒对象，实现专项跟踪。</p>
+                </div>
             </li>
             <li>
-                <a href="http://www.eacase.com/news/" title="新闻动态">新闻动态</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
-                    <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
-                    <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="http://www.eacase.com/aboutus/" title="关于我们">关于我们</a>
-                <ul class="bottom-secnav">
-                    <li><a href="http://www.eacase.com/aboutus/" title="公司简介">公司简介</a></li>
-                    <li><a href="http://www.eacase.com/aboutus/#join-us" title="加入我们">加入我们</a></li>
-                    <li><a href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a>
-                    </li>
-                </ul>
+                <em>商机对接移动CRM管理</em>
+                <div>
+                    <p>商机同步：实时同步企业门户商机信息，并在手机端提醒；商机分配：手机端分配商机给专人跟进；销管过程管理：销售过程记录、提醒、在线协同；销售报表：销售情况汇总统计，图形化展示，一目了然。</p>
+                </div>
             </li>
         </ul>
-        <div class="bottom-message">
-            <form id="mayform" method="post"
-                  action="http://www.eacase.com/solution/company/index.php?m=content&amp;v=message">
-                <ul class="bottom-message-list">
-                    <li class="clear">
-                        <img src="/static/solution/icon14.png" alt="">
-                        <input type="text" name="name" value="" id="name">
-                    </li>
-                    <li class="clear">
-                        <img src="/static/solution/icon15.png" alt="">
-                        <input type="text" name="phone" value="" id="phone">
-                    </li>
-                    <li class="clear">
-                        <img src="/static/solution/icon16.png" alt="">
-                        <textarea id="message" name="xuqiu"></textarea>
-                    </li>
-                    <li class="clear">
-                        <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4"
-                               errormsg="请输入验证码" sucmsg="输入正确"
-                               onfocus="if($(&#39;#code_img_r&#39;).attr(&#39;src&#39;) == &#39;http://www.eacase.com/res/images/logincode.gif&#39;)$(&#39;#code_img_r&#39;).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());"
-                               class="li-3">
-                        <p class="li-2">
-                            <img src="/static/solution/logincode.gif" id="code_img_r" alt="点击刷新"
-                                 onclick="$(this).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());">
-                        </p>
-                    </li>
-                    <li class="clear">
-                        <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
-                    </li>
-                </ul>
-            </form>
+        <ul class="entrty-mean-body clear" style="display: none;">
+            <li>
+                <em>让内容更精美</em>
+                <div>
+                    <p>
+                        详情设计工具，让产品信息彻底告别呆板展示；详情设计服务，让企业更快速度、更低成本、更生动的展现产品信息。H5移动场景设计工具，快速的制作出炫酷的移动H5企业秀；H5企业秀设计服务，让企业的移动内容更精彩。微信图文设计服务，让企业在微信圈里的内容，更胜人一筹。</p>
+                </div>
+            </li>
+            <li>
+                <em>让传播更便捷</em>
+                <div>
+                    <p>企业内容一键分享至社交媒体（微博、微信）。企业内容一键推送至新闻媒体、B2B平台。企业内容实现短信群发、邮件群发、粉丝群发。企业内容通过二维码连接线下客户。</p>
+                </div>
+            </li>
+            <li>
+                <em>让管理更轻松</em>
+                <div>
+                    <p>统一的内容中心，企业在一个后台管理所有内容，企业内容，一次发布、全网更新。</p>
+                </div>
+            </li>
+        </ul>
+        <ul class="entrty-mean-body clear" style="display: block;">
+            <li>
+                <em>为您的营销提供足够的支持</em>
+                <div>
+                    <p>宣传品牌与产品是企业做营销的根本目的，利用企业秀对品牌与产品进行介绍并包装，通过二维码与转发有奖分享至主流社交平台与各类媒体，将营销内容传播至每一个目标群体中。</p>
+                </div>
+            </li>
+            <li>
+                <em>营销内容一键直达</em>
+                <div>
+                    <p>微信、微博及其他第三方平台是如今网络营销的主要载体和入口,营销宝可直接将营销内容一键直达各大社交平台，传播速度更快捷、传播范围更宽阔。</p>
+                </div>
+            </li>
+            <li>
+                <em>准确、直观的数据统计</em>
+                <div>
+                    <p>营销宝包含的每一个营销工具都具备独立的数据统计功能，进入营销宝首页即可直观的看到每一次营销带来的效果，帮助企业快速进行分析，及时监控并调整营销方向.</p>
+                </div>
+            </li>
+        </ul>
+        <ul class="entrty-mean-body clear" style="display: none;">
+            <li>
+                <em>覆盖更多终端与营销触点</em>
+                <div>
+                    <p>PC站、移动站、微信站、企业APP全都有。电脑、手机、PAD、电视，浏览全适配。搜索引擎、社交平台、新闻媒体、B2B平台、线下二维码，营销场景全支持。</p>
+                </div>
+            </li>
+            <li>
+                <em>智能响应</em>
+                <div>
+                    <p>PC站页面与移动站页面一一对应、智能响应，访客访问时智能识别客户访问终端（例如：PC页面分享至手机，打开手机页面展示），保证更好的浏览体验，同时支持PC页面与移动页面的手动切换。</p>
+                </div>
+            </li>
+            <li>
+                <em>搜索引擎友好</em>
+                <div>
+                    <p>
+                        创新的语义化地址技术，收录更好；Sitemap自动提交技术，收录更快；关键词自动提取技术，排名更好；整站及制定栏目、内容SEO自定义设置功能；PC与手机页面双向指引技术，保障PC搜索、移动搜索效果双向提升。</p>
+                </div>
+            </li>
+        </ul>
+        <ul class="entrty-mean-body clear" style="display: none;">
+            <li>
+                <em>功能扩展</em>
+                <div>
+                    <p>企业门户提供各种功能扩展，来辅助企业实现业务。包括：职位发布、服务网点、直播接入、在线询价、预约申请、样品申请、活动报名、在线预订、文件下载、企业视频库。</p>
+                </div>
+            </li>
+            <li>
+                <em>第三方商城一键关联</em>
+                <div>
+                    <p>企业商品可支持添加“一键购买”、“一键批发”按钮，包括：京东、淘宝、天猫、亚马逊、苏宁、国美、1688、兰亭集势及自定义三方平台。</p>
+                </div>
+            </li>
+            <li>
+                <em>个性化功能定制</em>
+                <div>
+                    <p>可实现与企业自有系统对接或扩展功能定制开发，满足企业业务在线，如：行业应用、在线查询、服务自助、信息采集等等。</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="entity-ver-box">
+        <div class="enter-tit">
+            <em>企业门户网站产品版本</em>
+            <img src="/static/solution/service1.jpg" alt="">
+        </div>
+        <ul class="entity-ver-list clear">
+            <li>
+                <div>
+                    <img src="/static/solution/ver1.png">
+                    <img src="/static/solution/ver2.png">
+                </div>
+                <em>PC门户</em>
+                <span>专注于PC端企业展示，<br>一对一定制化设计。</span>
+                <a href="javascript:void(0);">免费咨询</a>
+            </li>
+            <li>
+                <div>
+                    <img src="/static/solution/ver3.png">
+                    <img src="/static/solution/ver4.png">
+                </div>
+                <em>PC双语门户</em>
+                <span>中文+英文，<br>定制化双语门户，<br>兼顾全球客户。</span>
+                <a href="javascript:void(0);">免费咨询</a>
+            </li>
+            <li>
+                <div>
+                    <img src="/static/solution/ver5.png">
+                    <img src="/static/solution/ver6.png">
+                </div>
+                <em>全网门户</em>
+                <span>PC门户+移动门户+微信门户<br>+APP，一体化定制，<br>营销场景全覆盖</span>
+                <a href="javascript:void(0);">免费咨询</a>
+            </li>
+            <li>
+                <div>
+                    <img src="/static/solution/ver7.png">
+                    <img src="/static/solution/ver8.png">
+                </div>
+                <em>全网双语门户</em>
+                <span>中文+英文，双语言、一体化、<br>全定制的覆盖PC/移动，实现全<br>球商机获取的企业门户。</span>
+                <a href="javascript:void(0);">免费咨询</a>
+            </li>
+        </ul>
+    </div>
+    <div class="enter-tit">
+        <em>企业品牌形象完美呈现，吸引客户眼球</em>
+        <img src="/static/solution/service1.jpg" alt="">
+        <span>凭借整站使用H5技术的创新体验、一对一的专业定制设计、千人设计团队积累与透明式的服务过程，确保企业门户的视<br>觉展现效果，让您的企业形象高品质展示、与众不同。</span>
+    </div>
+    <div class="enter-introd-box">
+        <div class="enter-introd-con clear">
+            <p>&nbsp;</p>
+            <img src="/static/solution/sub32.png" style="float: left;margin-right: 73px;">
+            <p>&nbsp;</p>
+            <p style="color:#2f8ae7;font-size: 20px;">全站H5技术使用</p>
+            <p>整站采用H5技术实现，彻底抛弃flash等过时技术，因此永远更短的启动时间、更快的加载速度，同时基于SVG、Canvas、WebGL及CSS3，可以实现更为炫酷的视觉效果。</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p style="color:#2f8ae7;font-size: 20px;">全定制</p>
+            <p>PC站、手机站、微信站，一对一分别定制，更加贴合企业品牌与页面；业界独有的设计云生态体系，凝聚中企动力上千名设计师，数十万家客户的视觉积累，保障企业网站的炫酷效果同时，有效的降低了企业成本。
+                摆脱模版建站的各种限制，有效避免了自适应网站的代码冗余、搜索不友好、打开速度慢、访问体验不佳、业务功能不能兼容等问题。</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p style="color:#2f8ae7;font-size: 20px;">透明服务过程</p>
+            <p>服务过程全程透明化服务，每个客户享受专属的设计提案服务，设计过程企业可以随时查看设计进度，直到确认验收网站，全程品质监控与服务评价、反馈机制，确保企业满意。</p>
         </div>
     </div>
-    <div class="bottom-bottom">
-        <div class="bottom-bottom-con clear">
-            <div class="bottom-b-l">
-                <p>400-666-4566</p>
-                <p>0471-4599699</p>
-            </div>
-            <div class="bottom-b-c">
-                <p>admin@eacase.com</p>
-                <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
-                <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
-            </div>
-            <div class="bottom-b-r">
-                <img src="/static/solution/ewm.png" alt="">
+    <div class="argic-demo-con">
+        <div class="agric-tit">
+            <em>客户案例</em>
+            <img src="/static/solution/service1.jpg" alt="">
+        </div>
+        <ul class="argic-demo-list clear">
+            <li>
+                <div>
+                    <img src="/static/solution/c-case1.jpg" alt="大连金普现货交易中心">
+                    <a href="http://www.eacase.com/solution/company/#" target="_blank" title="大连金普现货交易中心">
+                        <img src="/static/solution/ny10.png">
+                        <em>大连金普现货交易中心</em>
+                    </a>
+                </div>
+                <h3>
+                    <a href="http://www.eacase.com/solution/company/#" title="内蒙古商务厅">大连金普现货交易中心</a>
+                </h3>
+            </li>
+            <li>
+                <div>
+                    <img src="/static/solution/c-case2.jpg" alt="北京派特恩知识产权代理有限公司">
+                    <a href="http://www.chinapat.com.cn/" target="_blank" title="北京派特恩知识产权代理有限公司">
+                        <img src="/static/solution/ny10.png">
+                        <em>北京派特恩知识产权代理有限公司</em>
+                    </a>
+                </div>
+                <h3>
+                    <a href="http://www.chinapat.com.cn/" title="北京派特恩知识产权代理有限公司">北京派特恩知识产权代理有限公司</a>
+                </h3>
+            </li>
+            <li>
+                <div>
+                    <img src="/static/solution/c-case3.jpg" alt="华风爱科气象科技（北京）有限公司">
+                    <a href="http://www.weathercn.com/" target="_blank" title="华风爱科气象科技（北京）有限公司">
+                        <img src="/static/solution/ny10.png">
+                        <em>华风爱科气象科技（北京）有限公司</em>
+                    </a>
+                </div>
+                <h3>
+                    <a href="http://www.weathercn.com/" title="华风爱科气象科技（北京）有限公司">华风爱科气象科技（北京）有限公司</a>
+                </h3>
+            </li>
+        </ul>
+    </div>
+    <!-- 企业门户网站解决方案 -->
+    <!-- 底部 -->
+
+    <div class="bottom-box">
+        <div class="bottom-top clear">
+            <ul class="bottom-nav clear">
+                <li>
+                    <a href="http://www.eacase.com/service/" title="服务">服务</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/service/" title="业务系统研发">业务系统研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="电商平台业务研发">电商平台业务研发</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="高端网站建设">高端网站建设</a></li>
+                        <li><a href="http://www.eacase.com/service/" title="微信/H5应用开发">APP/微信/H5开发</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/index.php?v=listing&amp;cid=63" title="解决方案">解决方案</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/solution/e-commerce/" title="全网电商解决方案">全网电商解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/government/" title="政务门户解决方案">政务门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/company/" title="企业门户解决方案">企业门户解决方案</a></li>
+                        <li><a href="http://www.eacase.com/solution/agriculture/" title="生态农业互联网解决方案">生态农业解决方案</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/news/" title="新闻动态">新闻动态</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/news/company/" title="公司动态">公司动态</a></li>
+                        <li><a href="http://www.eacase.com/news/information/" title="行业动态">行业动态</a></li>
+                        <li><a href="http://www.eacase.com/news/development/" title="研发动态">研发动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://www.eacase.com/aboutus/" title="关于我们">关于我们</a>
+                    <ul class="bottom-secnav">
+                        <li><a href="http://www.eacase.com/aboutus/" title="公司简介">公司简介</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#join-us" title="加入我们">加入我们</a></li>
+                        <li><a href="http://www.eacase.com/aboutus/#contact-about" title="联系我们">联系我们</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="bottom-message">
+                <form id="mayform" method="post"
+                      action="http://www.eacase.com/solution/company/index.php?m=content&amp;v=message">
+                    <ul class="bottom-message-list">
+                        <li class="clear">
+                            <img src="/static/solution/icon14.png" alt="">
+                            <input type="text" name="name" value="" id="name">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/solution/icon15.png" alt="">
+                            <input type="text" name="phone" value="" id="phone">
+                        </li>
+                        <li class="clear">
+                            <img src="/static/solution/icon16.png" alt="">
+                            <textarea id="message" name="xuqiu"></textarea>
+                        </li>
+                        <li class="clear">
+                            <input type="text" name="checkcode" id="code" placeholder="请输入验证码" datatype="*4-4"
+                                   errormsg="请输入验证码" sucmsg="输入正确"
+                                   onfocus="if($(&#39;#code_img_r&#39;).attr(&#39;src&#39;) == &#39;http://www.eacase.com/res/images/logincode.gif&#39;)$(&#39;#code_img_r&#39;).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());"
+                                   class="li-3">
+                            <p class="li-2">
+                                <img src="/static/solution/logincode.gif" id="code_img_r" alt="点击刷新"
+                                     onclick="$(this).attr(&#39;src&#39;, &#39;http://www.eacase.com/api/identifying_code.php?w=112&amp;h=40&amp;rd=&#39;+Math.random());">
+                            </p>
+                        </li>
+                        <li class="clear">
+                            <a href="javascript:void(0);" title="提交需求" class="index-send">提交需求</a>
+                        </li>
+                    </ul>
+                </form>
             </div>
         </div>
+        <div class="bottom-bottom">
+            <div class="bottom-bottom-con clear">
+                <div class="bottom-b-l">
+                    <p>400-666-4566</p>
+                    <p>0471-4599699</p>
+                </div>
+                <div class="bottom-b-c">
+                    <p>admin@eacase.com</p>
+                    <p>内蒙古呼和浩特市新华西街50号金葫芦科技大厦15层</p>
+                    <p>内蒙古呼和浩特市赛罕区区乌兰察布西街创客大道3层</p>
+                </div>
+                <div class="bottom-b-r">
+                    <img src="/static/solution/ewm.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="bottom-copy">
+            <p>©2008-2017 呼和浩特市一街科技有限公司 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">蒙ICP备10002867号-7</a>　<a
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203"
+                    target="_blank"><img
+                    src="/static/solution/gaba.png"> 蒙公网安备 15019002150203号</a>
+                <script src="/static/solution/z_stat.php" language="JavaScript"></script>
+                <script src="/static/solution/core.php" charset="utf-8" type="text/javascript"></script>
+                <a href="https://www.cnzz.com/stat/website.php?web_id=1256560824" target="_blank" title="站长统计">站长统计</a>
+            </p>
+        </div>
     </div>
-    <div class="bottom-copy">
-        <p>©2008-2017 呼和浩特市一街科技有限公司 版权所有 <a href="http://beian.miit.gov.cn/" target="_blank">蒙ICP备10002867号-7</a>　<a
-                href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203" target="_blank"><img
-                src="/static/solution/gaba.png"> 蒙公网安备 15019002150203号</a>
-            <script src="/static/solution/z_stat.php" language="JavaScript"></script>
-            <script src="/static/solution/core.php" charset="utf-8" type="text/javascript"></script>
-            <a href="https://www.cnzz.com/stat/website.php?web_id=1256560824" target="_blank" title="站长统计">站长统计</a></p>
+    <!-- 飘窗 -->
+    <div class="web-float-box">
+        <ul class="web-float-list">
+            <li class="float-kf">
+                <i class="iconfont"></i>
+                <em>联系客服</em>
+            </li>
+            <!--<li>
+              <i class="iconfont">&#xe631;</i>
+              <em>QQ</em>
+            </li> -->
+            <li>
+                <i class="iconfont"></i>
+                <em>微信</em>
+                <img src="/static/solution/wechat.jpg" alt="">
+            </li>
+            <li class="go-top">
+                <i class="iconfont"></i>
+                <em>返回顶部</em>
+            </li>
+        </ul>
     </div>
-</div>
-<!-- 飘窗 -->
-<div class="web-float-box">
-    <ul class="web-float-list">
-        <li class="float-kf">
-            <i class="iconfont"></i>
-            <em>联系客服</em>
-        </li>
-        <!--<li>
-          <i class="iconfont">&#xe631;</i>
-          <em>QQ</em>
-        </li> -->
-        <li>
-            <i class="iconfont"></i>
-            <em>微信</em>
-            <img src="/static/solution/wechat.jpg" alt="">
-        </li>
-        <li class="go-top">
-            <i class="iconfont"></i>
-            <em>返回顶部</em>
-        </li>
-    </ul>
-</div>
-<!-- 飘窗 -->
-<style type="text/css">
-    .li-3 {
-        float: left;
-        width: 200px !important;
-        padding: 0 !important;
-    }
+    <!-- 飘窗 -->
+    <style type="text/css">
+        .li-3 {
+            float: left;
+            width: 200px !important;
+            padding: 0 !important;
+        }
 
-    .li-2 {
-        float: right;
-    }
+        .li-2 {
+            float: right;
+        }
 
-    .li-2 > img {
-        margin: 0 !important;
-        height: 38px !important;
-    }
-</style>    <!-- 底部 -->
-<!-- 脚部 -->
+        .li-2 > img {
+            margin: 0 !important;
+            height: 38px !important;
+        }
+    </style>    <!-- 底部 -->
+    <!-- 脚部 -->
 
-<script type="text/javascript" src="/static/solution/jquery.2.0.0.js"></script>
-<script type="text/javascript" src="/static/solution/common.js"></script>
-<script type="text/javascript" src="/static/solution/alerttool.js"></script>
-<!-- 客服 -->
-<script type="text/javascript">
-    (function (m, ei, q, i, a, j, s) {
-        m[i] = m[i] || function () {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        j = ei.createElement(q),
-            s = ei.getElementsByTagName(q)[0];
-        j.async = true;
-        j.charset = 'UTF-8';
-        j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
-        s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '_MEIQIA');
-    _MEIQIA('entId', '18197');
-    _MEIQIA('withoutBtn');
-    _MEIQIA('init');
+    <script type="text/javascript" src="/static/solution/jquery.2.0.0.js"></script>
+    <script type="text/javascript" src="/static/solution/common.js"></script>
+    <script type="text/javascript" src="/static/solution/alerttool.js"></script>
+    <!-- 客服 -->
+    <script type="text/javascript">
+        (function (m, ei, q, i, a, j, s) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '_MEIQIA');
+        _MEIQIA('entId', '18197');
+        _MEIQIA('withoutBtn');
+        _MEIQIA('init');
 
-    $('.float-kf,.gdsh-top').on('click', function () {
-        _MEIQIA('showPanel');
-    });
-</script>
-<!-- 客服 -->
-<!-- 脚部 -->
+        $('.float-kf,.gdsh-top').on('click', function () {
+            _MEIQIA('showPanel');
+        });
+    </script>
+    <!-- 客服 -->
+    <!-- 脚部 -->
 
-<script type="text/javascript">
-    var index = 0;
-    $('.entrty-mean-body').eq(index).show();
-    $('.enter-mean-list>li').eq(index).addClass('enter-mean-on');
-    $('.enter-mean-list>li').hover(function () {
-        var index = $(this).index();
-        $('.entrty-mean-body').hide();
-        $('.enter-mean-list>li').removeClass('enter-mean-on');
+    <script type="text/javascript">
+        var index = 0;
         $('.entrty-mean-body').eq(index).show();
         $('.enter-mean-list>li').eq(index).addClass('enter-mean-on');
-    });
-    //免费咨询
-    $('.entity-ver-list li>a').on('click', function () {
-        _MEIQIA('showPanel');
-    });
-</script>
+        $('.enter-mean-list>li').hover(function () {
+            var index = $(this).index();
+            $('.entrty-mean-body').hide();
+            $('.enter-mean-list>li').removeClass('enter-mean-on');
+            $('.entrty-mean-body').eq(index).show();
+            $('.enter-mean-list>li').eq(index).addClass('enter-mean-on');
+        });
+        //免费咨询
+        $('.entity-ver-list li>a').on('click', function () {
+            _MEIQIA('showPanel');
+        });
+    </script>
+</section>
 
 <iframe name="meiqia" id="_meiqia_messager" width="0" height="0" src="/static/solution/sync-cookie.html"
         style="width: 0px !important; height: 0px !important; display: none !important; visibility: hidden !important;"></iframe>
