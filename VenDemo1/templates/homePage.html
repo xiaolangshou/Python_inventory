@@ -50,7 +50,7 @@
             var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
 
             if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-                window.location.href = 'http://m.eacase.com/';
+                window.location.href = 'http://wee-linktech.com';
             }
         }
 
@@ -65,9 +65,9 @@
     <img src="/static/images/wxopen.png" alt="">
 </div>
 <header class="index_header">
-    <a href="/" class="logo" id="logo1"><img src="/static/images/logo.png" class="logo1"/><img
+    <a href="/" class="logo" id="logo1"><img src="/static/images/logo_white.png" class="logo1"/><img
             src="/static/images/logo_white.png" class="logo2"/></a>
-    <a href="/" class="logo" id="logo2"><img src="/static/images/logo.png"/></a>
+    <a href="/" class="logo" id="logo2"><img src="/static/images/logo_white.png"/></a>
     <ul class="nav" id="nav">
         <li class="" style="position: relative;">
             <a>首页</a>
@@ -351,7 +351,7 @@
         <h1 class=" wow fadeInUp">
             创新型互联网软件开发服务商
         </h1>
-        <p class=" wow fadeInUp">一街秉承专业、创新、极致的服务理念，让您的项目更具竞争力和影响力</p>
+        <p class=" wow fadeInUp">蔚来秉承专业、创新、极致的服务理念，让您的项目更具竞争力和影响力</p>
         <a href="/service#service" class="btn-ljgd btn-ljgd2  wow fadeInUp" data-wow-delay="0.4s">了解更多<span></span></a>
     </div>
 </section>
@@ -442,7 +442,7 @@
 <section>
     <div class="index-bt" id="solution">
         <h1 class=" wow fadeInUp">互联网+解决方案</h1>
-        <p class=" wow fadeInUp">一街已为您定制多套行业解决方案，助你轻松跨入“互联网+”时代</p>
+        <p class=" wow fadeInUp">蔚来已为您定制多套行业解决方案，助你轻松跨入“互联网+”时代</p>
 	<div class="width-1220 index-cp">
 		<div id="index-cp"  class="wow fadeInUp">
 			<div class="swiper-wrapper">
@@ -723,7 +723,7 @@
             </div>
         </div>
         <div class="index-22">
-            <h1 class="wow fadeInUpa">他们选择了一街</h1>
+            <h1 class="wow fadeInUpa">他们选择了蔚来</h1>
             <p class="wow fadeInUpa" data-wow-delay="0.2s">11年行业经验，助力互联网+探索之路</p>
             <a href="/cooper" class="btn-ljgd btn-ljgd4 wow fadeInUpa" data-wow-delay="0.4s">了解更多<span></span></a>
         </div>
@@ -731,31 +731,7 @@
 </section>
 
 <!--footer-->
-<footer class="bg-252526">
-    <div class="width-1220 footer-1">
-        <p class="footer-3">商业合作：<span>400-600-4566</span>
-            <span class="pull-right">admin@eacase.com</span>
-        </p>
-        <div class="footer-4">
-            <div class="footer-logo"><img src="/static/images/logo.png"/></div>
-            <a class="footer-6" id="wxbox2">
-                <img src="/static/images/footer-wx.png"/>
-                <div class="wxbox" style="display:none;">
-                    <img src="/static/images/erwm.png" alt="">
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="width-1220 footer-ba">
-        <p>
-            <span><a href="http://www.beian.miit.gov.cn" target="-_blank">蒙ICP备10002867号-7</a></span>
-            <span class="hidden-xs">|</span>
-            <span class="footer-ba1"><a
-                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15019002150203" target="-_blank">蒙公网安备 15019002150203号 站长统计</a></span>
-            <span>©2008-2017 呼和浩特市一街科技有限公司 版权所有</span>
-        </p>
-    </div>
-</footer>
+{%  include "footer.html" %}
 
 <script type="text/javascript">
     //阻止事件冒泡
