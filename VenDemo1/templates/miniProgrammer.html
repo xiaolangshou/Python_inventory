@@ -68,40 +68,76 @@
     <img src="/static/images/wxopen.png" alt="">
 </div>
 <header class="index_header">
-    <a href="/" class="logo" id="logo1">
-        <img src="/static/images/logo.png" class="logo1"/>
-        <img src="/static/images/logo_white.png" class="logo2"/>
-    </a>
-    <a href="/" class="logo" id="logo2">
-        <img src="/static/images/logo.png"/>
-    </a>
+    <a href="/" class="logo" id="logo1"><img src="/static/images/logo.png" class="logo1"/><img
+            src="/static/images/logo_white.png" class="logo2"/></a>
+    <a href="/" class="logo" id="logo2"><img src="/static/images/logo.png"/></a>
     <ul class="nav" id="nav">
         <li class="" style="position: relative;">
             <a href="/home">首页</a>
         </li>
-        <li class="">
-            <a href="/service">服务</a>
-        </li>
-        <li class="">
-            <a>解决方案</a>
-            <div class="menu-box menu-box-1" style="transform:translateX(46%)">
-                <div class="menu-9">
-                    <div class="menu-10">
-                        <a href="/solution_ecommerce#solution_ecommerce">全网电商解决方案</a>
-                        <a href="/solution_government">政务门户解决方案</a>
-                        <a href="/solution_company">企业门户解决方案</a>
-                        <a href="/solution_agriculture">生态农业解决方案</a>
+        <li class="" style="position: relative">
+            <a onclick="toInternet()">服务&解决方案</a>
+            <div class="menu-box menu-anli" style="transform:translateX(-50%)">
+                <div class="scroll_main">
+                    <div class="scroll_wrap">
+                        <div class="scroll_cont">
+                            <div class="menu-15">
+                                <div class="menu-7" style="border: none; padding: 0;">
+                                    <a href="/service#service" class="menu-8">
+                                        <p>业务系统研发</p>
+                                    </a>
+                                    <a href="/service#service" class="menu-8">
+                                        <p>电商平台开发</p>
+                                    </a>
+                                    <a href="/service#service" class="menu-8">
+                                        <p>APP/微信/H5应用开发</p>
+                                    </a>
+                                    <a href="/service#service" class="menu-8">
+                                        <p>高端网站建设</p>
+                                    </a>
+                                    <a href="/solution_ecommerce#solution_ecommerce" class="menu-8">
+                                        <p>全网电商解决方案</p>
+                                    </a>
+                                    <a href="/solution_government#goverment" class="menu-8">
+                                        <p>政务门户解决方案</p>
+                                    </a>
+                                    <a href="/solution_company#company" class="menu-8">
+                                        <p>企业门户解决方案</p>
+                                    </a>
+                                    <a href="/solution_agriculture#agriculture" class="menu-8">
+                                        <p>生态农业解决方案</p>
+                                    </a>
+                                </div>
+                                <a href="/solution_ecommerce" class="menu-8">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scroll_bar">
+                        <div class="scroll_slider"></div>
                     </div>
                 </div>
             </div>
+            </div>
             <script>
+                function toInternet() {
+                    $("html,body").animate({ scrollTop: $("#business").offset().top }, 500);
+                }
+
+                function toSolution() {
+                    $("html,body").animate({ scrollTop: $("#solution").offset().top }, 500);
+                }
+
                 //案例下拉菜单滚动条
                 new CusScrollBar({
                     contentSelector: '.scroll_cont', //滚动内容区
                     barSelector: '.scroll_bar', //滚动条
                     sliderSelector: '.scroll_slider' //滚动滑块
                 });
+
                 /*案例下拉菜单*/
+
                 $('.menu-7 .menu-13').each(function (i) {
                     $(this).click(function () {
                         if ($(this).parent().next('.menu-14').is(":visible")) {
@@ -113,6 +149,7 @@
                             $(this).addClass('hover');
                             $(this).parent().next('.menu-14').slideDown(300);
                         }
+
                         setTimeout(function () {
                             if ($('.menu-15').outerHeight() - 10 <= $('.scroll_cont').outerHeight()) {
                                 $('.scroll_bar').css('opacity', 0)
@@ -125,12 +162,12 @@
                 })
             </script>
         </li>
-        <li class="">
+        <li class="" style="position: relative">
             <a href="#">客户案例</a>
-            <div class="menu-box menu-box-1" style="transform:translateX(117%)">
+            <div class="menu-box menu-box-1" style="transform:translateX(-50%)">
                 <div class="menu-9">
                     <div class="menu-10">
-                       <a href="/e_commerce#e_commerce">电商平台</a>
+                        <a href="/e_commerce#e_commerce">电商平台</a>
                         <a href="/website#website">网站建设</a>
                         <a href="/wchat#wchat">微信/H5</a>
                         <a href="/business#business">业务系统</a>
@@ -138,31 +175,10 @@
                 </div>
             </div>
         </li>
-        <li class="">
-            <a href="#">智库</a>
-            <div class="menu-box menu-box-1" style="transform:translateX(180%)">
-                <div class="menu-9">
-                    <div class="menu-10">
-                        <a href="/companyActive#company">公司动态</a>
-                        <a href="/tradesActive#trades">行业动态</a>
-                        <a href="/developmentActive#development">研发动态</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="" style="position: relative;">
-            <a href="#mini">小程序</a>
-        </li>
         <li class="" style="position: relative;">
             <a href="/about#aboutUS">关于我们</a>
         </li>
     </ul>
-    <button type="button" class="navbar-toggle" id="nav-btn">
-        <span class="sr-only">切换导航</span>
-        <span class="icon-bar bar-1"></span>
-        <span class="icon-bar bar-2"></span>
-        <span class="icon-bar bar-3"></span>
-    </button>
 </header>
 
 <div id="headerHeight"></div>

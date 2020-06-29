@@ -61,16 +61,19 @@
 
 </head>
 <body id="backView">
+<div id="loading" style="position: absolute; z-index: 99999; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background-color: #ECE8DE">
+    <img src="/static/images/loading.gif">
+</div>
 <div class="wxopen">
     <img src="/static/images/wxopen.png" alt="">
 </div>
 <header class="index_header">
-    <a href="/" class="logo" id="logo1"><img src="/static/images/logo_white.png" class="logo1"/><img
+    <a href="/" class="logo" id="logo1"><img src="/static/images/logo.png" class="logo1"/><img
             src="/static/images/logo_white.png" class="logo2"/></a>
-    <a href="/" class="logo" id="logo2"><img src="/static/images/logo_white.png"/></a>
+    <a href="/" class="logo" id="logo2"><img src="/static/images/logo.png"/></a>
     <ul class="nav" id="nav">
         <li class="" style="position: relative;">
-            <a>首页</a>
+            <a href="/home">首页</a>
         </li>
         <li class="" style="position: relative">
             <a onclick="toInternet()">服务&解决方案</a>
@@ -176,12 +179,6 @@
             <a href="/about#aboutUS">关于我们</a>
         </li>
     </ul>
-    <button type="button" class="navbar-toggle" id="nav-btn">
-        <span class="sr-only">切换导航</span>
-        <span class="icon-bar bar-1"></span>
-        <span class="icon-bar bar-2"></span>
-        <span class="icon-bar bar-3"></span>
-    </button>
 </header>
 
 <div id="headerHeight"></div>
@@ -716,76 +713,10 @@
 
 <!--footer-->
 {%  include "footer.html" %}
-
-<script type="text/javascript">
-    //阻止事件冒泡
-    $('.modal-content').click(function (e) {
-        e.stopPropagation()
-    })
-
-    $(document).ready(function () {
-        $("#wxbox").hover(function () {
-            $(this).addClass("footer-6_hover");
-            $(this).children(".wxbox").show();
-        }, function () {
-            $(this).removeClass("footer-6_hover");
-            $(this).children(".wxbox").hide();
-        });
-        $("#wxbox2").hover(function () {
-            $(this).addClass("footer-6_hover");
-            $(this).children(".wxbox").show();
-        }, function () {
-            $(this).removeClass("footer-6_hover");
-            $(this).children(".wxbox").hide();
-        });
+<script type="application/javascript">
+    $(document ).ready(function() {
+        $("#loading").remove();
     });
-
-
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?95e1c7f2af12086fc92e0742665b8268";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-
-
-    //2019-6-11增加百度代码
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?8ebb5ff06a2c44c46939dec8d61388ed";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-<script type='text/javascript'>
-    !function (e, t, n, g, i) {
-        e[i] = e[i] || function () {
-            (e[i].q = e[i].q || []).push(arguments)
-        }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
-    }(window, document, "script", "assets.giocdn.com/2.1/gio.js", "gio");
-    gio('init', '8539273bfa333d53', {});
-    gio('send');
-</script>
-
-<!-- End GrowingIO Analytics code version: 2.1 -->
-<!--返回顶部按钮-->
-<div class="to-top" id="to-top">
-    <div class="m-center"><img src="/static/images/jt-5.png"/></div>
-</div>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143749905-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'UA-143749905-1');
 </script>
 </body>
 </html>

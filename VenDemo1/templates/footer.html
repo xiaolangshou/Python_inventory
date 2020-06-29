@@ -22,27 +22,88 @@
                     <img src="/static/images/erwm.png" alt="">
                 </div>
             </a>
-            <a class="footer-6 " id="wxbox"><img src="/static/images/footer-weibo.png">
-                <div class="wxbox" style="display:none;">
-                    <img src="/static/images/erwm1.png" alt="">
-                </div>
-            </a>
-
-            <a href="https://www.linkedin.com/company/sensetime-group-limited/" class="footer-5" target="_blank"
-               style="margin-right: 0;">
-                <img src="/static/images/footer-linkedin.png">
-            </a>
         </div>
     </div>
     <div class="width-1220 footer-ba">
         <p>
             <span><a href="http://www.beian.miit.gov.cn/" target="-_blank">粤ICP备20051028号</a></span>
             <span class="hidden-xs">|</span>
-{#            <span class="footer-ba1"><a#}
-{#                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802026791" target="-_blank">蒙公网安备 15019002150203号</a></span>#}
+            {#            <span class="footer-ba1"><a#}
+            {#                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802026791" target="-_blank">蒙公网安备 15019002150203号</a></span>#}
             <span>Copyright©2020 蔚来物联科技(深圳)有限公司</span>
         </p>
     </div>
+
+    <script type="text/javascript">
+        //阻止事件冒泡
+        $('.modal-content').click(function (e) {
+            e.stopPropagation()
+        })
+
+        $(document).ready(function () {
+            $("#wxbox").hover(function () {
+                $(this).addClass("footer-6_hover");
+                $(this).children(".wxbox").show();
+            }, function () {
+                $(this).removeClass("footer-6_hover");
+                $(this).children(".wxbox").hide();
+            });
+            $("#wxbox2").hover(function () {
+                $(this).addClass("footer-6_hover");
+                $(this).children(".wxbox").show();
+            }, function () {
+                $(this).removeClass("footer-6_hover");
+                $(this).children(".wxbox").hide();
+            });
+        });
+
+
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?95e1c7f2af12086fc92e0742665b8268";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+
+        //2019-6-11增加百度代码
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8ebb5ff06a2c44c46939dec8d61388ed";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script type='text/javascript'>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.giocdn.com/2.1/gio.js", "gio");
+        gio('init', '8539273bfa333d53', {});
+        gio('send');
+    </script>
+
+    <!-- End GrowingIO Analytics code version: 2.1 -->
+    <!--返回顶部按钮-->
+    <div class="to-top" id="to-top">
+        <div class="m-center"><img src="/static/images/jt-5.png"/></div>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143749905-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'UA-143749905-1');
+    </script>
 </footer>
 </body>
 </html>
