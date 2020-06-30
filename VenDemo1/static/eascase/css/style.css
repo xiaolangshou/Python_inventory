@@ -2638,8 +2638,9 @@ position: fixed;
   position: relative;
   float: left;
   width: 362px;
-  margin: 44px 0 0 0;
+  margin: 0 0 19px 0;
   padding: 29px 19px 0 19px;
+  height: 200px;
 }
 .argic-mean-list li:hover .argic-mean-alert {
   display: block;
